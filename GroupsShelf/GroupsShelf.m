@@ -8,12 +8,15 @@
 
 #import "GroupsShelf.h"
 
-@implementation GroupsShelf
+@implementation GroupsShelf {
+    BOOL _hasRegisteredObservers;
+}
 
 - (instancetype) init {
     self = [super initWithWindowNibName:[self windowNibName]];
     if (self) {
         [self window];
+        _hasRegisteredObservers = NO;
     }
     return self;
 }
@@ -52,6 +55,39 @@
 -(void) showPluginWindow:(id)sender{
     NSLog(@"showPluginWindow");
     [self showWindow:nil];
+    [self setupObservers];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context {
+    if (context == @"Document") {
+        NSLog(@"observed change of keypath %@", keyPath);
+    }
+}
+
+
+-(void) removeObservers{
+    NSLog(@"removeObservers");
+    if (_hasRegisteredObservers){
+        [NSApp removeObserver:self forKeyPath:@"mainWindow.windowController.document"];
+    }
+}
+
+-(void) setupObservers{
+    if (!_hasRegisteredObservers){
+        [NSApp addObserver:self forKeyPath:@"mainWindow.windowController.document" options:1 context:@"Document"];
+        _hasRegisteredObservers = YES;
+    }
+  
+}
+
+- (BOOL)windowShouldClose:(id)window {
+    if (self.window == window) {
+        [self removeObservers];
+    }
+    return YES;
 }
 
 @end
