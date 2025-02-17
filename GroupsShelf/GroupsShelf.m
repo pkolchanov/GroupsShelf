@@ -11,16 +11,20 @@
 @implementation GroupsShelf
 
 - (instancetype) init {
-	self = [super init];
-	if (self) {
-		// do stuff
-	}
-	return self;
+    self = [super initWithWindowNibName:[self windowNibName]];
+    if (self) {
+        [self window];
+    }
+    return self;
 }
 
 - (NSUInteger)interfaceVersion {
 	// Distinguishes the API verison the plugin was built for. Return 1.
 	return 1;
+}
+
+- (NSNibName)windowNibName{
+    return @"GroupsShelfWindow";
 }
 
 - (NSString *)title {
@@ -31,6 +35,12 @@
     return @"";
 }
 
+- (void)awakeFromNib {
+    [[self window] setLevel:NSFloatingWindowLevel];
+    [[self window] setTitle:[self title]];
+}
+
+
 - (void)loadPlugin {
     NSMenu *mainMenu = [[NSApplication sharedApplication] mainMenu];
     NSMenuItem *newMenuItem = [[NSMenuItem alloc] initWithTitle:[self title] action:@selector(showPluginWindow:) keyEquivalent:[self keyEquivalent]];
@@ -40,7 +50,8 @@
 }
 
 -(void) showPluginWindow:(id)sender{
-    NSLog(@"ShowMeee");
+    NSLog(@"showPluginWindow");
+    [self showWindow:nil];
 }
 
 @end
