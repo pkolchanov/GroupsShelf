@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="GroupsShelf">
             <connections>
+                <outlet property="masterHameLabel" destination="7kY-Al-vZZ" id="XjA-Lw-5aB"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="mvx-Mk-DfL"/>
             </connections>
         </customObject>
@@ -22,9 +23,9 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7kY-Al-vZZ">
-                        <rect key="frame" x="222" y="127" width="37" height="16"/>
+                        <rect key="frame" x="159" y="127" width="163" height="16"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="aae-4S-EQF">
+                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Label" id="aae-4S-EQF">
                             <font key="font" usesAppearanceFont="YES"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

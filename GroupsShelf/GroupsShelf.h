@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 #import <GlyphsCore/GlyphsPluginProtocol.h>
+#import <GlyphsCore/GSFont.h>
 #import <GlyphsCore/GSFontMaster.h>
 #import <GlyphsCore/GSGlyph.h>
 #import <GlyphsCore/GSLayer.h>
@@ -17,6 +18,8 @@
 #import <GlyphsCore/GSGlyphViewControllerProtocol.h>
 
 @interface GroupsShelf : NSWindowController <GlyphsPlugin>
+@property (weak) IBOutlet NSTextField *masterHameLabel;
+
 @end
 
 @interface GSApplication : NSApplication
@@ -26,4 +29,5 @@
 @interface GSDocument : NSDocument
 @property (nonatomic, retain) GSFont *font;
 @property (weak, nonatomic, nullable) NSWindowController<GSWindowControllerProtocol> *windowController;
+@property (nonatomic, nullable) GSFontMaster *selectedFontMaster;
 @end

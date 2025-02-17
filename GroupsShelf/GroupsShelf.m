@@ -52,10 +52,31 @@
     [submenu addItem:newMenuItem];
 }
 
--(void) showPluginWindow:(id)sender{
+-(void)showPluginWindow:(id)sender{
     NSLog(@"showPluginWindow");
     [self showWindow:nil];
     [self setupObservers];
+}
+
+-(void)update{
+    [[self masterHameLabel] setStringValue:[[self currentFontMaster] name]];
+    [[self window] setViewsNeedDisplay:YES];
+}
+
+-(GSFont *)currentFont{
+    GSApplication *app = NSApp;
+    GSDocument *document = [app currentFontDocument];
+    NSWindowController<GSWindowControllerProtocol> *windowController = [document windowController];
+
+    GSFont *font = [document font];
+    return font;
+}
+
+-(GSFontMaster *)currentFontMaster{
+    GSApplication *app = NSApp;
+    GSDocument *document = [app currentFontDocument];
+
+    return [document selectedFontMaster];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
