@@ -23,8 +23,24 @@
 	return 1;
 }
 
+- (NSString *)title {
+    return @"Groups Shelf";
+}
+
+- (NSString *)keyEquivalent {
+    return @"";
+}
+
 - (void)loadPlugin {
-	// Set up stuff
+    NSMenu *mainMenu = [[NSApplication sharedApplication] mainMenu];
+    NSMenuItem *newMenuItem = [[NSMenuItem alloc] initWithTitle:[self title] action:@selector(showPluginWindow:) keyEquivalent:[self keyEquivalent]];
+    newMenuItem.target = self;
+    NSMenu *submenu = [[mainMenu itemWithTag:17] submenu];
+    [submenu addItem:newMenuItem];
+}
+
+-(void) showPluginWindow:(id)sender{
+    NSLog(@"ShowMeee");
 }
 
 @end
