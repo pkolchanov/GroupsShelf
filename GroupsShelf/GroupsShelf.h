@@ -18,7 +18,7 @@
 #import <GlyphsCore/GSGlyphViewControllerProtocol.h>
 
 @interface GroupsShelf : NSWindowController <GlyphsPlugin>
-@property (weak) IBOutlet NSTextField *masterHameLabel;
+@property (strong) IBOutlet NSArrayController *groupsArrayController;
 
 @end
 

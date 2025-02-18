@@ -59,8 +59,8 @@
 }
 
 -(void)update{
-    [[self masterHameLabel] setStringValue:[[self currentFontMaster] name]];
-    [[self window] setViewsNeedDisplay:YES];
+    MGOrderedDictionary *a =[[[self currentFont] kerningLTR] objectForKey:[[self currentFontMaster] id]];
+    [[self groupsArrayController] setContent:[a allKeys]];
 }
 
 -(GSFont *)currentFont{
@@ -85,6 +85,7 @@
                        context:(void *)context {
     if (context == @"Document") {
         NSLog(@"observed change of keypath %@", keyPath);
+        [self update];
     }
 }
 
@@ -93,6 +94,7 @@
     NSLog(@"removeObservers");
     if (_hasRegisteredObservers){
         [NSApp removeObserver:self forKeyPath:@"mainWindow.windowController.document"];
+        _hasRegisteredObservers = NO;
     }
 }
 
