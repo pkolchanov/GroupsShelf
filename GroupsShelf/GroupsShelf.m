@@ -56,11 +56,17 @@
     NSLog(@"showPluginWindow");
     [self showWindow:nil];
     [self setupObservers];
+    [self updateKerningData];
 }
 
--(void)update{
-    MGOrderedDictionary *a =[[[self currentFont] kerningLTR] objectForKey:[[self currentFontMaster] id]];
-    [[self groupsArrayController] setContent:[a allKeys]];
+-(void)updateKerningData{
+    NSLog(@"Update");
+    if ([self currentFont] == nil){
+        return;
+    }
+    MGOrderedDictionary *ltrGroups = [[[self currentFont] kerningLTR] objectForKey:[[self currentFontMaster] id]];
+    
+    [[self groupsArrayController] setContent:[ltrGroups allKeys]];
 }
 
 -(GSFont *)currentFont{
@@ -85,7 +91,7 @@
                        context:(void *)context {
     if (context == @"Document") {
         NSLog(@"observed change of keypath %@", keyPath);
-        [self update];
+        [self updateKerningData];
     }
 }
 
@@ -94,13 +100,19 @@
     NSLog(@"removeObservers");
     if (_hasRegisteredObservers){
         [NSApp removeObserver:self forKeyPath:@"mainWindow.windowController.document"];
+        [NSNotificationCenter.defaultCenter removeObserver:self];
         _hasRegisteredObservers = NO;
     }
 }
 
 -(void) setupObservers{
     if (!_hasRegisteredObservers){
+        // todo too many updates
         [NSApp addObserver:self forKeyPath:@"mainWindow.windowController.document" options:1 context:@"Document"];
+        [NSNotificationCenter.defaultCenter addObserver:self
+                                               selector:@selector(updateKerningData)
+                                                   name:@"GSUpdateInterface"
+                                                 object:nil];
         _hasRegisteredObservers = YES;
     }
   
