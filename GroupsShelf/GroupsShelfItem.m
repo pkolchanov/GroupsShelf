@@ -10,23 +10,23 @@
 @implementation GroupsShelfItem
 - (void)loadView {
     NSView *view = [[NSView alloc] initWithFrame:NSMakeRect(0, 0, 100, 100)];
-    
+    view.autoresizesSubviews = YES;
     view.wantsLayer = YES;
     view.layer.backgroundColor = [[NSColor lightGrayColor] CGColor];
 
-    [self setLabel:[[NSTextField alloc] initWithFrame:NSMakeRect(10, 10, 80, 30)]];
+    [self setLabel:[[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 100, 20)]];
     [[self label] setAlignment:NSTextAlignmentCenter];
     [[self label] setBezeled:NO];
     [[self label] setEditable:NO];
     [[self label] setDrawsBackground:NO];
+    [[self label] setAutoresizingMask:NSViewWidthSizable];
     [view addSubview:[self label]];
     
     view.layer.cornerRadius = 5;
     view.layer.borderWidth = 1;
-    view.layer.borderColor = [[NSColor windowBackgroundColor] CGColor];
-   
+    view.layer.borderColor = [[NSColor whiteColor] CGColor];
     
-    [self setImg:[[NSImageView alloc] initWithFrame:NSMakeRect(0, 0, 100, 100)]];
+    [self setImg:[[NSImageView alloc] initWithFrame:NSMakeRect(10, 20, 80, 80)]];
     [view addSubview:[self img]];
     
     self.view = view;
@@ -40,26 +40,31 @@
         [[self label] setStringValue:[glyph name]];
     }
     
+    // Florian Pircher's Guten Tag method
+    // https://github.com/florianpircher/GutenTag
+    
     GSApplication *app = NSApp;
     GSDocument *document = [app currentFontDocument];
     GSFont *font = [document font];
     CGFloat upm = (CGFloat)font.unitsPerEm;
     
-    GSLayer *layer = [glyph layerForId:[[document selectedFontMaster] id]];
+    GSFontMaster * _Nullable master = [document selectedFontMaster];
+    GSLayer *layer = [glyph layerForId:[master id]];
     NSBezierPath *path = [layer drawBezierPath];
-  
     
-    NSSize size = [[self view] frame].size;
+    NSSize size = [[self img] frame].size;
+    CGFloat viewSize = [[self img] frame].size.width;
+    CGFloat inset = 5;
+    CGFloat fontSize = viewSize - 2.0 * inset;
+    CGFloat offset = upm / (fontSize / inset);
  
     NSImage *image = [NSImage imageWithSize:size flipped:NO drawingHandler:^BOOL(NSRect drawRect) {
-        // draw glyph
         NSAffineTransform *transform = [NSAffineTransform transform];
-        [transform scaleBy:size.height / upm];
-//        CGFloat dx = (upm - layer.width) / 2.0 + offset;
-//        CGFloat dy = -[master descenderForLayer:layer] + offset;
-//        [transform translateXBy:dx yBy:dy];
+        [transform scaleBy:fontSize / upm];
+        CGFloat dx = (upm - layer.width) / 2.0 + offset;
+        CGFloat dy = -[master descenderForLayer:layer] + offset;
+        [transform translateXBy:dx yBy:dy];
         [path transformUsingAffineTransform:transform];
-//        [roundedRectPath setClip];
         [NSColor.textColor set];
         [path fill];
         
