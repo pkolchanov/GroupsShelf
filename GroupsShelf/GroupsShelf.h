@@ -16,7 +16,7 @@
 #import <GlyphsCore/GSWindowControllerProtocol.h>
 #import <GlyphsCore/GSGlyphEditViewProtocol.h>
 #import <GlyphsCore/GSGlyphViewControllerProtocol.h>
-
+#import "MockHeaders.h"
 #import "GroupsShelfItem.h"
 
 @interface GroupsShelf : NSWindowController <GlyphsPlugin>
@@ -25,14 +25,4 @@
 @property (weak) IBOutlet NSCollectionView *glyphCollectionView;
 
 
-@end
-
-@interface GSApplication : NSApplication
-@property (weak, nonatomic, nullable) GSDocument *currentFontDocument;
-@end
-
-@interface GSDocument : NSDocument
-@property (nonatomic, retain) GSFont *font;
-@property (weak, nonatomic, nullable) NSWindowController<GSWindowControllerProtocol> *windowController;
-@property (nonatomic, nullable) GSFontMaster *selectedFontMaster;
 @end
