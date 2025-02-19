@@ -10,6 +10,7 @@
 @implementation GroupsShelfItem
 - (void)loadView {
     NSView *view = [[NSView alloc] initWithFrame:NSMakeRect(0, 0, 100, 100)];
+    
     view.wantsLayer = YES;
     view.layer.backgroundColor = [[NSColor lightGrayColor] CGColor];
 
@@ -34,7 +35,7 @@
 - (void)setRepresentedObject:(id)representedObject {
     [super setRepresentedObject:representedObject];
     GSGlyph * glyph = representedObject;
-    [[[self view] layer] setBackgroundColor: [[(GSGlyph *)representedObject color] CGColor]];
+    [[[self view] layer] setBackgroundColor: [[[glyph color] colorWithAlphaComponent:0.5] CGColor]];
     if ( [glyph name] != nil){
         [[self label] setStringValue:[glyph name]];
     }
@@ -51,8 +52,6 @@
     NSSize size = [[self view] frame].size;
  
     NSImage *image = [NSImage imageWithSize:size flipped:NO drawingHandler:^BOOL(NSRect drawRect) {
-       
-      
         // draw glyph
         NSAffineTransform *transform = [NSAffineTransform transform];
         [transform scaleBy:size.height / upm];
