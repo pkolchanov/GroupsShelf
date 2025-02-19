@@ -109,12 +109,12 @@
                             <rect key="frame" x="0.0" y="0.0" width="453" height="350"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <collectionView selectable="YES" allowsMultipleSelection="YES" id="Ziz-Gy-C3Q">
+                                <collectionView clipsToBounds="NO" selectable="YES" allowsMultipleSelection="YES" id="Ziz-Gy-C3Q">
                                     <rect key="frame" x="0.0" y="0.0" width="453" height="158"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                     <collectionViewGridLayout key="collectionViewLayout" id="59j-JD-m3a">
-                                        <size key="minimumItemSize" width="50" height="50"/>
-                                        <size key="maximumItemSize" width="100" height="100"/>
+                                        <size key="minimumItemSize" width="70" height="70"/>
+                                        <size key="maximumItemSize" width="75" height="75"/>
                                     </collectionViewGridLayout>
                                     <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <connections>

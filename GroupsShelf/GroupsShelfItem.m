@@ -13,26 +13,27 @@
     view.wantsLayer = YES;
     view.layer.backgroundColor = [[NSColor lightGrayColor] CGColor];
 
-    NSTextField *label = [[NSTextField alloc] initWithFrame:NSMakeRect(10, 10, 80, 30)];
-    label.bezeled = NO;
-    label.drawsBackground = NO;
-    label.editable = NO;
-    label.stringValue = @"Item";
-    label.alignment = NSTextAlignmentCenter;
+    [self setLabel:[[NSTextField alloc] initWithFrame:NSMakeRect(10, 10, 80, 30)]];
+    [[self label] setAlignment:NSTextAlignmentCenter];
+    [[self label] setBezeled:NO];
+    [[self label] setEditable:NO];
+    [[self label] setDrawsBackground:NO];
+
+    
     view.layer.cornerRadius = 5;
     view.layer.borderWidth = 1;
     view.layer.borderColor = [[NSColor windowBackgroundColor] CGColor];
-    [view addSubview:label];
+    [view addSubview:[self label]];
     self.view = view;
 }
 
 - (void)setRepresentedObject:(id)representedObject {
     [super setRepresentedObject:representedObject];
-
-    if ([representedObject isKindOfClass:[NSColor class]]) {
-//        NSColor *color = representedObject[@"color"];
-        self.view.layer.backgroundColor = [representedObject CGColor];
+    [[[self view] layer] setBackgroundColor: [[(GSGlyph *)representedObject color] CGColor]];
+    if ( [(GSGlyph *)representedObject name] != nil){
+        [[self label] setStringValue:[(GSGlyph *)representedObject name]];
     }
+
 }
 
 

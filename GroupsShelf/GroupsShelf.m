@@ -43,6 +43,7 @@
     [[self window] setTitle:[self title]];
     [[self glyphCollectionView] registerClass:[GroupsShelfItem class]
                  forItemWithIdentifier:@"GroupsShelfItem"];
+    [[self groupsArrayController] addObserver:self forKeyPath:@"selectedObjects" options:1 context:nil];
 }
 
 
@@ -63,13 +64,31 @@
 
 -(void)updateKerningData{
     NSLog(@"Update");
-    if ([self currentFont] == nil){
+    GSFont *currentFont = [self currentFont];
+    if (currentFont == nil){
         return;
     }
-    MGOrderedDictionary *ltrGroups = [[[self currentFont] kerningLTR] objectForKey:[[self currentFontMaster] id]];
+    MGOrderedDictionary *ltrGroups = [[currentFont kerningLTR] objectForKey:[[self currentFontMaster] id]];
     
     [[self groupsArrayController] setContent:[ltrGroups allKeys]];
-    [[self glyphsArrayController] setContent:@[ [NSColor redColor], [NSColor blueColor], [NSColor greenColor]]];
+    [self updateGlyphData];
+}
+
+-(void)updateGlyphData{
+    NSLog(@"updateGlyphData!");
+    GSFont *currentFont = [self currentFont];
+    NSString *currentGroup = [[[self groupsArrayController] selectedObjects] firstObject];
+    NSLog(@"Current group %@", currentGroup);
+    
+    NSMutableArray<GSGlyph*> *glyphsOfCurrentGroup = [[NSMutableArray alloc] init];
+  
+    for (GSGlyph *g in [currentFont glyphs]){
+        if ([[g rightKerningGroupId] isEqualToString:currentGroup]){
+            [glyphsOfCurrentGroup addObject:g];
+        }
+    }
+    
+    [[self glyphsArrayController] setContent:glyphsOfCurrentGroup];
 }
 
 -(GSFont *)currentFont{
@@ -92,10 +111,16 @@
                       ofObject:(id)object
                         change:(NSDictionary *)change
                        context:(void *)context {
-    if (context == @"Document") {
+    if ([keyPath  isEqual: @"selectedObjects"]){
+        NSLog(@"observed change of selection");
+        [self updateGlyphData];
+        return;
+    }
+    else if (context == @"Document") {
         NSLog(@"observed change of keypath %@", keyPath);
         [self updateKerningData];
     }
+    
 }
 
 
@@ -127,5 +152,8 @@
     }
     return YES;
 }
-
+- (void)dealloc
+{
+    [[self groupsArrayController] removeObserver:self forKeyPath:@"selectedObjects"];
+}
 @end
