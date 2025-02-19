@@ -17,8 +17,13 @@
 #import <GlyphsCore/GSGlyphEditViewProtocol.h>
 #import <GlyphsCore/GSGlyphViewControllerProtocol.h>
 
+#import "GroupsShelfItem.h"
+
 @interface GroupsShelf : NSWindowController <GlyphsPlugin>
 @property (strong) IBOutlet NSArrayController *groupsArrayController;
+@property (strong) IBOutlet NSArrayController *glyphsArrayController;
+@property (weak) IBOutlet NSCollectionView *glyphCollectionView;
+
 
 @end
 

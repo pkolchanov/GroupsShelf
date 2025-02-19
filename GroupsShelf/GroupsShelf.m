@@ -41,6 +41,8 @@
 - (void)awakeFromNib {
     [[self window] setLevel:NSFloatingWindowLevel];
     [[self window] setTitle:[self title]];
+    [[self glyphCollectionView] registerClass:[GroupsShelfItem class]
+                 forItemWithIdentifier:@"GroupsShelfItem"];
 }
 
 
@@ -67,6 +69,7 @@
     MGOrderedDictionary *ltrGroups = [[[self currentFont] kerningLTR] objectForKey:[[self currentFontMaster] id]];
     
     [[self groupsArrayController] setContent:[ltrGroups allKeys]];
+    [[self glyphsArrayController] setContent:@[ [NSColor redColor], [NSColor blueColor], [NSColor greenColor]]];
 }
 
 -(GSFont *)currentFont{

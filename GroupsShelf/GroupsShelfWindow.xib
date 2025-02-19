@@ -7,6 +7,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="GroupsShelf">
             <connections>
+                <outlet property="glyphCollectionView" destination="Ziz-Gy-C3Q" id="yUo-Cc-0zn"/>
+                <outlet property="glyphsArrayController" destination="z6o-Dc-Sol" id="xR2-H2-eq4"/>
                 <outlet property="groupsArrayController" destination="bXK-lJ-UKM" id="wsp-JK-Xs5"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="mvx-Mk-DfL"/>
             </connections>
@@ -107,13 +109,18 @@
                             <rect key="frame" x="0.0" y="0.0" width="453" height="350"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <collectionView selectable="YES" id="Ziz-Gy-C3Q">
+                                <collectionView selectable="YES" allowsMultipleSelection="YES" id="Ziz-Gy-C3Q">
                                     <rect key="frame" x="0.0" y="0.0" width="453" height="158"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                    <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="AlX-mE-waF">
-                                        <size key="itemSize" width="50" height="50"/>
-                                    </collectionViewFlowLayout>
+                                    <collectionViewGridLayout key="collectionViewLayout" id="59j-JD-m3a">
+                                        <size key="minimumItemSize" width="50" height="50"/>
+                                        <size key="maximumItemSize" width="100" height="100"/>
+                                    </collectionViewGridLayout>
                                     <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <connections>
+                                        <binding destination="z6o-Dc-Sol" name="content" keyPath="arrangedObjects" id="5bJ-RI-RUQ"/>
+                                        <binding destination="z6o-Dc-Sol" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="5bJ-RI-RUQ" id="B7w-pz-Ihc"/>
+                                    </connections>
                                 </collectionView>
                             </subviews>
                         </clipView>
@@ -142,6 +149,7 @@
             </connections>
             <point key="canvasLocation" x="72" y="212.5"/>
         </window>
-        <arrayController id="bXK-lJ-UKM"/>
+        <arrayController id="bXK-lJ-UKM" userLabel="Groups Array Controller"/>
+        <arrayController id="z6o-Dc-Sol" userLabel="Glyphs Array Cotnroller"/>
     </objects>
 </document>
