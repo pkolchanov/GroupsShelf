@@ -106,6 +106,7 @@
         }
     }
     
+//    [self glyphsArrayController] selection
     [[self glyphsArrayController] setContent:glyphsOfCurrentGroup];
 }
 
@@ -129,6 +130,7 @@
                       ofObject:(id)object
                         change:(NSDictionary *)change
                        context:(void *)context {
+    NSLog(@"%@", [[self glyphsArrayController] selectionIndexes]);
     if ([keyPath  isEqual: @"selectedObjects"]){
         NSLog(@"observed change of selection");
         [self updateGlyphData];

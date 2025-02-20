@@ -122,7 +122,7 @@
                                     <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <connections>
                                         <binding destination="z6o-Dc-Sol" name="content" keyPath="arrangedObjects" id="5bJ-RI-RUQ"/>
-                                        <binding destination="z6o-Dc-Sol" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="5bJ-RI-RUQ" id="B7w-pz-Ihc"/>
+                                        <binding destination="z6o-Dc-Sol" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="5bJ-RI-RUQ" id="nmL-Ta-QCp"/>
                                     </connections>
                                 </collectionView>
                             </subviews>
@@ -175,16 +175,6 @@
             <point key="canvasLocation" x="72" y="212.5"/>
         </window>
         <arrayController id="bXK-lJ-UKM" userLabel="Groups Array Controller"/>
-        <arrayController id="z6o-Dc-Sol" userLabel="Glyphs Array Cotnroller"/>
-        <segmentedCell borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="4fa-n8-KUH">
-            <font key="font" metaFont="system"/>
-            <segments>
-                <segment width="32"/>
-                <segment width="32" selected="YES" tag="1"/>
-                <segment width="32">
-                    <nil key="label"/>
-                </segment>
-            </segments>
-        </segmentedCell>
+        <arrayController avoidsEmptySelection="NO" id="z6o-Dc-Sol" userLabel="Glyphs Array Cotnroller"/>
     </objects>
 </document>

@@ -33,9 +33,10 @@
 }
 
 - (void)setRepresentedObject:(id)representedObject {
+ 
     [super setRepresentedObject:representedObject];
+    [self updateSelectionColor];
     GSGlyph * glyph = representedObject;
-    [[[self view] layer] setBackgroundColor: [[[glyph color] colorWithAlphaComponent:0.5] CGColor]];
     if ( [glyph name] != nil){
         [[self label] setStringValue:[glyph name]];
     }
@@ -74,5 +75,16 @@
     [[self img] setImage:image];
 }
 
+- (void)setSelected:(BOOL)selected
+{
+    [super setSelected:selected];
+    [self updateSelectionColor];
+}
+
+-(void)updateSelectionColor{
+    GSGlyph * glyph = [self representedObject];
+    NSColor *color = [self isSelected] ? [NSColor selectedTextBackgroundColor] : [[glyph color] colorWithAlphaComponent:0.5] ;
+    [[[self view] layer] setBackgroundColor: [color CGColor]];
+}
 
 @end
