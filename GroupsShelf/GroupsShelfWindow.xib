@@ -59,7 +59,6 @@
                                                             <rect key="frame" x="0.0" y="4" width="150" height="16"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" id="lfL-dW-Zwq">
-                                                                <customFormatter key="formatter" id="xtN-C8-PXQ" customClass="GroupIdFormatter"/>
                                                                 <font key="font" usesAppearanceFont="YES"/>
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -96,7 +95,6 @@
                         <rect key="frame" x="189" y="351" width="453" height="24"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" drawsBackground="YES" id="xty-jz-EiL">
-                            <customFormatter key="formatter" id="dy7-qa-SR9" customClass="GroupIdFormatter"/>
                             <font key="font" metaFont="system" size="20"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -145,7 +143,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </searchFieldCell>
                         <connections>
-                            <binding destination="bXK-lJ-UKM" name="predicate" keyPath="filterPredicate" id="o0N-US-hBb">
+                            <binding destination="bXK-lJ-UKM" name="predicate" keyPath="filterPredicate" id="Rc2-oa-HMB">
                                 <dictionary key="options">
                                     <string key="NSDisplayName">predicate</string>
                                     <string key="NSPredicateFormat">self contains[cd] $value</string>

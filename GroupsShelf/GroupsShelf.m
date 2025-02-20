@@ -8,6 +8,11 @@
 
 #import "GroupsShelf.h"
 
+typedef enum {
+    tabLeft,
+    tabRight,
+} ActiveLRTab;
+
 @implementation GroupsShelf {
     BOOL _hasRegisteredObservers;
 }
@@ -66,8 +71,15 @@
     [self updateKerningData];
 }
 
+-(ActiveLRTab)selectedGroupTab{
+    return  [[self groupPositoinSegmented] selectedTag] == 0 ? tabLeft : tabRight;
+}
+
 -(NSString*)kerngingGroupForGlyph:(GSGlyph*)g{
-    return [[self groupPositoinSegmented] selectedTag] == 0 ? [g leftKerningGroupId] : [g rightKerningGroupId];
+    ActiveLRTab activeTab = [self selectedGroupTab];
+    NSString *glyphId = activeTab == tabLeft ? [g leftKerningGroupId] : [g rightKerningGroupId];
+    NSString *prefix = activeTab == tabLeft ? @"MMK_R_" : @"MMK_L_";
+    return [glyphId stringByReplacingOccurrencesOfString:prefix withString:@""];;
 }
 
 -(void)updateKerningData{
@@ -106,7 +118,6 @@
         }
     }
     
-//    [self glyphsArrayController] selection
     [[self glyphsArrayController] setContent:glyphsOfCurrentGroup];
 }
 
@@ -130,7 +141,6 @@
                       ofObject:(id)object
                         change:(NSDictionary *)change
                        context:(void *)context {
-    NSLog(@"%@", [[self glyphsArrayController] selectionIndexes]);
     if ([keyPath  isEqual: @"selectedObjects"]){
         NSLog(@"observed change of selection");
         [self updateGlyphData];
