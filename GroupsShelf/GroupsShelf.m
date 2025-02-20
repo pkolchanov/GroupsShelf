@@ -62,22 +62,34 @@
     [self updateKerningData];
 }
 
+- (IBAction)selectGroupPositoin:(id)sender {
+    [self updateKerningData];
+}
+
+-(NSString*)kerngingGroupForGlyph:(GSGlyph*)g{
+    return [[self groupPositoinSegmented] selectedTag] == 0 ? [g leftKerningGroupId] : [g rightKerningGroupId];
+}
+
 -(void)updateKerningData{
     NSLog(@"Update");
     GSFont *currentFont = [self currentFont];
     if (currentFont == nil){
         return;
     }
-    NSMutableSet<NSString*> *allKeys = [[NSMutableSet alloc] init];
+    NSMutableOrderedSet<NSString*> *allKeys = [[NSMutableOrderedSet alloc] init];
     for (GSGlyph *g in [currentFont glyphs]){
-        if ([g rightKerningGroupId] != nil){
-            [allKeys addObject:[g rightKerningGroupId]];
+        NSString * group =  [self kerngingGroupForGlyph:g];
+        
+        if (group != nil){
+            [allKeys addObject:group];
         }
     }
 
-    [[self groupsArrayController] setContent:allKeys];
+    [[self groupsArrayController] setContent:[allKeys array]];
     [self updateGlyphData];
 }
+
+
 
 -(void)updateGlyphData{
     NSLog(@"updateGlyphData!");
@@ -88,7 +100,8 @@
     NSMutableArray<GSGlyph*> *glyphsOfCurrentGroup = [[NSMutableArray alloc] init];
   
     for (GSGlyph *g in [currentFont glyphs]){
-        if ([[g rightKerningGroupId] isEqualToString:currentGroup]){
+        NSString * group = [self kerngingGroupForGlyph:g];
+        if ([group isEqualToString:currentGroup]){
             [glyphsOfCurrentGroup addObject:g];
         }
     }
@@ -161,4 +174,5 @@
 {
     [[self groupsArrayController] removeObserver:self forKeyPath:@"selectedObjects"];
 }
+
 @end

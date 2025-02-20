@@ -23,6 +23,8 @@
 @property (strong) IBOutlet NSArrayController *groupsArrayController;
 @property (strong) IBOutlet NSArrayController *glyphsArrayController;
 @property (weak) IBOutlet NSCollectionView *glyphCollectionView;
+@property (weak) IBOutlet NSSegmentedControl *groupPositoinSegmented;
+- (IBAction)selectGroupPositoin:(id)sender;
 
 
 @end

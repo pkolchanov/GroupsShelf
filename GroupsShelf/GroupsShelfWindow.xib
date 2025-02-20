@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="glyphCollectionView" destination="Ziz-Gy-C3Q" id="yUo-Cc-0zn"/>
                 <outlet property="glyphsArrayController" destination="z6o-Dc-Sol" id="xR2-H2-eq4"/>
+                <outlet property="groupPositoinSegmented" destination="Otc-du-tS1" id="4ds-S6-VRu"/>
                 <outlet property="groupsArrayController" destination="bXK-lJ-UKM" id="wsp-JK-Xs5"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="mvx-Mk-DfL"/>
             </connections>
@@ -25,14 +26,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <scrollView fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="24" horizontalPageScroll="10" verticalLineScroll="24" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FIQ-Ov-Ymv">
-                        <rect key="frame" x="0.0" y="-1" width="187" height="376"/>
+                        <rect key="frame" x="0.0" y="-1" width="187" height="350"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <clipView key="contentView" id="qyw-IU-pmG">
-                            <rect key="frame" x="0.0" y="0.0" width="187" height="376"/>
+                            <rect key="frame" x="0.0" y="0.0" width="187" height="350"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" rowSizeStyle="automatic" viewBased="YES" id="ZbU-Ae-xmc">
-                                    <rect key="frame" x="0.0" y="0.0" width="187" height="376"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="187" height="350"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <size key="intercellSpacing" width="17" height="0.0"/>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -134,7 +135,7 @@
                         </scroller>
                     </scrollView>
                     <searchField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4M-m7-5EM">
-                        <rect key="frame" x="10" y="383" width="612" height="19"/>
+                        <rect key="frame" x="10" y="383" width="623" height="19"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="XJ2-xH-4JF">
                             <font key="font" metaFont="system" size="16"/>
@@ -150,6 +151,20 @@
                             </binding>
                         </connections>
                     </searchField>
+                    <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Otc-du-tS1">
+                        <rect key="frame" x="8" y="352" width="175" height="25"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedRounded" trackingMode="selectOne" id="ubf-M0-ptX">
+                            <font key="font" metaFont="system"/>
+                            <segments>
+                                <segment label="Left" width="83"/>
+                                <segment label="Right" width="83" selected="YES" tag="1"/>
+                            </segments>
+                        </segmentedCell>
+                        <connections>
+                            <action selector="selectGroupPositoin:" target="-2" id="OQs-VI-f1W"/>
+                        </connections>
+                    </segmentedControl>
                 </subviews>
             </view>
             <connections>
@@ -159,5 +174,15 @@
         </window>
         <arrayController id="bXK-lJ-UKM" userLabel="Groups Array Controller"/>
         <arrayController id="z6o-Dc-Sol" userLabel="Glyphs Array Cotnroller"/>
+        <segmentedCell borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="4fa-n8-KUH">
+            <font key="font" metaFont="system"/>
+            <segments>
+                <segment width="32"/>
+                <segment width="32" selected="YES" tag="1"/>
+                <segment width="32">
+                    <nil key="label"/>
+                </segment>
+            </segments>
+        </segmentedCell>
     </objects>
 </document>
