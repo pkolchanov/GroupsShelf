@@ -18,6 +18,7 @@
 #import <GlyphsCore/GSGlyphViewControllerProtocol.h>
 #import "MockHeaders.h"
 #import "GroupsShelfItem.h"
+#import "GroupIdFormatter.h"
 
 @interface GroupsShelf : NSWindowController <GlyphsPlugin>
 @property (strong) IBOutlet NSArrayController *groupsArrayController;
