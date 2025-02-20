@@ -68,9 +68,14 @@
     if (currentFont == nil){
         return;
     }
-    MGOrderedDictionary *ltrGroups = [[currentFont kerningLTR] objectForKey:[[self currentFontMaster] id]];
-    
-    [[self groupsArrayController] setContent:[ltrGroups allKeys]];
+    NSMutableSet<NSString*> *allKeys = [[NSMutableSet alloc] init];
+    for (GSGlyph *g in [currentFont glyphs]){
+        if ([g rightKerningGroupId] != nil){
+            [allKeys addObject:[g rightKerningGroupId]];
+        }
+    }
+
+    [[self groupsArrayController] setContent:allKeys];
     [self updateGlyphData];
 }
 
