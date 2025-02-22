@@ -6,7 +6,6 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "NSColor+AdditionalColors.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GroupTableCellCiew : NSTableCellView

@@ -16,7 +16,7 @@
         if (backgroundStyle == NSBackgroundStyleEmphasized) {
             self.textField.textColor = [NSColor whiteColor]; // Change text color when selected
         } else {
-            self.textField.textColor = [NSColor kerningBlue]; // Default text color
+            self.textField.textColor = [NSColor colorNamed:@"kerningBlue" bundle:[NSBundle bundleForClass:[self class]]];
         }
     }
 }
