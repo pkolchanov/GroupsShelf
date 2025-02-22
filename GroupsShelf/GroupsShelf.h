@@ -20,6 +20,7 @@
 #import "GroupsShelfItem.h"
 
 @interface GroupsShelf : NSWindowController <GlyphsPlugin>
+- (IBAction)closeWindowAction:(id)sender;
 @property (strong) IBOutlet NSArrayController *groupsArrayController;
 @property (strong) IBOutlet NSArrayController *glyphsArrayController;
 @property (weak) IBOutlet NSCollectionView *glyphCollectionView;

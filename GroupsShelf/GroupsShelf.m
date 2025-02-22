@@ -44,8 +44,16 @@ typedef enum {
 }
 
 - (void)awakeFromNib {
-    [[self window] setLevel:NSFloatingWindowLevel];
-    [[self window] setTitle:[self title]];
+    //todo move to ShelfWindow
+    NSWindow * _Nullable window = [self window];
+    [window setLevel:NSFloatingWindowLevel];
+    [window setStyleMask:NSWindowStyleMaskBorderless|NSWindowStyleMaskResizable|NSWindowStyleMaskClosable];
+    [window setBackgroundColor:[NSColor clearColor]];
+    [window setMovableByWindowBackground:YES];
+    [window setOpaque:NO];
+    [[[window contentView] layer] setBackgroundColor: [[NSColor windowBackgroundColor] CGColor]];
+    [[[window contentView] layer] setCornerRadius:10];
+    
     [[self glyphCollectionView] registerClass:[GroupsShelfItem class]
                  forItemWithIdentifier:@"GroupsShelfItem"];
     [[self groupsArrayController] addObserver:self forKeyPath:@"selectedObjects" options:1 context:nil];
@@ -188,4 +196,7 @@ typedef enum {
     [[self groupsArrayController] removeObserver:self forKeyPath:@"selectedObjects"];
 }
 
+- (IBAction)closeWindowAction:(id)sender {
+    [[self window] close];
+}
 @end
