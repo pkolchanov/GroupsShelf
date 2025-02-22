@@ -11,6 +11,7 @@
                 <outlet property="glyphsArrayController" destination="z6o-Dc-Sol" id="xR2-H2-eq4"/>
                 <outlet property="groupPositoinSegmented" destination="Otc-du-tS1" id="4ds-S6-VRu"/>
                 <outlet property="groupsArrayController" destination="bXK-lJ-UKM" id="wsp-JK-Xs5"/>
+                <outlet property="selectedGroupLabel" destination="IjB-lj-zwA" id="8xG-mf-2A7"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="mvx-Mk-DfL"/>
             </connections>
         </customObject>
@@ -51,15 +52,15 @@
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <prototypeCellViews>
-                                                <tableCellView id="KIh-bm-DNo">
+                                                <tableCellView id="KIh-bm-DNo" customClass="GroupTableCellCiew">
                                                     <rect key="frame" x="18" y="0.0" width="150" height="24"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="uzL-Pn-7tI">
                                                             <rect key="frame" x="0.0" y="4" width="150" height="16"/>
                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" id="lfL-dW-Zwq">
-                                                                <font key="font" usesAppearanceFont="YES"/>
-                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <font key="font" metaFont="systemBold"/>
+                                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                             <connections>
@@ -99,7 +100,7 @@
                         <rect key="frame" x="189" y="351" width="410" height="24"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" drawsBackground="YES" id="xty-jz-EiL">
-                            <font key="font" metaFont="system" size="20"/>
+                            <font key="font" metaFont="systemBold" size="20"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>

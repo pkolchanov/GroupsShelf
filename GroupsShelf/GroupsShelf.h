@@ -18,11 +18,13 @@
 #import <GlyphsCore/GSGlyphViewControllerProtocol.h>
 #import "MockHeaders.h"
 #import "GroupsShelfItem.h"
+#import "NSColor+AdditionalColors.h"
 
 @interface GroupsShelf : NSWindowController <GlyphsPlugin>
 @property (strong) IBOutlet NSArrayController *groupsArrayController;
 @property (strong) IBOutlet NSArrayController *glyphsArrayController;
 @property (weak) IBOutlet NSCollectionView *glyphCollectionView;
+@property (weak) IBOutlet NSTextField *selectedGroupLabel;
 @property (weak) IBOutlet NSSegmentedControl *groupPositoinSegmented;
 - (IBAction)selectGroupPositoin:(id)sender;
 
