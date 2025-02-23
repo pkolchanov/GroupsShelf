@@ -27,5 +27,4 @@
 @property (weak) IBOutlet NSSegmentedControl *groupPositoinSegmented;
 - (IBAction)selectGroupPositoin:(id)sender;
 
-
 @end

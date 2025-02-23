@@ -12,6 +12,7 @@
                 <outlet property="glyphsArrayController" destination="z6o-Dc-Sol" id="xR2-H2-eq4"/>
                 <outlet property="groupPositoinSegmented" destination="Otc-du-tS1" id="4ds-S6-VRu"/>
                 <outlet property="groupsArrayController" destination="bXK-lJ-UKM" id="wsp-JK-Xs5"/>
+                <outlet property="searchField" destination="Q4M-m7-5EM" id="iXx-xP-A7O"/>
                 <outlet property="selectedGroupLabel" destination="IjB-lj-zwA" id="8xG-mf-2A7"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="mvx-Mk-DfL"/>
             </connections>
@@ -161,16 +162,16 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="xmark" catalog="system" imagePosition="only" alignment="center" inset="2" id="Lfn-Mw-GZy">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system" size="16"/>
+                            <font key="font" metaFont="system" size="14"/>
                         </buttonCell>
                         <connections>
                             <action selector="closeWindowAction:" target="-2" id="Hpn-SC-eD5"/>
                         </connections>
                     </button>
                     <searchField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4M-m7-5EM">
-                        <rect key="frame" x="38" y="393" width="553" height="19"/>
+                        <rect key="frame" x="38" y="392" width="553" height="19"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="XJ2-xH-4JF">
+                        <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" usesSingleLineMode="YES" id="XJ2-xH-4JF" customClass="GroupsSearchFieldCell">
                             <font key="font" metaFont="system" size="16"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

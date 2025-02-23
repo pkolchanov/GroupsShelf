@@ -1,0 +1,16 @@
+//
+//  GroupsSearchFieldCell.h
+//  GroupsShelf
+//
+//  Created by pkolchanov on 23.02.2025.
+//
+
+#import <Cocoa/Cocoa.h>
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface GroupsSearchFieldCell : NSSearchFieldCell
+
+@end
+
+NS_ASSUME_NONNULL_END
