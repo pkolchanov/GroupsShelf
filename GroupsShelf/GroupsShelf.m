@@ -76,6 +76,8 @@ typedef enum {
     [self updateKerningData];
 }
 
+// MARK: -IB
+
 - (IBAction)removeGlyphsFromGroup:(id)sender {
     // TODO: bind glyphCollectionView indexes to glyphsArrayController indexes
     NSIndexSet *selectedIndexes = [[self glyphCollectionView] selectionIndexes];
@@ -101,55 +103,16 @@ typedef enum {
     [self updateKerningData];
 }
 
+
+- (IBAction)closeWindowAction:(id)sender {
+    [[self window] close];
+}
+
 -(ActiveLRTab)selectedGroupTab{
     return  [[self groupPositoinSegmented] selectedTag] == 0 ? tabLeft : tabRight;
 }
 
--(NSString*)kerngingGroupForGlyph:(GSGlyph*)g{
-    ActiveLRTab activeTab = [self selectedGroupTab];
-    NSString *glyphId = activeTab == tabLeft ? [g leftKerningGroupId] : [g rightKerningGroupId];
-    NSString *prefix = activeTab == tabLeft ? @"MMK_R_" : @"MMK_L_";
-    return [glyphId stringByReplacingOccurrencesOfString:prefix withString:@""];;
-}
-
--(void)updateKerningData{
-    NSLog(@"Update");
-    GSFont *currentFont = [self currentFont];
-    if (currentFont == nil){
-        return;
-    }
-    NSMutableOrderedSet<NSString*> *allKeys = [[NSMutableOrderedSet alloc] init];
-    for (GSGlyph *g in [currentFont glyphs]){
-        NSString * group =  [self kerngingGroupForGlyph:g];
-        
-        if (group != nil){
-            [allKeys addObject:group];
-        }
-    }
-
-    [[self groupsArrayController] setContent:[allKeys array]];
-    [self updateGlyphData];
-}
-
-
-
--(void)updateGlyphData{
-    NSLog(@"updateGlyphData!");
-    GSFont *currentFont = [self currentFont];
-    NSString *currentGroup = [[[self groupsArrayController] selectedObjects] firstObject];
-    NSLog(@"Current group %@", currentGroup);
-    
-    NSMutableArray<GSGlyph*> *glyphsOfCurrentGroup = [[NSMutableArray alloc] init];
-  
-    for (GSGlyph *g in [currentFont glyphs]){
-        NSString * group = [self kerngingGroupForGlyph:g];
-        if ([group isEqualToString:currentGroup]){
-            [glyphsOfCurrentGroup addObject:g];
-        }
-    }
-    
-    [[self glyphsArrayController] setContent:glyphsOfCurrentGroup];
-}
+// MARK: -Glyphs Accessors
 
 -(GSDocument*)currentDocument{
     GSApplication *app = NSApp;
@@ -186,6 +149,55 @@ typedef enum {
     }
     
     return glyphs;
+}
+
+// MARK: -Interface Updates
+
+-(NSString*)kerngingGroupForGlyph:(GSGlyph*)g{
+    ActiveLRTab activeTab = [self selectedGroupTab];
+    NSString *glyphId = activeTab == tabLeft ? [g leftKerningGroupId] : [g rightKerningGroupId];
+    NSString *prefix = activeTab == tabLeft ? @"MMK_R_" : @"MMK_L_";
+    return [glyphId stringByReplacingOccurrencesOfString:prefix withString:@""];;
+}
+
+-(void)updateKerningData{
+    NSLog(@"Update");
+    GSFont *currentFont = [self currentFont];
+    if (currentFont == nil){
+        return;
+    }
+    NSMutableOrderedSet<NSString*> *allKeys = [[NSMutableOrderedSet alloc] init];
+    for (GSGlyph *g in [currentFont glyphs]){
+        NSString * group =  [self kerngingGroupForGlyph:g];
+        
+        if (group != nil){
+            [allKeys addObject:group];
+        }
+    }
+
+    [[self groupsArrayController] setContent:[allKeys array]];
+    [self updateGlyphData];
+}
+
+
+// MARK: -Observers
+
+-(void)updateGlyphData{
+    NSLog(@"updateGlyphData!");
+    GSFont *currentFont = [self currentFont];
+    NSString *currentGroup = [[[self groupsArrayController] selectedObjects] firstObject];
+    NSLog(@"Current group %@", currentGroup);
+    
+    NSMutableArray<GSGlyph*> *glyphsOfCurrentGroup = [[NSMutableArray alloc] init];
+  
+    for (GSGlyph *g in [currentFont glyphs]){
+        NSString * group = [self kerngingGroupForGlyph:g];
+        if ([group isEqualToString:currentGroup]){
+            [glyphsOfCurrentGroup addObject:g];
+        }
+    }
+    
+    [[self glyphsArrayController] setContent:glyphsOfCurrentGroup];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
@@ -238,7 +250,4 @@ typedef enum {
     [[self groupsArrayController] removeObserver:self forKeyPath:@"selectedObjects"];
 }
 
-- (IBAction)closeWindowAction:(id)sender {
-    [[self window] close];
-}
 @end
