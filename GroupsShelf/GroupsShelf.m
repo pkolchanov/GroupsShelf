@@ -44,7 +44,7 @@ typedef enum {
 }
 
 - (void)awakeFromNib {
-    //todo move to ShelfWindow
+    // TODO: move to ShelfWindow
     NSWindow * _Nullable window = [self window];
     [window setLevel:NSFloatingWindowLevel];
     [window setStyleMask:NSWindowStyleMaskBorderless|NSWindowStyleMaskResizable|NSWindowStyleMaskClosable];
@@ -57,6 +57,7 @@ typedef enum {
     [[self glyphCollectionView] registerClass:[GroupsShelfItem class]
                  forItemWithIdentifier:@"GroupsShelfItem"];
     [[self groupsArrayController] addObserver:self forKeyPath:@"selectedObjects" options:1 context:nil];
+    [self showPluginWindow:nil];
 }
 
 
@@ -76,7 +77,28 @@ typedef enum {
     [self updateKerningData];
 }
 
-- (IBAction)selectGroupPositoin:(id)sender {
+- (IBAction)removeGlyphsFromGroup:(id)sender {
+    // TODO: bind glyphCollectionView indexes to glyphsArrayController indexes
+    NSIndexSet *selectedIndexes = [[self glyphCollectionView] selectionIndexes];
+    for (GSGlyph *g in [[[self glyphsArrayController] arrangedObjects] objectsAtIndexes:selectedIndexes]){
+        NSLog(@"To remove %@", [g name]);
+        [self selectedGroupTab] == tabLeft ? [g setLeftKerningGroup:nil] :  [g setRightKerningGroup:nil];
+    }
+    [self updateGlyphData];
+}
+
+- (IBAction)addGlyphsToGroup:(id)sender {
+    NSString * selectedGroup = [[[self groupsArrayController] selectedObjects] firstObject];
+    NSString * stripedGroup = [selectedGroup stringByReplacingOccurrencesOfString:@"@" withString:@""];
+    for (GSGlyph *g in [self curentFontSelectedGlyphs]){
+        NSLog(@"To add %@", [g name]);
+        NSLog(@"Group %@", selectedGroup);
+        [self selectedGroupTab] == tabLeft ? [g setLeftKerningGroup:stripedGroup] :  [g setRightKerningGroup:stripedGroup];
+    }
+    [self updateGlyphData];
+}
+
+- (IBAction)selectGroupTab:(id)sender {
     [self updateKerningData];
 }
 
@@ -130,10 +152,14 @@ typedef enum {
     [[self glyphsArrayController] setContent:glyphsOfCurrentGroup];
 }
 
--(GSFont *)currentFont{
+-(GSDocument*)currentDocument{
     GSApplication *app = NSApp;
     GSDocument *document = [app currentFontDocument];
-    NSWindowController<GSWindowControllerProtocol> *windowController = [document windowController];
+    return document;
+}
+
+-(GSFont *)currentFont{
+    GSDocument *document = [self currentDocument];
 
     GSFont *font = [document font];
     return font;
@@ -144,6 +170,23 @@ typedef enum {
     GSDocument *document = [app currentFontDocument];
 
     return [document selectedFontMaster];
+}
+
+- (NSArray<GSGlyph *> *)curentFontSelectedGlyphs {
+    GSDocument *document = [self currentDocument];
+    NSWindowController<GSWindowControllerProtocol> *windowController = [document windowController];
+    NSLog(@"%@", windowController);
+    if (windowController == nil) return @[];
+    
+    NSArray<GSLayer *> *layers = windowController.selectedLayers;
+    NSMutableArray<GSGlyph *> *glyphs = [NSMutableArray new];
+    
+    for (GSLayer *layer in layers) {
+        GSGlyph *glyph = layer.parent;
+        [glyphs addObject:glyph];
+    }
+    
+    return glyphs;
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
@@ -174,7 +217,7 @@ typedef enum {
 
 -(void) setupObservers{
     if (!_hasRegisteredObservers){
-        // todo too many updates
+        // TODO: too many updates
         [NSApp addObserver:self forKeyPath:@"mainWindow.windowController.document" options:1 context:@"Document"];
         [NSNotificationCenter.defaultCenter addObserver:self
                                                selector:@selector(updateKerningData)
