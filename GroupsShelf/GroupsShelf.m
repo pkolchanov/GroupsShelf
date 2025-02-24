@@ -57,7 +57,6 @@ typedef enum {
     [[self glyphCollectionView] registerClass:[GroupsShelfItem class]
                  forItemWithIdentifier:@"GroupsShelfItem"];
     [[self groupsArrayController] addObserver:self forKeyPath:@"selectedObjects" options:1 context:nil];
-    [self showPluginWindow:nil];
 }
 
 
