@@ -47,6 +47,7 @@ typedef enum {
     // TODO: move to ShelfWindow
     NSWindow * _Nullable window = [self window];
     [window setLevel:NSFloatingWindowLevel];
+    [window setHidesOnDeactivate:YES];
     [window setStyleMask:NSWindowStyleMaskBorderless|NSWindowStyleMaskResizable|NSWindowStyleMaskClosable];
     [window setBackgroundColor:[NSColor clearColor]];
     [window setMovableByWindowBackground:YES];
