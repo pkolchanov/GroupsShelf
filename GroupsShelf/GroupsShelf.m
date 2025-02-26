@@ -79,6 +79,21 @@ typedef enum {
 
 // MARK: -IB
 
+- (IBAction)showOptionsMenu:(id)sender {
+    NSLog(@"Show Options");
+    // Create a menu item
+    NSMenu *menu = [[NSMenu alloc] init];
+    NSMenuItem *removeGroupItem = [[NSMenuItem alloc] initWithTitle:@"Remove group"
+                                                      action:@selector(removeSelectedGroup:)
+                                             keyEquivalent:@""];
+    [removeGroupItem setTarget:self];
+    [menu addItem:removeGroupItem];
+    
+    NSEvent *event = [NSApp currentEvent];
+    NSView *view = [[NSApp mainWindow] contentView];
+    [NSMenu popUpContextMenu:menu withEvent:event forView:view];
+}
+
 - (IBAction)removeGlyphsFromGroup:(id)sender {
     // TODO: bind glyphCollectionView indexes to glyphsArrayController indexes
     NSIndexSet *selectedIndexes = [[self glyphCollectionView] selectionIndexes];
@@ -112,6 +127,15 @@ typedef enum {
 -(ActiveLRTab)selectedGroupTab{
     return  [[self groupPositoinSegmented] selectedTag] == 0 ? tabLeft : tabRight;
 }
+
+-(void)removeSelectedGroup:(id)sender{
+    // TODO: kerning pairs?
+    for (GSGlyph *g in [self currentGroupGlyphs]){
+        [self selectedGroupTab] == tabLeft ? [g setLeftKerningGroup:nil] :  [g setRightKerningGroup:nil];
+    }
+    [self updateKerningData];
+}
+
 
 // MARK: -Glyphs Accessors
 
@@ -154,6 +178,18 @@ typedef enum {
 
 // MARK: -Interface Updates
 
+-(void)updateKerningData{
+    NSLog(@"Update kerning groups");
+
+    [[self groupsArrayController] setContent:[self currentFontGroups]];
+    [self updateGlyphData];
+}
+
+-(void)updateGlyphData{
+    NSLog(@"updateGlyphData!");
+    [[self glyphsArrayController] setContent:[self currentGroupGlyphs]];
+}
+
 -(NSString*)kerngingGroupForGlyph:(GSGlyph*)g{
     ActiveLRTab activeTab = [self selectedGroupTab];
     NSString *glyphId = activeTab == tabLeft ? [g leftKerningGroupId] : [g rightKerningGroupId];
@@ -161,12 +197,12 @@ typedef enum {
     return [glyphId stringByReplacingOccurrencesOfString:prefix withString:@""];;
 }
 
--(void)updateKerningData{
-    NSLog(@"Update");
+-(NSArray<NSString*> *)currentFontGroups{
     GSFont *currentFont = [self currentFont];
     if (currentFont == nil){
-        return;
+        return @[];
     }
+    
     NSMutableOrderedSet<NSString*> *allKeys = [[NSMutableOrderedSet alloc] init];
     for (GSGlyph *g in [currentFont glyphs]){
         NSString * group =  [self kerngingGroupForGlyph:g];
@@ -175,20 +211,12 @@ typedef enum {
             [allKeys addObject:group];
         }
     }
-
-    [[self groupsArrayController] setContent:[allKeys array]];
-    [self updateGlyphData];
+    return [allKeys array];
 }
 
-
-// MARK: -Observers
-
--(void)updateGlyphData{
-    NSLog(@"updateGlyphData!");
+-(NSArray<GSGlyph*> *)currentGroupGlyphs{
     GSFont *currentFont = [self currentFont];
     NSString *currentGroup = [[[self groupsArrayController] selectedObjects] firstObject];
-    NSLog(@"Current group %@", currentGroup);
-    
     NSMutableArray<GSGlyph*> *glyphsOfCurrentGroup = [[NSMutableArray alloc] init];
   
     for (GSGlyph *g in [currentFont glyphs]){
@@ -197,10 +225,10 @@ typedef enum {
             [glyphsOfCurrentGroup addObject:g];
         }
     }
-    
-    [[self glyphsArrayController] setContent:glyphsOfCurrentGroup];
+    return glyphsOfCurrentGroup;
 }
 
+// MARK: -Observers
 - (void)observeValueForKeyPath:(NSString *)keyPath
                       ofObject:(id)object
                         change:(NSDictionary *)change

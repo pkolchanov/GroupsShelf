@@ -28,5 +28,6 @@
 - (IBAction)selectGroupTab:(id)sender;
 - (IBAction)addGlyphsToGroup:(id)sender;
 - (IBAction)removeGlyphsFromGroup:(id)sender;
+- (IBAction)showOptionsMenu:(id)sender;
 
 @end
