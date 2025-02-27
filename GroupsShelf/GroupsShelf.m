@@ -27,8 +27,8 @@ typedef enum {
 }
 
 - (NSUInteger)interfaceVersion {
-	// Distinguishes the API verison the plugin was built for. Return 1.
-	return 1;
+    // Distinguishes the API verison the plugin was built for. Return 1.
+    return 1;
 }
 
 - (NSNibName)windowNibName{
@@ -56,7 +56,7 @@ typedef enum {
     [[[window contentView] layer] setCornerRadius:10];
     
     [[self glyphCollectionView] registerClass:[GroupsShelfItem class]
-                 forItemWithIdentifier:@"GroupsShelfItem"];
+                        forItemWithIdentifier:@"GroupsShelfItem"];
     [[self groupsArrayController] addObserver:self forKeyPath:@"selectedObjects" options:1 context:nil];
 }
 
@@ -84,18 +84,18 @@ typedef enum {
     // Create a menu item
     NSMenu *menu = [[NSMenu alloc] init];
     NSMenuItem *removeGroupItem = [[NSMenuItem alloc] initWithTitle:@"Remove group"
-                                                      action:@selector(removeSelectedGroup:)
-                                             keyEquivalent:@""];
+                                                             action:@selector(removeSelectedGroup:)
+                                                      keyEquivalent:@""];
     [removeGroupItem setTarget:self];
     [menu addItem:removeGroupItem];
     
     NSMenuItem *renameItem = [[NSMenuItem alloc] initWithTitle:@"Rename group"
-                                                             action:@selector(addXYZtoGroupName:)
-                                             keyEquivalent:@""];
+                                                        action:@selector(addXYZtoGroupName:)
+                                                 keyEquivalent:@""];
     [renameItem setTarget:self];
     [menu addItem:renameItem];
     
-
+    
     NSEvent *event = [NSApp currentEvent];
     NSView *view = [[NSApp mainWindow] contentView];
     [NSMenu popUpContextMenu:menu withEvent:event forView:view];
@@ -113,7 +113,7 @@ typedef enum {
 
 - (IBAction)addGlyphsToGroup:(id)sender {
     NSString * selectedGroup = [[[self groupsArrayController] selectedObjects] firstObject];
-    NSString * stripedGroup = [selectedGroup stringByReplacingOccurrencesOfString:@"@" withString:@""];
+    NSString * stripedGroup = [self strippedNameOfGroup:selectedGroup];
     for (GSGlyph *g in [self curentFontSelectedGlyphs]){
         NSLog(@"To add %@", [g name]);
         NSLog(@"Group %@", selectedGroup);
@@ -154,7 +154,6 @@ typedef enum {
 
 -(GSFont *)currentFont{
     GSDocument *document = [self currentDocument];
-
     GSFont *font = [document font];
     return font;
 }
@@ -162,7 +161,7 @@ typedef enum {
 -(GSFontMaster *)currentFontMaster{
     GSApplication *app = NSApp;
     GSDocument *document = [app currentFontDocument];
-
+    
     return [document selectedFontMaster];
 }
 
@@ -182,12 +181,43 @@ typedef enum {
     
     return glyphs;
 }
+// MARK: -Groups Naming
+
+
+-(NSString*)shortNameOfGroup:(NSString*)group{
+    group = [group stringByReplacingOccurrencesOfString:@"MMK_R_" withString:@""];;
+    group = [group stringByReplacingOccurrencesOfString:@"MMK_L_" withString:@""];;
+    return group;
+}
+
+-(NSString*)fullNameOfShortGroup:(NSString*)group{
+    ActiveLRTab activeTab = [self selectedGroupTab];
+    NSString *prefix = activeTab == tabLeft ? @"@MMK_R_" : @"@MMK_L_";
+    return [group stringByReplacingOccurrencesOfString:@"@" withString:prefix];
+}
+
+-(NSString*)strippedNameOfGroup:(NSString*)group{
+    group = [self shortNameOfGroup:group];
+    return [group stringByReplacingOccurrencesOfString:@"@" withString:@""];
+}
+
+
+-(NSString*)kerningGroupOfAGlyph:(GSGlyph*)g{
+    ActiveLRTab activeTab = [self selectedGroupTab];
+    NSString *group = activeTab == tabLeft ? [g leftKerningGroupId] : [g rightKerningGroupId];
+    return group;
+}
+
+-(NSString*)shortKeringGroupOfGlyph:(GSGlyph*)g{
+    NSString *group = [self kerningGroupOfAGlyph:g];
+    return [self shortNameOfGroup:group];
+}
 
 // MARK: -Interface Updates
 
 -(void)updateKerningData{
     NSLog(@"Update kerning groups");
-
+    
     [[self groupsArrayController] setContent:[self currentFontGroups]];
     [self updateGlyphData];
 }
@@ -197,19 +227,6 @@ typedef enum {
     [[self glyphsArrayController] setContent:[self currentGroupGlyphs]];
 }
 
-
--(NSString*)shortKeringGroupOfGlyph:(GSGlyph*)g{
-    ActiveLRTab activeTab = [self selectedGroupTab];
-    NSString *glyphId = activeTab == tabLeft ? [g leftKerningGroupId] : [g rightKerningGroupId];
-    NSString *prefix = activeTab == tabLeft ? @"MMK_R_" : @"MMK_L_";
-    return [glyphId stringByReplacingOccurrencesOfString:prefix withString:@""];;
-}
-
--(NSString*)fullNameOfShortGroup:(NSString*)group{
-    ActiveLRTab activeTab = [self selectedGroupTab];
-    NSString *prefix = activeTab == tabLeft ? @"@MMK_R_" : @"@MMK_L_";
-    return [group stringByReplacingOccurrencesOfString:@"@" withString:prefix];
-}
 
 -(NSArray<NSString*> *)currentFontGroups{
     GSFont *currentFont = [self currentFont];
@@ -283,6 +300,10 @@ typedef enum {
                 [currentFont removeKerningForFontMasterID:[m id] leftKey:otherGroup rightKey:currentGroupFullName direction:GSWritingDirectionLeftToRight];
             }
         }
+    }
+    for (GSGlyph *g in [self currentGroupGlyphs]){
+        NSString *strippedNewName = [self strippedNameOfGroup:newName];
+        [self selectedGroupTab] == tabLeft ? [g setLeftKerningGroup:strippedNewName] :  [g setRightKerningGroup:strippedNewName];
     }
     [self updateKerningData];
 }
