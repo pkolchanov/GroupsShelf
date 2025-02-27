@@ -89,6 +89,13 @@ typedef enum {
     [removeGroupItem setTarget:self];
     [menu addItem:removeGroupItem];
     
+    NSMenuItem *renameItem = [[NSMenuItem alloc] initWithTitle:@"Rename group"
+                                                             action:@selector(addXYZtoGroupName:)
+                                             keyEquivalent:@""];
+    [renameItem setTarget:self];
+    [menu addItem:renameItem];
+    
+
     NSEvent *event = [NSApp currentEvent];
     NSView *view = [[NSApp mainWindow] contentView];
     [NSMenu popUpContextMenu:menu withEvent:event forView:view];
@@ -226,6 +233,58 @@ typedef enum {
         }
     }
     return glyphsOfCurrentGroup;
+}
+
+-(void)addXYZtoGroupName:(id)sender{
+    NSString *currentGroupName =  [[[self groupsArrayController] selectedObjects] firstObject];
+    NSString *prefix = [self selectedGroupTab] == tabLeft ? @"@MMK_R_" : @"@MMK_L_";
+    NSString *currentGroupFullName = [currentGroupName stringByReplacingOccurrencesOfString:@"@" withString:prefix];
+    NSString *newName = [currentGroupFullName stringByAppendingString:@"XYZ"];
+    for (GSFontMaster *m in [[self currentFont] fontMasters]){
+        [[self currentFont] kerningLTR];
+        MGOrderedDictionary *pairsDict = [[[self currentFont] kerningLTR] valueForKey:[m id]];
+        if (pairsDict == nil){
+            continue;
+        }
+        NSLog(@"%@", [m name]);
+       
+        if ([self selectedGroupTab] == tabRight){
+            NSLog(@"TAB RIGHT");
+            MGOrderedDictionary *resDict = [pairsDict objectForKey:currentGroupFullName];
+            NSLog(@"%@ %@", currentGroupFullName, resDict);
+            NSMutableArray *copyOfRes = [resDict copy];
+            for (NSString *otherGroup in copyOfRes) {
+                
+                NSNumber *val = [resDict objectForKey:otherGroup];
+                NSLog(@"%@ %f", otherGroup, [val floatValue]);
+                [[self currentFont] setKerningForFontMasterID:[m id] leftKey:newName rightKey:otherGroup value:[val floatValue] direction:GSWritingDirectionLeftToRight ];
+                [[self currentFont] removeKerningForFontMasterID:[m id] leftKey:currentGroupFullName rightKey:otherGroup direction:GSWritingDirectionLeftToRight];
+            }
+            
+        }
+        
+        if ([self selectedGroupTab] == tabLeft){
+            NSLog(@"TAB LEFT");
+            NSMutableDictionary *toUpdate = [[NSMutableDictionary alloc] init];
+            for (NSString *firstGroup in pairsDict) {
+                MGOrderedDictionary *innerDict = [pairsDict objectForKey:firstGroup];
+                NSNumber *innerVal = [innerDict objectForKey:currentGroupFullName];
+                if (innerVal != nil){
+                    NSLog(@"%@ %@ %@", firstGroup, currentGroupName, innerVal);
+                    [toUpdate setValue:innerVal forKey:firstGroup];
+                }
+            }
+            for (NSString *firstGroup in toUpdate) {
+                NSNumber *innerVal = [toUpdate objectForKey:firstGroup];
+                [[self currentFont] setKerningForFontMasterID:[m id] leftKey:firstGroup rightKey:newName value:[innerVal floatValue] direction:GSWritingDirectionLeftToRight ];
+                [[self currentFont] removeKerningForFontMasterID:[m id] leftKey:firstGroup rightKey:currentGroupFullName direction:GSWritingDirectionLeftToRight];
+            }
+            
+            
+        }
+        
+    }
+    [self updateKerningData];
 }
 
 // MARK: -Observers
