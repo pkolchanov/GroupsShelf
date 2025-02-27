@@ -197,11 +197,18 @@ typedef enum {
     [[self glyphsArrayController] setContent:[self currentGroupGlyphs]];
 }
 
--(NSString*)kerngingGroupForGlyph:(GSGlyph*)g{
+
+-(NSString*)shortKeringGroupOfGlyph:(GSGlyph*)g{
     ActiveLRTab activeTab = [self selectedGroupTab];
     NSString *glyphId = activeTab == tabLeft ? [g leftKerningGroupId] : [g rightKerningGroupId];
     NSString *prefix = activeTab == tabLeft ? @"MMK_R_" : @"MMK_L_";
     return [glyphId stringByReplacingOccurrencesOfString:prefix withString:@""];;
+}
+
+-(NSString*)fullNameOfShortGroup:(NSString*)group{
+    ActiveLRTab activeTab = [self selectedGroupTab];
+    NSString *prefix = activeTab == tabLeft ? @"@MMK_R_" : @"@MMK_L_";
+    return [group stringByReplacingOccurrencesOfString:@"@" withString:prefix];
 }
 
 -(NSArray<NSString*> *)currentFontGroups{
@@ -212,7 +219,7 @@ typedef enum {
     
     NSMutableOrderedSet<NSString*> *allKeys = [[NSMutableOrderedSet alloc] init];
     for (GSGlyph *g in [currentFont glyphs]){
-        NSString * group =  [self kerngingGroupForGlyph:g];
+        NSString * group =  [self shortKeringGroupOfGlyph:g];
         
         if (group != nil){
             [allKeys addObject:group];
@@ -227,7 +234,7 @@ typedef enum {
     NSMutableArray<GSGlyph*> *glyphsOfCurrentGroup = [[NSMutableArray alloc] init];
   
     for (GSGlyph *g in [currentFont glyphs]){
-        NSString * group = [self kerngingGroupForGlyph:g];
+        NSString * group = [self shortKeringGroupOfGlyph:g];
         if ([group isEqualToString:currentGroup]){
             [glyphsOfCurrentGroup addObject:g];
         }
@@ -235,54 +242,47 @@ typedef enum {
     return glyphsOfCurrentGroup;
 }
 
+-( NSDictionary* _Nullable )kernPairsToUpdate:(GSFontMaster*) m{
+    NSString *currentGroupName = [[[self groupsArrayController] selectedObjects] firstObject];
+    NSString *currentGroupFullName = [self fullNameOfShortGroup:currentGroupName];
+    
+    MGOrderedDictionary *pairsDict = [[[self currentFont] kerningLTR] valueForKey:[m id]];
+    if ([self selectedGroupTab] == tabRight){
+        MGOrderedDictionary *resDict = [pairsDict objectForKey:currentGroupFullName];
+        return [resDict copy];
+    }
+    if ([self selectedGroupTab] == tabLeft){
+        NSMutableDictionary *toUpdate = [[NSMutableDictionary alloc] init];
+        for (NSString *firstGroup in pairsDict) {
+            MGOrderedDictionary *innerDict = [pairsDict objectForKey:firstGroup];
+            NSNumber *innerVal = [innerDict objectForKey:currentGroupFullName];
+            if (innerVal != nil){
+                [toUpdate setValue:innerVal forKey:firstGroup];
+            }
+        }
+        return toUpdate;
+    }
+    return nil;
+}
+
 -(void)addXYZtoGroupName:(id)sender{
+    GSFont *currentFont = [self currentFont];
     NSString *currentGroupName =  [[[self groupsArrayController] selectedObjects] firstObject];
-    NSString *prefix = [self selectedGroupTab] == tabLeft ? @"@MMK_R_" : @"@MMK_L_";
-    NSString *currentGroupFullName = [currentGroupName stringByReplacingOccurrencesOfString:@"@" withString:prefix];
+    NSString *currentGroupFullName = [self fullNameOfShortGroup:currentGroupName];
     NSString *newName = [currentGroupFullName stringByAppendingString:@"XYZ"];
     for (GSFontMaster *m in [[self currentFont] fontMasters]){
-        [[self currentFont] kerningLTR];
-        MGOrderedDictionary *pairsDict = [[[self currentFont] kerningLTR] valueForKey:[m id]];
-        if (pairsDict == nil){
-            continue;
-        }
-        NSLog(@"%@", [m name]);
-       
-        if ([self selectedGroupTab] == tabRight){
-            NSLog(@"TAB RIGHT");
-            MGOrderedDictionary *resDict = [pairsDict objectForKey:currentGroupFullName];
-            NSLog(@"%@ %@", currentGroupFullName, resDict);
-            NSMutableArray *copyOfRes = [resDict copy];
-            for (NSString *otherGroup in copyOfRes) {
-                
-                NSNumber *val = [resDict objectForKey:otherGroup];
-                NSLog(@"%@ %f", otherGroup, [val floatValue]);
-                [[self currentFont] setKerningForFontMasterID:[m id] leftKey:newName rightKey:otherGroup value:[val floatValue] direction:GSWritingDirectionLeftToRight ];
-                [[self currentFont] removeKerningForFontMasterID:[m id] leftKey:currentGroupFullName rightKey:otherGroup direction:GSWritingDirectionLeftToRight];
+        NSDictionary *kernPairsToUpdate = [self kernPairsToUpdate:m];
+        for (NSString *otherGroup in kernPairsToUpdate) {
+            NSNumber *val = [kernPairsToUpdate objectForKey:otherGroup];
+            if ([self selectedGroupTab] == tabRight){
+                [currentFont setKerningForFontMasterID:[m id] leftKey:newName rightKey:otherGroup value:[val floatValue] direction:GSWritingDirectionLeftToRight ];
+                 [currentFont removeKerningForFontMasterID:[m id] leftKey:currentGroupFullName rightKey:otherGroup direction:GSWritingDirectionLeftToRight];
             }
-            
-        }
-        
-        if ([self selectedGroupTab] == tabLeft){
-            NSLog(@"TAB LEFT");
-            NSMutableDictionary *toUpdate = [[NSMutableDictionary alloc] init];
-            for (NSString *firstGroup in pairsDict) {
-                MGOrderedDictionary *innerDict = [pairsDict objectForKey:firstGroup];
-                NSNumber *innerVal = [innerDict objectForKey:currentGroupFullName];
-                if (innerVal != nil){
-                    NSLog(@"%@ %@ %@", firstGroup, currentGroupName, innerVal);
-                    [toUpdate setValue:innerVal forKey:firstGroup];
-                }
+            if ([self selectedGroupTab] == tabLeft){
+                [currentFont setKerningForFontMasterID:[m id] leftKey:otherGroup rightKey:newName value:[val floatValue] direction:GSWritingDirectionLeftToRight ];
+                [currentFont removeKerningForFontMasterID:[m id] leftKey:otherGroup rightKey:currentGroupFullName direction:GSWritingDirectionLeftToRight];
             }
-            for (NSString *firstGroup in toUpdate) {
-                NSNumber *innerVal = [toUpdate objectForKey:firstGroup];
-                [[self currentFont] setKerningForFontMasterID:[m id] leftKey:firstGroup rightKey:newName value:[innerVal floatValue] direction:GSWritingDirectionLeftToRight ];
-                [[self currentFont] removeKerningForFontMasterID:[m id] leftKey:firstGroup rightKey:currentGroupFullName direction:GSWritingDirectionLeftToRight];
-            }
-            
-            
         }
-        
     }
     [self updateKerningData];
 }
