@@ -25,9 +25,12 @@
 @property (strong) IBOutlet NSArrayController *glyphsArrayController;
 @property (weak) IBOutlet NSCollectionView *glyphCollectionView;
 @property (weak) IBOutlet NSSegmentedControl *groupPositoinSegmented;
+@property (weak) IBOutlet NSTextField *selectedGroupTextField;
+
 - (IBAction)selectGroupTab:(id)sender;
 - (IBAction)addGlyphsToGroup:(id)sender;
 - (IBAction)removeGlyphsFromGroup:(id)sender;
 - (IBAction)showOptionsMenu:(id)sender;
+- (IBAction)renameSelectedGroupAction:(id)sender;
 
 @end

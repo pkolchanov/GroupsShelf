@@ -79,6 +79,10 @@ typedef enum {
 
 // MARK: -IB
 
+- (IBAction)renameSelectedGroupAction:(id)sender {
+    [self renameSelectedGroup:[[self selectedGroupTextField] stringValue]];
+}
+
 - (IBAction)showOptionsMenu:(id)sender {
     NSLog(@"Show Options");
     // Create a menu item
@@ -88,13 +92,6 @@ typedef enum {
                                                       keyEquivalent:@""];
     [removeGroupItem setTarget:self];
     [menu addItem:removeGroupItem];
-    
-    NSMenuItem *renameItem = [[NSMenuItem alloc] initWithTitle:@"Rename group"
-                                                        action:@selector(addXYZtoGroupName:)
-                                                 keyEquivalent:@""];
-    [renameItem setTarget:self];
-    [menu addItem:renameItem];
-    
     
     NSEvent *event = [NSApp currentEvent];
     NSView *view = [[NSApp mainWindow] contentView];
@@ -193,7 +190,6 @@ typedef enum {
     return [group stringByReplacingOccurrencesOfString:@"@" withString:@""];
 }
 
-
 -(NSString*)kerningGroupOfAGlyph:(GSGlyph*)g{
     ActiveLRTab activeTab = [self selectedGroupTab];
     NSString *group = activeTab == tabLeft ? [g leftKerningGroupId] : [g rightKerningGroupId];
@@ -216,7 +212,9 @@ typedef enum {
 
 -(void)updateGlyphData{
     NSLog(@"updateGlyphData!");
+    NSString *currentGroup = [[[self groupsArrayController] selectedObjects] firstObject];
     [[self glyphsArrayController] setContent:[self currentGroupGlyphs]];
+    [[self selectedGroupTextField] setStringValue:currentGroup];
 }
 
 
@@ -251,6 +249,7 @@ typedef enum {
     return glyphsOfCurrentGroup;
 }
 
+// MARK: -Renaming
 -( NSDictionary* _Nullable )kernPairsToUpdate:(GSFontMaster*) m{
     NSString *currentGroupName = [[[self groupsArrayController] selectedObjects] firstObject];
     NSString *currentGroupFullName = [self fullNameOfShortGroup:currentGroupName];
@@ -274,11 +273,11 @@ typedef enum {
     return nil;
 }
 
--(void)addXYZtoGroupName:(id)sender{
+-(void)renameSelectedGroup:(NSString*)newName{
     GSFont *currentFont = [self currentFont];
     NSString *currentGroupName =  [[[self groupsArrayController] selectedObjects] firstObject];
     NSString *currentGroupFullName = [self fullNameOfShortGroup:currentGroupName];
-    NSString *newName = [currentGroupFullName stringByAppendingString:@"XYZ"];
+    newName = [self fullNameOfShortGroup:newName];
     for (GSFontMaster *m in [[self currentFont] fontMasters]){
         NSDictionary *kernPairsToUpdate = [self kernPairsToUpdate:m];
         for (NSString *otherGroup in kernPairsToUpdate) {

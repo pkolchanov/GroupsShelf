@@ -14,6 +14,7 @@
                 <outlet property="groupsArrayController" destination="bXK-lJ-UKM" id="wsp-JK-Xs5"/>
                 <outlet property="searchField" destination="Q4M-m7-5EM" id="iXx-xP-A7O"/>
                 <outlet property="selectedGroupLabel" destination="IjB-lj-zwA" id="8xG-mf-2A7"/>
+                <outlet property="selectedGroupTextField" destination="IjB-lj-zwA" id="TwL-my-QOB"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="mvx-Mk-DfL"/>
             </connections>
         </customObject>
@@ -237,14 +238,13 @@
                                 <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IjB-lj-zwA">
                                     <rect key="frame" x="12" y="2" width="365" height="23"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                    <textFieldCell key="cell" lineBreakMode="clipping" drawsBackground="YES" id="xty-jz-EiL">
+                                    <textFieldCell key="cell" lineBreakMode="clipping" selectable="YES" editable="YES" drawsBackground="YES" id="xty-jz-EiL">
                                         <font key="font" metaFont="systemBold" size="20"/>
                                         <color key="textColor" name="kerningBlue"/>
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                     <connections>
-                                        <action selector="renameGroup:" target="-2" id="Iii-N2-wrR"/>
-                                        <binding destination="bXK-lJ-UKM" name="value" keyPath="selection.self" id="AD2-TK-KVI"/>
+                                        <action selector="renameSelectedGroupAction:" target="-2" id="Ubh-VS-wn0"/>
                                     </connections>
                                 </textField>
                             </subviews>
