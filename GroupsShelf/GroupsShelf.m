@@ -183,7 +183,6 @@ typedef enum {
 }
 // MARK: -Groups Naming
 
-
 -(NSString*)shortNameOfGroup:(NSString*)group{
     group = [group stringByReplacingOccurrencesOfString:@"MMK_R_" withString:@""];;
     group = [group stringByReplacingOccurrencesOfString:@"MMK_L_" withString:@""];;
@@ -291,14 +290,23 @@ typedef enum {
         NSDictionary *kernPairsToUpdate = [self kernPairsToUpdate:m];
         for (NSString *otherGroup in kernPairsToUpdate) {
             NSNumber *val = [kernPairsToUpdate objectForKey:otherGroup];
-            if ([self selectedGroupTab] == tabRight){
-                [currentFont setKerningForFontMasterID:[m id] leftKey:newName rightKey:otherGroup value:[val floatValue] direction:GSWritingDirectionLeftToRight ];
-                 [currentFont removeKerningForFontMasterID:[m id] leftKey:currentGroupFullName rightKey:otherGroup direction:GSWritingDirectionLeftToRight];
-            }
-            if ([self selectedGroupTab] == tabLeft){
-                [currentFont setKerningForFontMasterID:[m id] leftKey:otherGroup rightKey:newName value:[val floatValue] direction:GSWritingDirectionLeftToRight ];
-                [currentFont removeKerningForFontMasterID:[m id] leftKey:otherGroup rightKey:currentGroupFullName direction:GSWritingDirectionLeftToRight];
-            }
+             BOOL isRightTab = ([self selectedGroupTab] == tabRight);
+             
+             NSString *leftKey = isRightTab ? newName : otherGroup;
+             NSString *rightKey = isRightTab ? otherGroup : newName;
+             NSString *oldRightKey = isRightTab ? otherGroup : currentGroupFullName;
+             NSString *oldLeftKey = isRightTab ? currentGroupFullName : otherGroup;
+
+             [currentFont setKerningForFontMasterID:[m id]
+                                            leftKey:leftKey
+                                           rightKey:rightKey
+                                              value:[val floatValue]
+                                          direction:GSWritingDirectionLeftToRight];
+
+             [currentFont removeKerningForFontMasterID:[m id]
+                                               leftKey:oldLeftKey
+                                              rightKey:oldRightKey
+                                             direction:GSWritingDirectionLeftToRight];
         }
     }
     for (GSGlyph *g in [self currentGroupGlyphs]){
