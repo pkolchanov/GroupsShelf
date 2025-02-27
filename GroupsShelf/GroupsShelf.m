@@ -135,13 +135,6 @@ typedef enum {
     return  [[self groupPositoinSegmented] selectedTag] == 0 ? tabLeft : tabRight;
 }
 
--(void)removeSelectedGroup:(id)sender{
-    // TODO: kerning pairs?
-    for (GSGlyph *g in [self currentGroupGlyphs]){
-        [self selectedGroupTab] == tabLeft ? [g setLeftKerningGroup:nil] :  [g setRightKerningGroup:nil];
-    }
-    [self updateKerningData];
-}
 
 
 // MARK: -Glyphs Accessors
@@ -312,6 +305,32 @@ typedef enum {
     for (GSGlyph *g in [self currentGroupGlyphs]){
         NSString *strippedNewName = [self strippedNameOfGroup:newName];
         [self selectedGroupTab] == tabLeft ? [g setLeftKerningGroup:strippedNewName] :  [g setRightKerningGroup:strippedNewName];
+    }
+    [self updateKerningData];
+}
+
+
+-(void)removeSelectedGroup:(id)sender{
+    GSFont *currentFont = [self currentFont];
+    NSString *currentGroupName =  [[[self groupsArrayController] selectedObjects] firstObject];
+    NSString *currentGroupFullName = [self fullNameOfShortGroup:currentGroupName];
+    
+    for (GSFontMaster *m in [[self currentFont] fontMasters]){
+        NSDictionary *kernPairsToUpdate = [self kernPairsToUpdate:m];
+        for (NSString *otherGroup in kernPairsToUpdate) {
+            NSNumber *val = [kernPairsToUpdate objectForKey:otherGroup];
+             BOOL isRightTab = ([self selectedGroupTab] == tabRight);
+             NSString *oldRightKey = isRightTab ? otherGroup : currentGroupFullName;
+             NSString *oldLeftKey = isRightTab ? currentGroupFullName : otherGroup;
+
+             [currentFont removeKerningForFontMasterID:[m id]
+                                               leftKey:oldLeftKey
+                                              rightKey:oldRightKey
+                                             direction:GSWritingDirectionLeftToRight];
+        }
+    }
+    for (GSGlyph *g in [self currentGroupGlyphs]){
+        [self selectedGroupTab] == tabLeft ? [g setLeftKerningGroup:nil] :  [g setRightKerningGroup:nil];
     }
     [self updateKerningData];
 }
