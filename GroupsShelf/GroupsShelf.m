@@ -110,11 +110,10 @@ typedef enum {
 
 - (IBAction)addGlyphsToGroup:(id)sender {
     NSString * selectedGroup = [[[self groupsArrayController] selectedObjects] firstObject];
-    NSString * stripedGroup = [self strippedNameOfGroup:selectedGroup];
     for (GSGlyph *g in [self curentFontSelectedGlyphs]){
         NSLog(@"To add %@", [g name]);
         NSLog(@"Group %@", selectedGroup);
-        [self selectedGroupTab] == tabLeft ? [g setLeftKerningGroup:stripedGroup] :  [g setRightKerningGroup:stripedGroup];
+        [self selectedGroupTab] == tabLeft ? [g setLeftKerningGroup:selectedGroup] :  [g setRightKerningGroup:selectedGroup];
     }
     [self updateGlyphData];
 }
@@ -174,20 +173,15 @@ typedef enum {
 // MARK: -Groups Naming
 
 -(NSString*)shortNameOfGroup:(NSString*)group{
-    group = [group stringByReplacingOccurrencesOfString:@"MMK_R_" withString:@""];;
-    group = [group stringByReplacingOccurrencesOfString:@"MMK_L_" withString:@""];;
+    group = [group stringByReplacingOccurrencesOfString:@"@MMK_R_" withString:@""];;
+    group = [group stringByReplacingOccurrencesOfString:@"@MMK_L_" withString:@""];;
     return group;
 }
 
 -(NSString*)fullNameOfShortGroup:(NSString*)group{
     ActiveLRTab activeTab = [self selectedGroupTab];
     NSString *prefix = activeTab == tabLeft ? @"@MMK_R_" : @"@MMK_L_";
-    return [group stringByReplacingOccurrencesOfString:@"@" withString:prefix];
-}
-
--(NSString*)strippedNameOfGroup:(NSString*)group{
-    group = [self shortNameOfGroup:group];
-    return [group stringByReplacingOccurrencesOfString:@"@" withString:@""];
+    return [prefix stringByAppendingString:group];
 }
 
 -(NSString*)kerningGroupOfAGlyph:(GSGlyph*)g{
@@ -302,7 +296,7 @@ typedef enum {
         }
     }
     for (GSGlyph *g in [self currentGroupGlyphs]){
-        NSString *strippedNewName = [self strippedNameOfGroup:newName];
+        NSString *strippedNewName = [self shortNameOfGroup:newName];
         [self selectedGroupTab] == tabLeft ? [g setLeftKerningGroup:strippedNewName] :  [g setRightKerningGroup:strippedNewName];
     }
     [self updateKerningData];
