@@ -16,6 +16,8 @@
 #import <GlyphsCore/GSWindowControllerProtocol.h>
 #import <GlyphsCore/GSGlyphEditViewProtocol.h>
 #import <GlyphsCore/GSGlyphViewControllerProtocol.h>
+#import <GlyphsCore/MGOrderedDictionary.h>
+
 #import "MockHeaders.h"
 #import "GroupsShelfItem.h"
 

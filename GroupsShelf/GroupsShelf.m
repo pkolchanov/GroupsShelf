@@ -45,6 +45,7 @@ typedef enum {
 
 - (void)awakeFromNib {
     // TODO: move to ShelfWindow
+    MGOrderedDictionary *dict = [[MGOrderedDictionary alloc] init];
     NSWindow * _Nullable window = [self window];
     [window setLevel:NSFloatingWindowLevel];
     [window setHidesOnDeactivate:YES];
@@ -281,16 +282,9 @@ typedef enum {
              NSString *oldRightKey = isRightTab ? otherGroup : currentGroupFullName;
              NSString *oldLeftKey = isRightTab ? currentGroupFullName : otherGroup;
 
-             [currentFont setKerningForFontMasterID:[m id]
-                                            leftKey:leftKey
-                                           rightKey:rightKey
-                                              value:[val floatValue]
-                                          direction:GSWritingDirectionLeftToRight];
-
-             [currentFont removeKerningForFontMasterID:[m id]
-                                               leftKey:oldLeftKey
-                                              rightKey:oldRightKey
-                                             direction:GSWritingDirectionLeftToRight];
+     
+             [self setKerningForFontMasterID:[m id] leftKey:leftKey rightKey:rightKey value:val];
+             [self removeKerningForFontMasterID:[m id] leftKey:oldLeftKey rightKey:oldRightKey];
         }
     }
     for (GSGlyph *g in [self currentGroupGlyphs]){
@@ -302,28 +296,45 @@ typedef enum {
 
 
 -(void)removeSelectedGroup:(id)sender{
-    GSFont *currentFont = [self currentFont];
     NSString *currentGroupName =  [[[self groupsArrayController] selectedObjects] firstObject];
     NSString *currentGroupFullName = [self fullNameOfShortGroup:currentGroupName];
     
     for (GSFontMaster *m in [[self currentFont] fontMasters]){
         NSDictionary *kernPairsToUpdate = [self kernPairsToUpdate:m];
         for (NSString *otherGroup in kernPairsToUpdate) {
-            NSNumber *val = [kernPairsToUpdate objectForKey:otherGroup];
              BOOL isRightTab = ([self selectedGroupTab] == tabRight);
              NSString *oldRightKey = isRightTab ? otherGroup : currentGroupFullName;
              NSString *oldLeftKey = isRightTab ? currentGroupFullName : otherGroup;
 
-             [currentFont removeKerningForFontMasterID:[m id]
-                                               leftKey:oldLeftKey
-                                              rightKey:oldRightKey
-                                             direction:GSWritingDirectionLeftToRight];
+            [self removeKerningForFontMasterID:[m id] leftKey:oldLeftKey rightKey:oldRightKey];
         }
     }
     for (GSGlyph *g in [self currentGroupGlyphs]){
         [self selectedGroupTab] == tabLeft ? [g setLeftKerningGroup:nil] :  [g setRightKerningGroup:nil];
     }
     [self updateKerningData];
+}
+
+- (void)setKerningForFontMasterID:(id)fontMasterID leftKey:(id)leftKey rightKey:(id)rightKey value:(NSNumber*)value{
+    MGOrderedDictionary *pairsDict = [[[self currentFont] kerningLTR] valueForKey:fontMasterID];
+    MGOrderedDictionary *innerDict = [pairsDict objectForKey:leftKey];
+
+    if (innerDict == nil) {
+        innerDict = [[MGOrderedDictionary alloc] initWithCapacity:0];
+        [pairsDict setObject:innerDict forKey:leftKey];
+    }
+
+    [innerDict setValue:value forKey:rightKey];
+}
+
+- (void)removeKerningForFontMasterID:(NSString *)fontMasterID leftKey:(NSString *)leftKey rightKey:(NSString *)rightKey{
+    MGOrderedDictionary *pairsDict = [[[self currentFont] kerningLTR] valueForKey:fontMasterID];
+    MGOrderedDictionary *innerDict = [pairsDict objectForKey:leftKey];
+    if (innerDict == nil) {
+        return;
+    }
+
+    [innerDict removeObjectForKey:rightKey];
 }
 
 // MARK: -Observers

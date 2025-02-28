@@ -1,14 +1,13 @@
 //
-//  GroupsSearchFieldCell.m
+//  BorderlessSearchFieldCell.m
 //  GroupsShelf
 //
-//  Created by pkolchanov on 23.02.2025.
+//  Created by pkolchanov on 28.02.2025.
 //
 
-#import "GroupsSearchFieldCell.h"
+#import "BorderlessSearchFieldCell.h"
 
-@implementation GroupsSearchFieldCell
-
+@implementation BorderlessSearchFieldCell
 - (void)selectWithFrame:(NSRect)rect inView:(NSView *)controlView editor:(NSText *)textObj delegate:(id)delegate start:(NSInteger)selStart length:(NSInteger)selLength {
     // Cocoa bug
     // https://stackoverflow.com/questions/38921355/osx-cocoa-nssearchfield-clear-button-not-responding-to-click#38970763
@@ -22,5 +21,4 @@
     }
     [super selectWithFrame:newRect inView:controlView editor:textObj delegate:delegate start:selStart length:selLength];
 }
-
 @end
