@@ -210,11 +210,6 @@ typedef enum {
     [[self selectedGroupTextField] setStringValue:currentGroup];
 }
 
--(void)intDidUpdate{
-    NSLog(@"intrface did update!");
-    [self updateGlyphData];
-}
-
 -(NSArray<NSString*> *)currentFontGroups{
     GSFont *currentFont = [self currentFont];
     if (currentFont == nil){
@@ -341,30 +336,39 @@ typedef enum {
         [self updateGlyphData];
         return;
     }
-    else if (context == @"Document") {
-        NSLog(@"observed change of keypath %@", keyPath);
-        [self updateKerningData];
-    }
     
 }
 
 
 -(void) removeObservers{
+    // TODO: does it work?
     NSLog(@"removeObservers");
     if (_hasRegisteredObservers){
-        [NSApp removeObserver:self forKeyPath:@"mainWindow.windowController.document"];
         [NSNotificationCenter.defaultCenter removeObserver:self];
         _hasRegisteredObservers = NO;
     }
 }
 
+-(void)interfaceDidUpdate{
+    NSLog(@"intrface did update!");
+    [self updateKerningData];
+}
+
+-(void)docDidActivated{
+    NSLog(@"docDidActivated");
+    [self updateKerningData];
+}
+
+
 -(void) setupObservers{
     if (!_hasRegisteredObservers){
-        // TODO: too many updates
-        [NSApp addObserver:self forKeyPath:@"mainWindow.windowController.document" options:1 context:@"Document"];
         [NSNotificationCenter.defaultCenter addObserver:self
-                                               selector:@selector(intDidUpdate)
+                                               selector:@selector(interfaceDidUpdate)
                                                    name:@"GSUpdateInterface"
+                                                 object:nil];
+       [NSNotificationCenter.defaultCenter addObserver:self
+                                               selector:@selector(docDidActivated)
+                                                   name:@"GSDocumentActivateNotification"
                                                  object:nil];
         _hasRegisteredObservers = YES;
     }
