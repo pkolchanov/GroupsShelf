@@ -45,7 +45,6 @@ typedef enum {
 
 - (void)awakeFromNib {
     // TODO: move to ShelfWindow
-    MGOrderedDictionary *dict = [[MGOrderedDictionary alloc] init];
     NSWindow * _Nullable window = [self window];
     [window setLevel:NSFloatingWindowLevel];
     [window setHidesOnDeactivate:YES];
@@ -208,7 +207,7 @@ typedef enum {
     NSLog(@"updateGlyphData!");
     NSString *currentGroup = [[[self groupsArrayController] selectedObjects] firstObject];
     [[self glyphsArrayController] setContent:[self currentGroupGlyphs]];
-    [[self selectedGroupTextField] setStringValue:currentGroup];
+    [[self selectedGroupTextField] setStringValue:currentGroup == nil ? @"" :currentGroup];
 }
 
 -(NSArray<NSString*> *)currentFontGroups{
