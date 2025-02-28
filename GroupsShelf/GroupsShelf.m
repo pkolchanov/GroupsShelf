@@ -201,7 +201,6 @@ typedef enum {
     NSLog(@"Update kerning groups");
     
     [[self groupsArrayController] setContent:[self currentFontGroups]];
-    [self updateGlyphData];
 }
 
 -(void)updateGlyphData{
@@ -211,6 +210,10 @@ typedef enum {
     [[self selectedGroupTextField] setStringValue:currentGroup];
 }
 
+-(void)intDidUpdate{
+    NSLog(@"intrface did update!");
+    [self updateGlyphData];
+}
 
 -(NSArray<NSString*> *)currentFontGroups{
     GSFont *currentFont = [self currentFont];
@@ -333,7 +336,7 @@ typedef enum {
                       ofObject:(id)object
                         change:(NSDictionary *)change
                        context:(void *)context {
-    if ([keyPath  isEqual: @"selectedObjects"]){
+    if ([keyPath isEqual: @"selectedObjects"]){
         NSLog(@"observed change of selection");
         [self updateGlyphData];
         return;
@@ -360,7 +363,7 @@ typedef enum {
         // TODO: too many updates
         [NSApp addObserver:self forKeyPath:@"mainWindow.windowController.document" options:1 context:@"Document"];
         [NSNotificationCenter.defaultCenter addObserver:self
-                                               selector:@selector(updateKerningData)
+                                               selector:@selector(intDidUpdate)
                                                    name:@"GSUpdateInterface"
                                                  object:nil];
         _hasRegisteredObservers = YES;
