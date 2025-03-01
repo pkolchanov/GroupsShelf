@@ -111,7 +111,7 @@ typedef enum {
     NSIndexSet *selectedIndexes = [[self glyphCollectionView] selectionIndexes];
     for (GSGlyph *g in [[[self glyphsArrayController] arrangedObjects] objectsAtIndexes:selectedIndexes]){
         NSLog(@"To remove %@", [g name]);
-        [self selectedGroupTab] == positionLeft ? [g setLeftKerningGroup:nil] :  [g setRightKerningGroup:nil];
+        [self selectedGroupPosition] == positionLeft ? [g setLeftKerningGroup:nil] :  [g setRightKerningGroup:nil];
     }
     [self updateGlyphData];
 }
@@ -121,7 +121,7 @@ typedef enum {
     for (GSGlyph *g in [self curentFontSelectedGlyphs]){
         NSLog(@"To add %@", [g name]);
         NSLog(@"Group %@", selectedGroup);
-        [self selectedGroupTab] == positionLeft ? [g setLeftKerningGroup:selectedGroup] :  [g setRightKerningGroup:selectedGroup];
+        [self selectedGroupPosition] == positionLeft ? [g setLeftKerningGroup:selectedGroup] :  [g setRightKerningGroup:selectedGroup];
     }
     [self updateGlyphData];
 }
@@ -135,7 +135,7 @@ typedef enum {
     [[self window] close];
 }
 
--(GroupPosition)selectedGroupTab{
+-(GroupPosition)selectedGroupPosition{
     return  [[self groupPositoinSegmented] selectedTag] == 0 ? positionLeft : positionRight;
 }
 
@@ -187,14 +187,14 @@ typedef enum {
 }
 
 -(NSString*)fullNameOfShortGroup:(NSString*)group{
-    GroupPosition activeTab = [self selectedGroupTab];
-    NSString *prefix = activeTab == positionLeft ? @"@MMK_R_" : @"@MMK_L_";
+    GroupPosition currentPosition = [self selectedGroupPosition];
+    NSString *prefix = currentPosition == positionLeft ? @"@MMK_R_" : @"@MMK_L_";
     return [prefix stringByAppendingString:group];
 }
 
 -(NSString*)kerningGroupOfAGlyph:(GSGlyph*)g{
-    GroupPosition activeTab = [self selectedGroupTab];
-    NSString *group = activeTab == positionLeft ? [g leftKerningGroupId] : [g rightKerningGroupId];
+    GroupPosition currentPosition = [self selectedGroupPosition];
+    NSString *group = currentPosition == positionLeft ? [g leftKerningGroupId] : [g rightKerningGroupId];
     return group;
 }
 
@@ -255,11 +255,11 @@ typedef enum {
     NSString *currentGroupFullName = [self fullNameOfShortGroup:currentGroupName];
     
     MGOrderedDictionary *pairsDict = [[[self currentFont] kerningLTR] valueForKey:[m id]];
-    if ([self selectedGroupTab] == positionRight){
+    if ([self selectedGroupPosition] == positionRight){
         MGOrderedDictionary *resDict = [pairsDict objectForKey:currentGroupFullName];
         return [resDict copy];
     }
-    if ([self selectedGroupTab] == positionLeft){
+    if ([self selectedGroupPosition] == positionLeft){
         NSMutableDictionary *toUpdate = [[NSMutableDictionary alloc] init];
         for (NSString *firstGroup in pairsDict) {
             MGOrderedDictionary *innerDict = [pairsDict objectForKey:firstGroup];
@@ -282,12 +282,12 @@ typedef enum {
         NSDictionary *kernPairsToUpdate = [self kernPairsToUpdate:m];
         for (NSString *otherGroup in kernPairsToUpdate) {
             NSNumber *val = [kernPairsToUpdate objectForKey:otherGroup];
-             BOOL isRightTab = ([self selectedGroupTab] == positionRight);
+             BOOL isRightPosition = ([self selectedGroupPosition] == positionRight);
              
-             NSString *leftKey = isRightTab ? newName : otherGroup;
-             NSString *rightKey = isRightTab ? otherGroup : newName;
-             NSString *oldRightKey = isRightTab ? otherGroup : currentGroupFullName;
-             NSString *oldLeftKey = isRightTab ? currentGroupFullName : otherGroup;
+             NSString *leftKey = isRightPosition ? newName : otherGroup;
+             NSString *rightKey = isRightPosition ? otherGroup : newName;
+             NSString *oldRightKey = isRightPosition ? otherGroup : currentGroupFullName;
+             NSString *oldLeftKey = isRightPosition ? currentGroupFullName : otherGroup;
 
      
              [self setKerningForFontMasterID:[m id] leftKey:leftKey rightKey:rightKey value:val];
@@ -296,7 +296,7 @@ typedef enum {
     }
     for (GSGlyph *g in [self currentGroupGlyphs]){
         NSString *strippedNewName = [self shortNameOfGroup:newName];
-        [self selectedGroupTab] == positionLeft ? [g setLeftKerningGroup:strippedNewName] :  [g setRightKerningGroup:strippedNewName];
+        [self selectedGroupPosition] == positionLeft ? [g setLeftKerningGroup:strippedNewName] :  [g setRightKerningGroup:strippedNewName];
     }
     [self updateKerningData];
 }
@@ -309,7 +309,7 @@ typedef enum {
     for (GSFontMaster *m in [[self currentFont] fontMasters]){
         NSDictionary *kernPairsToUpdate = [self kernPairsToUpdate:m];
         for (NSString *otherGroup in kernPairsToUpdate) {
-             BOOL isRightTab = ([self selectedGroupTab] == positionRight);
+             BOOL isRightTab = ([self selectedGroupPosition] == positionRight);
              NSString *oldRightKey = isRightTab ? otherGroup : currentGroupFullName;
              NSString *oldLeftKey = isRightTab ? currentGroupFullName : otherGroup;
 
@@ -317,7 +317,7 @@ typedef enum {
         }
     }
     for (GSGlyph *g in [self currentGroupGlyphs]){
-        [self selectedGroupTab] == positionLeft ? [g setLeftKerningGroup:nil] :  [g setRightKerningGroup:nil];
+        [self selectedGroupPosition] == positionLeft ? [g setLeftKerningGroup:nil] :  [g setRightKerningGroup:nil];
     }
     [self updateKerningData];
 }
@@ -347,11 +347,11 @@ typedef enum {
 
 -(void)addMissingComposites:(id)sender{
     NSString *selectedGroup = [[[self groupsArrayController] selectedObjects] firstObject];
-    GroupPosition currentTab = [self selectedGroupTab];
+    GroupPosition currentPosition = [self selectedGroupPosition];
     
     NSMutableArray *missingCandidates = [[NSMutableArray alloc] init];
     for (GSGlyph*g in [[self currentFont] glyphs]){
-        NSString * groupId = currentTab == positionLeft ? [g leftKerningGroupId] : [g rightKerningGroupId];
+        NSString * groupId = currentPosition == positionLeft ? [g leftKerningGroupId] : [g rightKerningGroupId];
         if (groupId == nil){
             [missingCandidates addObject:g];
         }
@@ -364,7 +364,7 @@ typedef enum {
     for (GSGlyph *g in missingCandidates){
         NSString *parentName = [[self compositesDictionary] valueForKey:[g name]];
         if (parentName != nil && [currentGroupNames containsObject:parentName]){
-            currentTab == positionLeft ? [g setLeftKerningGroup:selectedGroup] : [g setRightKerningGroup:selectedGroup];
+            currentPosition == positionLeft ? [g setLeftKerningGroup:selectedGroup] : [g setRightKerningGroup:selectedGroup];
         }
     }
     [self updateGlyphData];
