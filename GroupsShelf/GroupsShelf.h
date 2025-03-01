@@ -28,6 +28,7 @@
 @property (weak) IBOutlet NSCollectionView *glyphCollectionView;
 @property (weak) IBOutlet NSSegmentedControl *groupPositoinSegmented;
 @property (weak) IBOutlet NSTextField *selectedGroupTextField;
+@property NSDictionary *compositesDictionary;
 
 - (IBAction)selectGroupTab:(id)sender;
 - (IBAction)addGlyphsToGroup:(id)sender;
