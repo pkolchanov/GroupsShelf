@@ -5,9 +5,9 @@
 //  Created by pkolchanov on 21.02.2025.
 //
 
-#import "GroupTableCellCiew.h"
+#import "GroupTableCellView.h"
 
-@implementation GroupTableCellCiew
+@implementation GroupTableCellView
 
 - (void)setBackgroundStyle:(NSBackgroundStyle)backgroundStyle {
     [super setBackgroundStyle:backgroundStyle];

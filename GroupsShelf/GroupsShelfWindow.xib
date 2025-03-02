@@ -55,7 +55,7 @@
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <prototypeCellViews>
-                                                <tableCellView id="KIh-bm-DNo" customClass="GroupTableCellCiew">
+                                                <tableCellView id="KIh-bm-DNo" customClass="GroupTableCellView">
                                                     <rect key="frame" x="18" y="0.0" width="150" height="24"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
