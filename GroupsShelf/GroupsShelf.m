@@ -22,7 +22,7 @@ typedef enum {
     if (self) {
         [self window];
         _hasRegisteredObservers = NO;
-        _compositesDictionary = [NSDictionary dictionaryWithContentsOfFile: [[NSBundle bundleForClass:[self class]] pathForResource:@"diacritics" ofType:@"plist"]];
+        _compositesDictionary = [NSDictionary dictionaryWithContentsOfFile: [[NSBundle bundleForClass:[self class]] pathForResource:@"composites" ofType:@"plist"]];
     }
     return self;
 }

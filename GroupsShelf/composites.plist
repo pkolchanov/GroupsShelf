@@ -2,6 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>A-cherokee</key>
+	<string>D</string>
+	<key>A-cy</key>
+	<string>A</string>
+	<key>A.full</key>
+	<string>A</string>
+	<key>AEModifier</key>
+	<string>AE</string>
 	<key>AEacute</key>
 	<string>AE</string>
 	<key>AEmacron</key>
@@ -54,7 +62,11 @@
 	<string>A</string>
 	<key>Ahookabove</key>
 	<string>A</string>
+	<key>Aie-cy</key>
+	<string>AE</string>
 	<key>Ainvertedbreve</key>
+	<string>A</string>
+	<key>Alpha</key>
 	<string>A</string>
 	<key>Alphadasia</key>
 	<string>Alpha</string>
@@ -100,6 +112,8 @@
 	<string>Alpha</string>
 	<key>Amacron</key>
 	<string>A</string>
+	<key>Amod</key>
+	<string>A</string>
 	<key>Aogonek</key>
 	<string>A</string>
 	<key>Aring</key>
@@ -110,14 +124,24 @@
 	<string>A</string>
 	<key>Atilde</key>
 	<string>A</string>
+	<key>B.full</key>
+	<string>B</string>
 	<key>Bdotaccent</key>
 	<string>B</string>
 	<key>Bdotbelow</key>
 	<string>B</string>
+	<key>Beta</key>
+	<string>B</string>
 	<key>Bmacronbelow</key>
+	<string>B</string>
+	<key>Bmod</key>
+	<string>B</string>
+	<key>Bscript</key>
 	<string>B</string>
 	<key>Bstroke</key>
 	<string>B</string>
+	<key>C.full</key>
+	<string>C</string>
 	<key>Cacute</key>
 	<string>C</string>
 	<key>Ccaron</key>
@@ -130,10 +154,16 @@
 	<string>C</string>
 	<key>Cdotaccent</key>
 	<string>C</string>
+	<key>CdoubleStruck</key>
+	<string>C</string>
 	<key>Chedescender-cy</key>
 	<string>Che-cy</string>
 	<key>Chedieresis-cy</key>
 	<string>Che-cy</string>
+	<key>Chi</key>
+	<string>X</string>
+	<key>D.full</key>
+	<string>D</string>
 	<key>DZcaron</key>
 	<string>DZ</string>
 	<key>Dcaron</key>
@@ -142,12 +172,30 @@
 	<string>D</string>
 	<key>Dcircumflexbelow</key>
 	<string>D</string>
+	<key>Dcroat</key>
+	<string>Eth</string>
 	<key>Ddotaccent</key>
 	<string>D</string>
 	<key>Ddotbelow</key>
 	<string>D</string>
+	<key>DitalicDoubleStruck</key>
+	<string>D</string>
 	<key>Dmacronbelow</key>
 	<string>D</string>
+	<key>Dmod</key>
+	<string>D</string>
+	<key>Do-cherokee</key>
+	<string>V</string>
+	<key>Du-cherokee</key>
+	<string>S</string>
+	<key>Dze-cy</key>
+	<string>S</string>
+	<key>E-cherokee</key>
+	<string>R</string>
+	<key>E.full</key>
+	<string>E</string>
+	<key>EReversedmod</key>
+	<string>Eturned</string>
 	<key>Eacute</key>
 	<string>E</string>
 	<key>Ebreve</key>
@@ -190,15 +238,23 @@
 	<string>E</string>
 	<key>Eldescender-cy</key>
 	<string>El-cy</string>
+	<key>Em-cy</key>
+	<string>M</string>
 	<key>Emacron</key>
 	<string>E</string>
 	<key>Emacronacute</key>
 	<string>E</string>
 	<key>Emacrongrave</key>
 	<string>E</string>
+	<key>Emod</key>
+	<string>E</string>
+	<key>En-cy</key>
+	<string>H</string>
 	<key>Endescender-cy</key>
 	<string>En-cy</string>
 	<key>Eogonek</key>
+	<string>E</string>
+	<key>Epsilon</key>
 	<string>E</string>
 	<key>Epsilondasia</key>
 	<string>Epsilon</string>
@@ -218,10 +274,18 @@
 	<string>Epsilon</string>
 	<key>Epsilonvaria</key>
 	<string>Epsilon</string>
+	<key>Er-cy</key>
+	<string>P</string>
+	<key>Es-cy</key>
+	<string>C</string>
+	<key>Escript</key>
+	<string>E</string>
 	<key>Esdescender-cy</key>
 	<string>Es-cy</string>
 	<key>Estroke</key>
 	<string>E</string>
+	<key>Eta</key>
+	<string>H</string>
 	<key>Etadasia</key>
 	<string>Eta</string>
 	<key>Etadasiaoxia</key>
@@ -268,10 +332,20 @@
 	<string>E</string>
 	<key>Ezhcaron</key>
 	<string>Ezh</string>
+	<key>F.full</key>
+	<string>F</string>
 	<key>Fdotaccent</key>
 	<string>F</string>
+	<key>Fscript</key>
+	<string>F</string>
+	<key>G.full</key>
+	<string>G</string>
 	<key>Gacute</key>
 	<string>G</string>
+	<key>Gamma</key>
+	<string>Ge-cy</string>
+	<key>GammadoubleStruck</key>
+	<string>Gamma</string>
 	<key>Gbreve</key>
 	<string>G</string>
 	<key>Gcaron</key>
@@ -288,10 +362,24 @@
 	<string>Ge-cy</string>
 	<key>Gmacron</key>
 	<string>G</string>
+	<key>Gmod</key>
+	<string>G</string>
+	<key>Go-cherokee</key>
+	<string>A</string>
+	<key>Gu-cherokee</key>
+	<string>J</string>
+	<key>Gv-cherokee</key>
+	<string>E</string>
+	<key>H.full</key>
+	<string>H</string>
+	<key>Ha-cy</key>
+	<string>X</string>
 	<key>Hadescender-cy</key>
 	<string>Ha-cy</string>
 	<key>Hbar</key>
 	<string>H</string>
+	<key>Hbarmod</key>
+	<string>Hbar</string>
 	<key>Hbrevebelow</key>
 	<string>H</string>
 	<key>Hcaron</key>
@@ -306,6 +394,22 @@
 	<string>H</string>
 	<key>Hdotbelow</key>
 	<string>H</string>
+	<key>HdoubleStruck</key>
+	<string>H</string>
+	<key>Hmod</key>
+	<string>H</string>
+	<key>Hscript</key>
+	<string>H</string>
+	<key>Hturned</key>
+	<string>Che-cy</string>
+	<key>Hu-cherokee</key>
+	<string>Ge-cy</string>
+	<key>I-cherokee</key>
+	<string>T</string>
+	<key>I-cy</key>
+	<string>I</string>
+	<key>I.full</key>
+	<string>I</string>
 	<key>Iacute</key>
 	<string>I</string>
 	<key>Iacute_J.loclNLD</key>
@@ -328,6 +432,8 @@
 	<string>I</string>
 	<key>Idotbelow</key>
 	<string>I</string>
+	<key>Ie-cy</key>
+	<string>E</string>
 	<key>Iebreve-cy</key>
 	<string>Ie-cy</string>
 	<key>Iegrave-cy</key>
@@ -348,9 +454,13 @@
 	<string>I</string>
 	<key>Imacron-cy</key>
 	<string>Ii-cy</string>
+	<key>Imod</key>
+	<string>I</string>
 	<key>Io-cy</key>
 	<string>Ie-cy</string>
 	<key>Iogonek</key>
+	<string>I</string>
+	<key>Iota</key>
 	<string>I</string>
 	<key>Iotadasia</key>
 	<string>Iota</string>
@@ -380,6 +490,10 @@
 	<string>Iota</string>
 	<key>Iotavrachy</key>
 	<string>Iota</string>
+	<key>Iscript</key>
+	<string>I</string>
+	<key>Ismallmod</key>
+	<string>Ismall</string>
 	<key>Ismallstroke</key>
 	<string>Ismall</string>
 	<key>Itilde</key>
@@ -388,14 +502,24 @@
 	<string>I</string>
 	<key>Izhitsadblgrave-cy</key>
 	<string>Izhitsa-cy</string>
+	<key>J.full</key>
+	<string>J</string>
 	<key>Jacute</key>
 	<string>J</string>
 	<key>Jcircumflex</key>
 	<string>J</string>
+	<key>Je-cy</key>
+	<string>J</string>
+	<key>Jmod</key>
+	<string>J</string>
+	<key>K.full</key>
+	<string>K</string>
 	<key>Kacute</key>
 	<string>K</string>
 	<key>Kadescender-cy</key>
 	<string>Ka-cy</string>
+	<key>Kappa</key>
+	<string>K</string>
 	<key>Kcaron</key>
 	<string>K</string>
 	<key>Kcommaaccent</key>
@@ -406,6 +530,12 @@
 	<string>Ka-cy</string>
 	<key>Kmacronbelow</key>
 	<string>K</string>
+	<key>Kmod</key>
+	<string>K</string>
+	<key>L.full</key>
+	<string>L</string>
+	<key>La-cherokee</key>
+	<string>W</string>
 	<key>Lacute</key>
 	<string>L</string>
 	<key>Lbar</key>
@@ -422,16 +552,40 @@
 	<string>L</string>
 	<key>Lmacronbelow</key>
 	<string>L</string>
+	<key>Lmod</key>
+	<string>L</string>
+	<key>Lscript</key>
+	<string>L</string>
 	<key>Lslash</key>
 	<string>L</string>
+	<key>Lsmallmod</key>
+	<string>Lsmall</string>
+	<key>Lu-cherokee</key>
+	<string>M</string>
+	<key>M.full</key>
+	<string>M</string>
 	<key>Macute</key>
 	<string>M</string>
 	<key>Mdotaccent</key>
 	<string>M</string>
 	<key>Mdotbelow</key>
 	<string>M</string>
+	<key>Mi-cherokee</key>
+	<string>H</string>
+	<key>Mmod</key>
+	<string>M</string>
+	<key>Mscript</key>
+	<string>M</string>
+	<key>Mu</key>
+	<string>M</string>
+	<key>N.full</key>
+	<string>N</string>
+	<key>Na-cherokee</key>
+	<string>Obarred-cy</string>
 	<key>Nacute</key>
 	<string>N</string>
+	<key>Nah-cherokee</key>
+	<string>G</string>
 	<key>Ncaron</key>
 	<string>N</string>
 	<key>Ncircumflexbelow</key>
@@ -442,12 +596,28 @@
 	<string>N</string>
 	<key>Ndotbelow</key>
 	<string>N</string>
+	<key>NdoubleStruck</key>
+	<string>N</string>
 	<key>Ngrave</key>
 	<string>N</string>
 	<key>Nmacronbelow</key>
 	<string>N</string>
+	<key>Nmod</key>
+	<string>N</string>
+	<key>No-cherokee</key>
+	<string>Z</string>
+	<key>Nsmallmodifier</key>
+	<string>Nsmall</string>
 	<key>Ntilde</key>
 	<string>N</string>
+	<key>Nu</key>
+	<string>N</string>
+	<key>O-cy</key>
+	<string>O</string>
+	<key>O.full</key>
+	<string>O</string>
+	<key>OUmod</key>
+	<string>OU</string>
 	<key>Oacute</key>
 	<string>O</string>
 	<key>Obarreddieresis-cy</key>
@@ -546,6 +716,8 @@
 	<string>Omega</string>
 	<key>Omegavaria</key>
 	<string>Omega</string>
+	<key>Omicron</key>
+	<string>O</string>
 	<key>Omicrondasia</key>
 	<string>Omicron</string>
 	<key>Omicrondasiaoxia</key>
@@ -564,6 +736,8 @@
 	<string>Omicron</string>
 	<key>Omicronvaria</key>
 	<string>Omicron</string>
+	<key>Omod</key>
+	<string>O</string>
 	<key>Oogonek</key>
 	<string>O</string>
 	<key>Oogonekmacron</key>
@@ -580,12 +754,28 @@
 	<string>O</string>
 	<key>Otildemacron</key>
 	<string>O</string>
+	<key>P.full</key>
+	<string>P</string>
 	<key>Pacute</key>
 	<string>P</string>
+	<key>Palochka-cy</key>
+	<string>I</string>
 	<key>Pdotaccent</key>
+	<string>P</string>
+	<key>PdoubleStruck</key>
 	<string>P</string>
 	<key>Pedescender-cy</key>
 	<string>Pe-cy</string>
+	<key>PidoubleStruck</key>
+	<string>Pi</string>
+	<key>Pmod</key>
+	<string>P</string>
+	<key>Q.full</key>
+	<string>Q</string>
+	<key>QdoubleStruck</key>
+	<string>Q</string>
+	<key>R.full</key>
+	<string>R</string>
 	<key>Racute</key>
 	<string>R</string>
 	<key>Rcaron</key>
@@ -600,12 +790,22 @@
 	<string>R</string>
 	<key>Rdotbelowmacron</key>
 	<string>R</string>
+	<key>RdoubleStruck</key>
+	<string>R</string>
+	<key>Rho</key>
+	<string>P</string>
 	<key>Rhodasia</key>
 	<string>Rho</string>
 	<key>Rinvertedbreve</key>
 	<string>R</string>
 	<key>Rmacronbelow</key>
 	<string>R</string>
+	<key>Rmod</key>
+	<string>R</string>
+	<key>Rscript</key>
+	<string>R</string>
+	<key>S.full</key>
+	<string>S</string>
 	<key>Sacute</key>
 	<string>S</string>
 	<key>Sacutedotaccent</key>
@@ -630,6 +830,14 @@
 	<string>S</string>
 	<key>Shhadescender-cy</key>
 	<string>Shha-cy</string>
+	<key>Si-cherokee</key>
+	<string>Softsign-cy</string>
+	<key>SigmaLunateSymbol</key>
+	<string>Sigma</string>
+	<key>T.full</key>
+	<string>T</string>
+	<key>Tau</key>
+	<string>T</string>
 	<key>Tbar</key>
 	<string>T</string>
 	<key>Tcaron</key>
@@ -644,12 +852,28 @@
 	<string>T</string>
 	<key>Tdotbelow</key>
 	<string>T</string>
+	<key>Te-cy</key>
+	<string>T</string>
 	<key>Tedescender-cy</key>
 	<string>Te-cy</string>
 	<key>Theta</key>
 	<string>O</string>
+	<key>ThetaSymbol</key>
+	<string>Theta</string>
+	<key>Tle-cherokee</key>
+	<string>L</string>
+	<key>Tli-cherokee</key>
+	<string>C</string>
+	<key>Tlv-cherokee</key>
+	<string>P</string>
 	<key>Tmacronbelow</key>
 	<string>T</string>
+	<key>Tmod</key>
+	<string>T</string>
+	<key>Tso-cherokee</key>
+	<string>K</string>
+	<key>U.full</key>
+	<string>U</string>
 	<key>Uacute</key>
 	<string>U</string>
 	<key>Ubreve</key>
@@ -706,6 +930,8 @@
 	<string>U-cy</string>
 	<key>Umacrondieresis</key>
 	<string>U</string>
+	<key>Umod</key>
+	<string>U</string>
 	<key>Uogonek</key>
 	<string>U</string>
 	<key>UpsilonacutehookSymbol</key>
@@ -722,6 +948,8 @@
 	<string>Upsilon</string>
 	<key>UpsilondieresishookSymbol</key>
 	<string>UpsilonhookSymbol</string>
+	<key>UpsilonhookSymbol</key>
+	<string>Upsilon</string>
 	<key>Upsilonmacron</key>
 	<string>Upsilon</string>
 	<key>Upsilonoxia</key>
@@ -744,10 +972,16 @@
 	<string>U</string>
 	<key>Utildebelow</key>
 	<string>U</string>
+	<key>V.full</key>
+	<string>V</string>
 	<key>Vdotbelow</key>
 	<string>V</string>
+	<key>Ve-cy</key>
+	<string>B</string>
 	<key>Vtilde</key>
 	<string>V</string>
+	<key>W.full</key>
+	<string>W</string>
 	<key>Wacute</key>
 	<string>W</string>
 	<key>Wcircumflex</key>
@@ -760,10 +994,16 @@
 	<string>W</string>
 	<key>Wgrave</key>
 	<string>W</string>
+	<key>Wmod</key>
+	<string>W</string>
+	<key>X.full</key>
+	<string>X</string>
 	<key>Xdieresis</key>
 	<string>X</string>
 	<key>Xdotaccent</key>
 	<string>X</string>
+	<key>Y.full</key>
+	<string>Y</string>
 	<key>Yacute</key>
 	<string>Y</string>
 	<key>Ycircumflex</key>
@@ -786,6 +1026,10 @@
 	<string>Y</string>
 	<key>Ytilde</key>
 	<string>Y</string>
+	<key>Yv-cherokee</key>
+	<string>B</string>
+	<key>Z.full</key>
+	<string>Z</string>
 	<key>Zacute</key>
 	<string>Z</string>
 	<key>Zcaron</key>
@@ -796,10 +1040,14 @@
 	<string>Z</string>
 	<key>Zdotbelow</key>
 	<string>Z</string>
+	<key>ZdoubleStruck</key>
+	<string>Z</string>
 	<key>Zedescender-cy</key>
 	<string>Ze-cy</string>
 	<key>Zedieresis-cy</key>
 	<string>Ze-cy</string>
+	<key>Zeta</key>
+	<string>Z</string>
 	<key>Zhebreve-cy</key>
 	<string>Zhe-cy</string>
 	<key>Zhedescender-cy</key>
@@ -810,14 +1058,24 @@
 	<string>Z</string>
 	<key>Zstroke</key>
 	<string>Z</string>
+	<key>a-cy</key>
+	<string>a</string>
+	<key>a-kata.half</key>
+	<string>a-kata</string>
+	<key>a.full</key>
+	<string>a</string>
 	<key>aCandra-deva</key>
 	<string>a-deva</string>
 	<key>aShort-deva</key>
 	<string>a-deva</string>
+	<key>aTurnedmod</key>
+	<string>aturned</string>
 	<key>a_uSign-batak</key>
 	<string>a-batak</string>
 	<key>aa-beng</key>
 	<string>a-beng</string>
+	<key>aa-khmer</key>
+	<string>aaSign-khmer</string>
 	<key>aa-sinhala</key>
 	<string>a-sinhala</string>
 	<key>aacute</key>
@@ -864,8 +1122,14 @@
 	<string>a</string>
 	<key>adotmacron</key>
 	<string>a</string>
+	<key>ae-ar</key>
+	<string>heh-ar</string>
+	<key>ae-ar.fina</key>
+	<string>heh-ar.fina</string>
 	<key>ae-sinhala</key>
 	<string>a-sinhala</string>
+	<key>aeTurnedmod</key>
+	<string>aeTurned</string>
 	<key>aeacute</key>
 	<string>ae</string>
 	<key>aemacron</key>
@@ -876,8 +1140,14 @@
 	<string>a</string>
 	<key>ai-deva</key>
 	<string>e-deva</string>
+	<key>ai-java</key>
+	<string>e-java</string>
 	<key>ai-sinhala</key>
 	<string>eMatra-sinhala</string>
+	<key>aie-cy</key>
+	<string>ae</string>
+	<key>ain-ar.isol</key>
+	<string>ain-ar</string>
 	<key>ainThreedots-ar</key>
 	<string>ain-ar</string>
 	<key>ainThreedotsbelow-ar</key>
@@ -888,8 +1158,20 @@
 	<string>ain-ar</string>
 	<key>ainTwodotsverticalabove-ar</key>
 	<string>ain-ar</string>
+	<key>ainferior</key>
+	<string>a</string>
+	<key>ainmod</key>
+	<string>ain</string>
 	<key>ainvertedbreve</key>
 	<string>a</string>
+	<key>alef-ar.fina</key>
+	<string>alef-ar</string>
+	<key>alef-ar.fina.short</key>
+	<string>alef-ar.fina</string>
+	<key>alef-ar.isol</key>
+	<string>alef-ar</string>
+	<key>alef-ar.short</key>
+	<string>alef-ar</string>
 	<key>alefDotabove-ar</key>
 	<string>alef-ar</string>
 	<key>alefFathatan-ar</key>
@@ -900,14 +1182,26 @@
 	<string>alef-ar.short</string>
 	<key>alefHamzaabove-ar.fina</key>
 	<string>alef-ar.fina.short</string>
+	<key>alefHamzaabove-ar.isol</key>
+	<string>alefHamzaabove-ar</string>
 	<key>alefHamzabelow-ar</key>
 	<string>alef-ar</string>
 	<key>alefHamzabelow-ar.fina</key>
 	<string>alef-ar.fina</string>
+	<key>alefHamzabelow-ar.isol</key>
+	<string>alefHamzabelow-ar</string>
 	<key>alefMadda-ar</key>
 	<string>alef-ar.short</string>
 	<key>alefMadda-ar.fina</key>
 	<string>alef-ar.fina.short</string>
+	<key>alefMadda-ar.isol</key>
+	<string>alefMadda-ar</string>
+	<key>alefMaksura-ar.init</key>
+	<string>behDotless-ar.init</string>
+	<key>alefMaksura-ar.isol</key>
+	<string>alefMaksura-ar</string>
+	<key>alefMaksura-ar.medi</key>
+	<string>behDotless-ar.medi</string>
 	<key>alefMaksuraAlefabove-ar</key>
 	<string>alefMaksura-ar</string>
 	<key>alefMaksuraAlefabove-ar.fina</key>
@@ -920,10 +1214,14 @@
 	<string>alef-ar.short</string>
 	<key>alefWasla-ar.fina</key>
 	<string>alef-ar.fina.short</string>
+	<key>alefWasla-ar.isol</key>
+	<string>alefWasla-ar</string>
 	<key>alefWavyhamzaabove-ar</key>
 	<string>alef-ar.short</string>
 	<key>alefWavyhamzabelow-ar</key>
 	<string>alef-ar</string>
+	<key>alefWide-hb</key>
+	<string>alef-hb</string>
 	<key>alefdagesh-hb</key>
 	<string>alef-hb</string>
 	<key>alefpatah-hb</key>
@@ -948,6 +1246,8 @@
 	<string>alpha</string>
 	<key>alphamacron</key>
 	<string>alpha</string>
+	<key>alphamod-latin</key>
+	<string>alpha-latin</string>
 	<key>alphaoxia</key>
 	<string>alpha</string>
 	<key>alphaoxiaypogegrammeni</key>
@@ -976,6 +1276,8 @@
 	<string>alpha</string>
 	<key>alphatonos</key>
 	<string>alpha</string>
+	<key>alphaturnedmod-latin</key>
+	<string>alphaturned-latin</string>
 	<key>alphavaria</key>
 	<string>alpha</string>
 	<key>alphavariaypogegrammeni</key>
@@ -986,6 +1288,10 @@
 	<string>alpha</string>
 	<key>amacron</key>
 	<string>a</string>
+	<key>amod</key>
+	<string>a</string>
+	<key>amod-cy</key>
+	<string>a-cy</string>
 	<key>aogonek</key>
 	<string>a</string>
 	<key>aretroflexhook</key>
@@ -998,6 +1304,10 @@
 	<string>a</string>
 	<key>aringbelow</key>
 	<string>a</string>
+	<key>asmall-kata.half</key>
+	<string>asmall-kata</string>
+	<key>asubscript-cy</key>
+	<string>a-cy</string>
 	<key>atilde</key>
 	<string>a</string>
 	<key>au-deva</key>
@@ -1008,8 +1318,12 @@
 	<string>o-tamil</string>
 	<key>auMatra-deva</key>
 	<string>aaMatra-deva</string>
+	<key>ayinaltone-hb</key>
+	<string>ayin-hb</string>
 	<key>b-kannada</key>
 	<string>ba-kannada.base</string>
+	<key>b.full</key>
+	<string>b</string>
 	<key>ba-hira</key>
 	<string>ha-hira</string>
 	<key>ba-kata</key>
@@ -1018,6 +1332,8 @@
 	<string>ba-batak</string>
 	<key>baa-kannada</key>
 	<string>ba-kannada.base</string>
+	<key>barredomod</key>
+	<string>obarred</string>
 	<key>bau-kannada</key>
 	<string>ba-kannada.base</string>
 	<key>bdotbelow</key>
@@ -1034,6 +1350,8 @@
 	<string>behDotless-ar.fina</string>
 	<key>beeh-ar.init</key>
 	<string>behDotless-ar.init</string>
+	<key>beeh-ar.isol</key>
+	<string>beeh-ar</string>
 	<key>beeh-ar.medi</key>
 	<string>behDotless-ar.medi</string>
 	<key>beh-ar</key>
@@ -1042,6 +1360,8 @@
 	<string>behDotless-ar.fina</string>
 	<key>beh-ar.init</key>
 	<string>behDotless-ar.init</string>
+	<key>beh-ar.isol</key>
+	<string>beh-ar</string>
 	<key>beh-ar.medi</key>
 	<string>behDotless-ar.medi</string>
 	<key>behThreedotshorizontalbelow-ar</key>
@@ -1068,10 +1388,20 @@
 	<string>behDotless-ar.fina</string>
 	<key>beheh-ar.init</key>
 	<string>behDotless-ar.init</string>
+	<key>beheh-ar.isol</key>
+	<string>beheh-ar</string>
 	<key>beheh-ar.medi</key>
 	<string>behDotless-ar.medi</string>
 	<key>behhamzaabove-ar</key>
 	<string>beh-ar</string>
+	<key>bemod-cy</key>
+	<string>be-cy</string>
+	<key>besubscript-cy</key>
+	<string>be-cy</string>
+	<key>betaSymbol</key>
+	<string>beta</string>
+	<key>betamod</key>
+	<string>beta</string>
 	<key>betdagesh-hb</key>
 	<string>bet-hb</string>
 	<key>betrafe-hb</key>
@@ -1102,6 +1432,8 @@
 	<string>hi-kata</string>
 	<key>bmacronbelow</key>
 	<string>b</string>
+	<key>bmod</key>
+	<string>b</string>
 	<key>bo-hira</key>
 	<string>ho-hira</string>
 	<key>bo-kannada</key>
@@ -1120,6 +1452,8 @@
 	<string>ba-kannada</string>
 	<key>c-kannada</key>
 	<string>ca-kannada.base</string>
+	<key>c.full</key>
+	<string>c</string>
 	<key>ca-kannada</key>
 	<string>ca-kannada.base</string>
 	<key>caa-kannada</key>
@@ -1136,6 +1470,8 @@
 	<string>c</string>
 	<key>ccircumflex</key>
 	<string>c</string>
+	<key>ccurlmod</key>
+	<string>ccurl</string>
 	<key>cdotaccent</key>
 	<string>c</string>
 	<key>ce-kannada</key>
@@ -1156,14 +1492,22 @@
 	<string>che-cy</string>
 	<key>chedieresis-cy</key>
 	<string>che-cy</string>
+	<key>chemod-cy</key>
+	<string>che-cy</string>
+	<key>chesubscript-cy</key>
+	<string>che-cy</string>
 	<key>chhim-yezidi</key>
 	<string>chim-yezidi</string>
+	<key>chimod</key>
+	<string>chi</string>
 	<key>cho-kannada</key>
 	<string>cha-kannada.base</string>
 	<key>chu-kannada</key>
 	<string>cha-kannada</string>
 	<key>chuu-kannada</key>
 	<string>cha-kannada</string>
+	<key>cmod</key>
+	<string>c</string>
 	<key>co-kannada</key>
 	<string>ce-kannada</string>
 	<key>co-kata</key>
@@ -1174,6 +1518,8 @@
 	<string>ca-kannada</string>
 	<key>d-kannada</key>
 	<string>da-kannada.base</string>
+	<key>d.full</key>
+	<string>d</string>
 	<key>da-hira</key>
 	<string>ta-hira</string>
 	<key>da-kannada</key>
@@ -1190,6 +1536,8 @@
 	<string>sad-ar.fina</string>
 	<key>dad-ar.init</key>
 	<string>sad-ar.init</string>
+	<key>dad-ar.isol</key>
+	<string>dad-ar</string>
 	<key>dad-ar.medi</key>
 	<string>sad-ar.medi</string>
 	<key>dadDotbelow-ar</key>
@@ -1198,6 +1546,12 @@
 	<string>dal-ar</string>
 	<key>dahal-ar.fina</key>
 	<string>dal-ar.fina</string>
+	<key>dahal-ar.isol</key>
+	<string>dahal-ar</string>
+	<key>dal-ar.fina</key>
+	<string>dal-ar</string>
+	<key>dal-ar.isol</key>
+	<string>dal-ar</string>
 	<key>dalDotbelow-ar</key>
 	<string>dal-ar</string>
 	<key>dalDotbelowTah-ar</key>
@@ -1216,6 +1570,8 @@
 	<string>dal-ar</string>
 	<key>dalVinvertedbelow-ar</key>
 	<string>dal-ar</string>
+	<key>daletWide-hb</key>
+	<string>dalet-hb</string>
 	<key>daletdagesh-hb</key>
 	<string>dalet-hb</string>
 	<key>damma-ar.medi</key>
@@ -1240,10 +1596,14 @@
 	<string>dal-ar</string>
 	<key>ddahal-ar.fina</key>
 	<string>dal-ar.fina</string>
+	<key>ddahal-ar.isol</key>
+	<string>ddahal-ar</string>
 	<key>ddal-ar</key>
 	<string>dal-ar</string>
 	<key>ddal-ar.fina</key>
 	<string>dal-ar.fina</string>
+	<key>ddal-ar.isol</key>
+	<string>ddal-ar</string>
 	<key>ddau-kannada</key>
 	<string>dda-kannada.base</string>
 	<key>dddh-deva</key>
@@ -1286,6 +1646,12 @@
 	<string>da-kannada.base</string>
 	<key>de-kata</key>
 	<string>te-kata</string>
+	<key>deltamod</key>
+	<string>delta</string>
+	<key>demod-cy</key>
+	<string>de-cy</string>
+	<key>desubscript-cy</key>
+	<string>de-cy</string>
 	<key>dh-kannada</key>
 	<string>d-kannada</string>
 	<key>dha-kannada</key>
@@ -1310,7 +1676,13 @@
 	<string>ti-hira</string>
 	<key>di-kata</key>
 	<string>ti-kata</string>
+	<key>dirgaMure-java</key>
+	<string>taling-java</string>
+	<key>ditalicDoubleStruck</key>
+	<string>d</string>
 	<key>dmacronbelow</key>
+	<string>d</string>
+	<key>dmod</key>
 	<string>d</string>
 	<key>do-hira</key>
 	<string>to-hira</string>
@@ -1318,6 +1690,8 @@
 	<string>de-kannada</string>
 	<key>do-kata</key>
 	<string>to-kata</string>
+	<key>doChada-thai.short</key>
+	<string>doChada-thai</string>
 	<key>dpalatalhook</key>
 	<string>d</string>
 	<key>du-hira</key>
@@ -1330,6 +1704,8 @@
 	<string>dal-ar</string>
 	<key>dul-ar.fina</key>
 	<string>dal-ar.fina</string>
+	<key>dul-ar.isol</key>
+	<string>dul-ar</string>
 	<key>duu-kannada</key>
 	<string>da-kannada</string>
 	<key>dyeh-ar</key>
@@ -1338,16 +1714,38 @@
 	<string>hah-ar.fina</string>
 	<key>dyeh-ar.init</key>
 	<string>hah-ar.init</string>
+	<key>dyeh-ar.isol</key>
+	<string>dyeh-ar</string>
 	<key>dyeh-ar.medi</key>
 	<string>hah-ar.medi</string>
+	<key>dze-cy</key>
+	<string>s</string>
+	<key>dzesubscript-cy</key>
+	<string>dze-cy</string>
+	<key>dzhesubscript-cy</key>
+	<string>dzhe-cy</string>
 	<key>e-ar</key>
 	<string>alefMaksura-ar</string>
 	<key>e-ar.fina</key>
 	<string>alefMaksura-ar.fina</string>
+	<key>e-ar.init</key>
+	<string>beeh-ar.init</string>
+	<key>e-ar.isol</key>
+	<string>e-ar</string>
+	<key>e-ar.medi</key>
+	<string>beeh-ar.medi</string>
+	<key>e-kata.half</key>
+	<string>e-kata</string>
+	<key>e.full</key>
+	<string>e</string>
 	<key>eCandra-deva</key>
 	<string>e-deva</string>
+	<key>eOpenmod</key>
+	<string>eopen</string>
 	<key>eShort-deva</key>
 	<string>e-deva</string>
+	<key>eTurnedopenmod</key>
+	<string>eopenreversed</string>
 	<key>eacute</key>
 	<string>e</string>
 	<key>ebreve</key>
@@ -1384,13 +1782,25 @@
 	<string>e</string>
 	<key>ee-sinhala</key>
 	<string>e-sinhala</string>
+	<key>efmod-cy</key>
+	<string>ef-cy</string>
+	<key>efsubscript-cy</key>
+	<string>ef-cy</string>
 	<key>egrave</key>
 	<string>e</string>
 	<key>ehookabove</key>
 	<string>e</string>
+	<key>einferior</key>
+	<string>e</string>
 	<key>einvertedbreve</key>
 	<string>e</string>
+	<key>eitalicDoubleStruck</key>
+	<string>e</string>
 	<key>eldescender-cy</key>
+	<string>el-cy</string>
+	<key>elmod-cy</key>
+	<string>el-cy</string>
+	<key>elsubscript-cy</key>
 	<string>el-cy</string>
 	<key>emacron</key>
 	<string>e</string>
@@ -1398,14 +1808,26 @@
 	<string>e</string>
 	<key>emacrongrave</key>
 	<string>e</string>
+	<key>emmod-cy</key>
+	<string>em-cy</string>
+	<key>emod</key>
+	<string>e</string>
+	<key>emod-cy</key>
+	<string>ereversed-cy</string>
 	<key>endescender-cy</key>
 	<string>en-cy</string>
+	<key>engmod</key>
+	<string>eng</string>
 	<key>eogonek</key>
 	<string>e</string>
 	<key>eopenretroflexhook</key>
 	<string>eopen</string>
+	<key>eopenreversedmod</key>
+	<string>eopenreversed</string>
 	<key>eopenreversedretroflexhook</key>
 	<string>eopenreversed</string>
+	<key>epsilonLunateSymbol</key>
+	<string>epsilon</string>
 	<key>epsilondasia</key>
 	<string>epsilon</string>
 	<key>epsilondasiaoxia</key>
@@ -1424,14 +1846,32 @@
 	<string>epsilon</string>
 	<key>epsilonvaria</key>
 	<string>epsilon</string>
+	<key>er-cy</key>
+	<string>p</string>
 	<key>eretroflexhook</key>
+	<string>e</string>
+	<key>ermod-cy</key>
+	<string>er-cy</string>
+	<key>es-cy</key>
+	<string>c</string>
+	<key>escript</key>
 	<string>e</string>
 	<key>esdescender-cy</key>
 	<string>es-cy</string>
+	<key>esdescendermod-cy</key>
+	<string>esdescender-cy</string>
+	<key>eshmod</key>
+	<string>esh</string>
 	<key>eshpalatalhook</key>
 	<string>esh</string>
 	<key>eshretroflexhook</key>
 	<string>esh</string>
+	<key>esmall-kata.half</key>
+	<string>esmall-kata</string>
+	<key>esmod-cy</key>
+	<string>es-cy</string>
+	<key>essubscript-cy</key>
+	<string>es-cy</string>
 	<key>estroke</key>
 	<string>e</string>
 	<key>et-yezidi</key>
@@ -1484,16 +1924,24 @@
 	<string>eta</string>
 	<key>etaypogegrammeni</key>
 	<string>eta</string>
+	<key>ethmod</key>
+	<string>eth</string>
 	<key>etilde</key>
 	<string>e</string>
 	<key>etildebelow</key>
 	<string>e</string>
+	<key>eulerconstant</key>
+	<string>Eopen</string>
 	<key>ezhcaron</key>
+	<string>ezh</string>
+	<key>ezhmod</key>
 	<string>ezh</string>
 	<key>ezhretroflexhook</key>
 	<string>ezh</string>
 	<key>f-deva</key>
 	<string>ph-deva</string>
+	<key>f.full</key>
+	<string>f</string>
 	<key>fa-deva</key>
 	<string>pha-deva</string>
 	<key>fa-gurmukhi</key>
@@ -1510,8 +1958,12 @@
 	<string>fehDotless-ar.fina</string>
 	<key>feh-ar.init</key>
 	<string>fehDotless-ar.init</string>
+	<key>feh-ar.isol</key>
+	<string>feh-ar</string>
 	<key>feh-ar.medi</key>
 	<string>fehDotless-ar.medi</string>
+	<key>fehAfrican-ar</key>
+	<string>fehDotless-ar</string>
 	<key>fehDotbelow-ar</key>
 	<string>feh-ar</string>
 	<key>fehDotbelowThreedotsabove-ar</key>
@@ -1524,14 +1976,20 @@
 	<string>fehDotless-ar</string>
 	<key>fehTwodotsbelow-ar</key>
 	<string>fehDotless-ar</string>
+	<key>fmod</key>
+	<string>f</string>
 	<key>fpalatalhook</key>
 	<string>f</string>
 	<key>g-kannada</key>
 	<string>ga-kannada.base</string>
+	<key>g.full</key>
+	<string>g</string>
 	<key>ga-hira</key>
 	<string>ka-hira</string>
 	<key>ga-kannada</key>
 	<string>ga-kannada.base</string>
+	<key>ga-kata</key>
+	<string>ka-kata</string>
 	<key>ga_uSign-batak</key>
 	<string>ga-batak</string>
 	<key>gaa-kannada</key>
@@ -1544,6 +2002,8 @@
 	<string>keheh-ar.fina</string>
 	<key>gaf-ar.init</key>
 	<string>kaf-ar.init</string>
+	<key>gaf-ar.isol</key>
+	<string>gaf-ar</string>
 	<key>gaf-ar.medi</key>
 	<string>kaf-ar.medi</string>
 	<key>gafInvertedstroke-ar</key>
@@ -1554,6 +2014,10 @@
 	<string>gaf-ar</string>
 	<key>gafTwodotsbelow-ar</key>
 	<string>gaf-ar</string>
+	<key>gammadoubleStruck</key>
+	<string>gamma</string>
+	<key>gammamod</key>
+	<string>gamma</string>
 	<key>gau-kannada</key>
 	<string>ga-kannada.base</string>
 	<key>gbreve</key>
@@ -1570,8 +2034,12 @@
 	<string>ke-hira</string>
 	<key>ge-kannada</key>
 	<string>ga-kannada.base</string>
+	<key>ge-kata</key>
+	<string>ke-kata</string>
 	<key>gedescender-cy</key>
 	<string>ge-cy</string>
+	<key>geupturnsubscript-cy</key>
+	<string>geupturn-cy</string>
 	<key>gh-kannada</key>
 	<string>gha-kannada.base</string>
 	<key>ghaa-kannada</key>
@@ -1582,6 +2050,8 @@
 	<string>ain-ar.fina</string>
 	<key>ghain-ar.init</key>
 	<string>ain-ar.init</string>
+	<key>ghain-ar.isol</key>
+	<string>ghain-ar</string>
 	<key>ghain-ar.medi</key>
 	<string>ain-ar.medi</string>
 	<key>ghainDotbelow-ar</key>
@@ -1596,6 +2066,10 @@
 	<string>gha-kannada.base</string>
 	<key>ghe-kannada</key>
 	<string>gha-kannada.base</string>
+	<key>ghemod-cy</key>
+	<string>ge-cy</string>
+	<key>ghesubscript-cy</key>
+	<string>ge-cy</string>
 	<key>ghh-deva</key>
 	<string>g-deva</string>
 	<key>ghha-deva</key>
@@ -1610,36 +2084,54 @@
 	<string>gha-kannada</string>
 	<key>gi-hira</key>
 	<string>ki-hira</string>
+	<key>gi-kata</key>
+	<string>ki-kata</string>
 	<key>gimeldagesh-hb</key>
 	<string>gimel-hb</string>
 	<key>gje-cy</key>
 	<string>ge-cy</string>
 	<key>gmacron</key>
 	<string>g</string>
+	<key>gmod</key>
+	<string>g</string>
 	<key>go-hira</key>
 	<string>ko-hira</string>
 	<key>go-kannada</key>
 	<string>ge-kannada</string>
+	<key>go-kata</key>
+	<string>ko-kata</string>
 	<key>gpalatalhook</key>
+	<string>g</string>
+	<key>gscript</key>
 	<string>g</string>
 	<key>gu-hira</key>
 	<string>ku-hira</string>
 	<key>gu-kannada</key>
 	<string>ga-kannada</string>
+	<key>gu-kata</key>
+	<string>ku-kata</string>
 	<key>gueh-ar</key>
 	<string>gaf-ar</string>
 	<key>gueh-ar.fina</key>
 	<string>gaf-ar.fina</string>
 	<key>gueh-ar.init</key>
 	<string>gaf-ar.init</string>
+	<key>gueh-ar.isol</key>
+	<string>gueh-ar</string>
 	<key>gueh-ar.medi</key>
 	<string>gaf-ar.medi</string>
 	<key>guu-kannada</key>
 	<string>ga-kannada</string>
 	<key>h-kannada</key>
 	<string>ha-kannada.base</string>
+	<key>h.full</key>
+	<string>h</string>
+	<key>ha-cy</key>
+	<string>x</string>
 	<key>ha-kannada</key>
 	<string>ha-kannada.base</string>
+	<key>ha-kata.half</key>
+	<string>ha-kata</string>
 	<key>haMandai_uSign-batak</key>
 	<string>haMandai-batak</string>
 	<key>ha_uSign-batak</key>
@@ -1648,6 +2140,8 @@
 	<string>ha-kannada.base</string>
 	<key>hadescender-cy</key>
 	<string>ha-cy</string>
+	<key>hah-ar.isol</key>
+	<string>hah-ar</string>
 	<key>hahFourbelow-ar</key>
 	<string>hah-ar</string>
 	<key>hahFourbelow-ar.fina</key>
@@ -1684,6 +2178,14 @@
 	<string>hah-ar</string>
 	<key>hahVinvertedbelow-ar</key>
 	<string>hah-ar</string>
+	<key>hamod-cy</key>
+	<string>ha-cy</string>
+	<key>hamza-ar.isol</key>
+	<string>hamza-ar</string>
+	<key>hardsignsubscript-cy</key>
+	<string>hardsign-cy</string>
+	<key>hasubscript-cy</key>
+	<string>ha-cy</string>
 	<key>hau-kannada</key>
 	<string>ha-kannada.base</string>
 	<key>hbar</key>
@@ -1696,30 +2198,68 @@
 	<string>h</string>
 	<key>he-kannada</key>
 	<string>ha-kannada.base</string>
+	<key>he-kata.half</key>
+	<string>he-kata</string>
+	<key>heWide-hb</key>
+	<string>he-hb</string>
 	<key>hedagesh-hb</key>
 	<string>he-hb</string>
+	<key>heh-ar.isol</key>
+	<string>heh-ar</string>
 	<key>hehAlefabove-ar.init</key>
+	<string>heh-ar.init</string>
+	<key>hehDoachashmee-ar</key>
 	<string>heh-ar.init</string>
 	<key>hehHamzaabove-ar</key>
 	<string>heh-ar</string>
 	<key>hehHamzaabove-ar.fina</key>
 	<string>heh-ar.fina</string>
+	<key>hehHamzaabove-ar.isol</key>
+	<string>hehHamzaabove-ar</string>
 	<key>hehVinvertedabove-ar</key>
 	<string>hehDoachashmee-ar</string>
+	<key>hehgoal-ar</key>
+	<string>heh-ar</string>
+	<key>hehgoal-ar.isol</key>
+	<string>hehgoal-ar</string>
 	<key>hehgoalHamzaabove-ar</key>
 	<string>heh-ar</string>
 	<key>hehgoalHamzaabove-ar.fina</key>
 	<string>hehgoal-ar.fina</string>
+	<key>hengmod</key>
+	<string>heng</string>
+	<key>hhookmod</key>
+	<string>hhook</string>
+	<key>hi-kata.half</key>
+	<string>hi-kata</string>
+	<key>hinferior</key>
+	<string>h</string>
 	<key>hmacronbelow</key>
+	<string>h</string>
+	<key>hmod</key>
 	<string>h</string>
 	<key>ho-kannada</key>
 	<string>ha-kannada.base</string>
+	<key>ho-kata.half</key>
+	<string>ho-kata</string>
+	<key>hturnedmod</key>
+	<string>hturned</string>
 	<key>hu-kannada</key>
 	<string>ha-kannada</string>
+	<key>hu-kata.half</key>
+	<string>hu-kata</string>
 	<key>huu-kannada</key>
 	<string>ha-kannada</string>
 	<key>i</key>
 	<string>idotless</string>
+	<key>i-cy</key>
+	<string>i</string>
+	<key>i-kata.half</key>
+	<string>i-kata</string>
+	<key>i.full</key>
+	<string>i</string>
+	<key>iTurnedmod</key>
+	<string>iTurned</string>
 	<key>iacute</key>
 	<string>idotless</string>
 	<key>iacute_j.loclNLD</key>
@@ -1744,9 +2284,15 @@
 	<string>i.sc</string>
 	<key>idotbelow</key>
 	<string>idotless</string>
+	<key>ie-cy</key>
+	<string>e</string>
 	<key>iebreve-cy</key>
 	<string>ie-cy</string>
 	<key>iegrave-cy</key>
+	<string>ie-cy</string>
+	<key>iemod-cy</key>
+	<string>ie-cy</string>
+	<key>iesubscript-cy</key>
 	<string>ie-cy</string>
 	<key>igrave</key>
 	<string>idotless</string>
@@ -1756,16 +2302,26 @@
 	<string>i-deva</string>
 	<key>iigrave-cy</key>
 	<string>ii-cy</string>
+	<key>iimod-cy</key>
+	<string>ii-cy</string>
 	<key>iinvertedbreve</key>
 	<string>idotless</string>
 	<key>iishort-cy</key>
 	<string>ii-cy</string>
 	<key>iishorttail-cy</key>
 	<string>ii-cy</string>
+	<key>iisubscript-cy</key>
+	<string>ii-cy</string>
+	<key>iitalicDoubleStruck</key>
+	<string>i</string>
 	<key>imacron</key>
 	<string>idotless</string>
 	<key>imacron-cy</key>
 	<string>ii-cy</string>
+	<key>imod</key>
+	<string>i</string>
+	<key>imod-cy</key>
+	<string>i-cy</string>
 	<key>io-cy</key>
 	<string>ie-cy</string>
 	<key>iogonek</key>
@@ -1790,6 +2346,8 @@
 	<string>iota</string>
 	<key>iotamacron</key>
 	<string>iota</string>
+	<key>iotamod</key>
+	<string>iota-latin</string>
 	<key>iotaoxia</key>
 	<string>iota</string>
 	<key>iotaperispomeni</key>
@@ -1812,8 +2370,14 @@
 	<string>iota</string>
 	<key>iretroflexhook</key>
 	<string>idotless</string>
+	<key>ismall-kata.half</key>
+	<string>ismall-kata</string>
 	<key>istroke</key>
 	<string>idotless</string>
+	<key>istrokemod</key>
+	<string>istroke</string>
+	<key>isubscript-cy</key>
+	<string>i-cy</string>
 	<key>itilde</key>
 	<string>idotless</string>
 	<key>itildebelow</key>
@@ -1824,6 +2388,8 @@
 	<string>jdotless</string>
 	<key>j-kannada</key>
 	<string>ja-kannada.base</string>
+	<key>j.full</key>
+	<string>j</string>
 	<key>ja_uSign-batak</key>
 	<string>ja-batak</string>
 	<key>jaa-kannada</key>
@@ -1838,6 +2404,12 @@
 	<string>jdotless</string>
 	<key>jcircumflex</key>
 	<string>jdotless</string>
+	<key>jcrossedtailmod</key>
+	<string>jcrossedtail</string>
+	<key>jdotlessstrokemod</key>
+	<string>jdotlessstroke</string>
+	<key>je-cy</key>
+	<string>j</string>
 	<key>je-kannada</key>
 	<string>ja-kannada.base</string>
 	<key>jeem-ar</key>
@@ -1846,6 +2418,8 @@
 	<string>hah-ar.fina</string>
 	<key>jeem-ar.init</key>
 	<string>hah-ar.init</string>
+	<key>jeem-ar.isol</key>
+	<string>jeem-ar</string>
 	<key>jeem-ar.medi</key>
 	<string>hah-ar.medi</string>
 	<key>jeemThreedotsabove-ar</key>
@@ -1858,6 +2432,10 @@
 	<string>reh-ar</string>
 	<key>jeh-ar.fina</key>
 	<string>reh-ar.fina</string>
+	<key>jeh-ar.isol</key>
+	<string>jeh-ar</string>
+	<key>jemod-cy</key>
+	<string>je-cy</string>
 	<key>jh-kannada</key>
 	<string>jha-kannada.base</string>
 	<key>jha-kannada</key>
@@ -1880,16 +2458,28 @@
 	<string>jha-kannada</string>
 	<key>jhuu-kannada</key>
 	<string>jha-kannada</string>
+	<key>jitalicDoubleStruck</key>
+	<string>j</string>
+	<key>jmod</key>
+	<string>j</string>
 	<key>jo-kannada</key>
 	<string>ja-kannada.base</string>
+	<key>jsubscript</key>
+	<string>j</string>
 	<key>ju-kannada</key>
 	<string>ja-kannada</string>
 	<key>juu-kannada</key>
 	<string>ja-kannada</string>
 	<key>k-kannada</key>
 	<string>ka-kannada.base</string>
+	<key>k.full</key>
+	<string>k</string>
 	<key>ka-kannada</key>
 	<string>ka-kannada.base</string>
+	<key>ka-kata.half</key>
+	<string>ka-kata</string>
+	<key>kaSasak-java</key>
+	<string>ka-java</string>
 	<key>kaa-kannada</key>
 	<string>ka-kannada.base</string>
 	<key>kadescender-cy</key>
@@ -1898,6 +2488,8 @@
 	<string>kafDotless-ar</string>
 	<key>kaf-ar.fina</key>
 	<string>kafDotless-ar.fina</string>
+	<key>kaf-ar.isol</key>
+	<string>kaf-ar</string>
 	<key>kafDotabove-ar</key>
 	<string>kaf-ar</string>
 	<key>kafDotbelow-ar</key>
@@ -1908,14 +2500,22 @@
 	<string>kaf-ar</string>
 	<key>kafTwodotshorizontalabove-ar</key>
 	<string>kaf-ar</string>
+	<key>kafWide-hb</key>
+	<string>kaf-hb</string>
 	<key>kafdagesh-hb</key>
 	<string>kaf-hb</string>
 	<key>kafdageshFinal-hb</key>
 	<string>kafFinal-hb</string>
 	<key>kafrafe-hb</key>
 	<string>kaf-hb</string>
+	<key>kamod-cy</key>
+	<string>ka-cy</string>
+	<key>kappaSymbol</key>
+	<string>kappa</string>
 	<key>kasra-ar.medi</key>
 	<string>kashida-ar</string>
+	<key>kasubscript-cy</key>
+	<string>ka-cy</string>
 	<key>kau-kannada</key>
 	<string>ka-kannada.base</string>
 	<key>kcommaaccent</key>
@@ -1924,6 +2524,14 @@
 	<string>k</string>
 	<key>ke-kannada</key>
 	<string>ka-kannada.base</string>
+	<key>ke-kata.half</key>
+	<string>ke-kata</string>
+	<key>keheh-ar.init</key>
+	<string>kaf-ar.init</string>
+	<key>keheh-ar.isol</key>
+	<string>keheh-ar</string>
+	<key>keheh-ar.medi</key>
+	<string>kaf-ar.medi</string>
 	<key>kehehDotabove-ar</key>
 	<string>keheh-ar</string>
 	<key>kehehThreedotsabove-ar</key>
@@ -1948,6 +2556,8 @@
 	<string>hah-ar.fina</string>
 	<key>khah-ar.init</key>
 	<string>hah-ar.init</string>
+	<key>khah-ar.isol</key>
+	<string>khah-ar</string>
 	<key>khah-ar.medi</key>
 	<string>hah-ar.medi</string>
 	<key>khau-kannada</key>
@@ -1966,32 +2576,50 @@
 	<string>kha-kannada</string>
 	<key>khuu-kannada</key>
 	<string>kha-kannada</string>
+	<key>ki-kata.half</key>
+	<string>ki-kata</string>
+	<key>kinferior</key>
+	<string>k</string>
 	<key>kirghizoe-ar</key>
 	<string>waw-ar</string>
 	<key>kirghizoe-ar.fina</key>
 	<string>waw-ar.fina</string>
+	<key>kirghizoe-ar.isol</key>
+	<string>kirghizoe-ar</string>
 	<key>kirghizyu-ar</key>
 	<string>waw-ar</string>
 	<key>kirghizyu-ar.fina</key>
 	<string>waw-ar.fina</string>
+	<key>kirghizyu-ar.isol</key>
+	<string>kirghizyu-ar</string>
 	<key>kje-cy</key>
 	<string>ka-cy</string>
 	<key>kmacronbelow</key>
 	<string>k</string>
+	<key>kmod</key>
+	<string>k</string>
 	<key>ko-kannada</key>
 	<string>ke-kannada</string>
+	<key>ko-kata.half</key>
+	<string>ko-kata</string>
 	<key>kpalatalhook</key>
 	<string>k</string>
 	<key>ku-kannada</key>
 	<string>ka-kannada</string>
+	<key>ku-kata.half</key>
+	<string>ku-kata</string>
 	<key>kuu-kannada</key>
 	<string>ka-kannada</string>
 	<key>l-kannada</key>
 	<string>la-kannada.base</string>
+	<key>l.full</key>
+	<string>l</string>
 	<key>la_uSign-batak</key>
 	<string>la-batak</string>
 	<key>laa-kannada</key>
 	<string>la-kannada.base</string>
+	<key>lam-ar.isol</key>
+	<string>lam-ar</string>
 	<key>lamBar-ar</key>
 	<string>lam-ar</string>
 	<key>lamDotabove-ar</key>
@@ -2028,6 +2656,8 @@
 	<string>lam_alef-ar</string>
 	<key>lam_alefWasla-ar.fina</key>
 	<string>lam_alef-ar.fina</string>
+	<key>lamedWide-hb</key>
+	<string>lamed-hb</string>
 	<key>lameddagesh-hb</key>
 	<string>lamed-hb</string>
 	<key>lau-kannada</key>
@@ -2044,6 +2674,8 @@
 	<string>l</string>
 	<key>le-kannada</key>
 	<string>la-kannada.base</string>
+	<key>linferior</key>
+	<string>l</string>
 	<key>ll-kannada</key>
 	<string>lla-kannada.base</string>
 	<key>llVocalic-sinhala</key>
@@ -2082,26 +2714,42 @@
 	<string>lla-kannada</string>
 	<key>lmacronbelow</key>
 	<string>l</string>
+	<key>lmiddletildemod</key>
+	<string>lmiddletilde</string>
+	<key>lmod</key>
+	<string>l</string>
 	<key>lo-kannada</key>
 	<string>la-kannada.base</string>
+	<key>loChula-thai.short</key>
+	<string>loChula-thai</string>
 	<key>longsdotaccent</key>
 	<string>longs</string>
 	<key>lpalatalhook</key>
 	<string>l</string>
+	<key>lretroflexhookmod</key>
+	<string>lhookretroflex</string>
 	<key>lslash</key>
 	<string>l</string>
 	<key>lu-kannada</key>
 	<string>la-kannada</string>
+	<key>lu-thai.short</key>
+	<string>lu-thai</string>
 	<key>luu-kannada</key>
 	<string>la-kannada</string>
 	<key>m-kannada</key>
 	<string>ma-kannada.base</string>
+	<key>m.full</key>
+	<string>m</string>
+	<key>mTurnedmod</key>
+	<string>mturned</string>
 	<key>ma-kannada</key>
 	<string>va-kannada</string>
 	<key>ma-kannada.base</key>
 	<string>va-kannada</string>
 	<key>ma-kannada.base.e</key>
 	<string>va-kannada.base</string>
+	<key>ma-kata.half</key>
+	<string>ma-kata</string>
 	<key>ma_uSign-batak</key>
 	<string>ma-batak</string>
 	<key>maa-kannada</key>
@@ -2116,28 +2764,58 @@
 	<string>m</string>
 	<key>me-kannada</key>
 	<string>ve-kannada</string>
+	<key>me-kata.half</key>
+	<string>me-kata</string>
+	<key>meem-ar.isol</key>
+	<string>meem-ar</string>
 	<key>meemDotabove-ar</key>
 	<string>meem-ar</string>
 	<key>meemDotbelow-ar</key>
 	<string>meem-ar</string>
 	<key>meemThreedotsabove-ar</key>
 	<string>meem-ar</string>
+	<key>memFinalWide-hb</key>
+	<string>memFinal-hb</string>
 	<key>memdagesh-hb</key>
 	<string>mem-hb</string>
+	<key>mhookmod</key>
+	<string>mhook</string>
 	<key>mi-kannada</key>
 	<string>vi-kannada</string>
+	<key>mi-kata.half</key>
+	<string>mi-kata</string>
+	<key>minferior</key>
+	<string>m</string>
+	<key>mlonglegturnedmod</key>
+	<string>mlonglegturned</string>
+	<key>mmod</key>
+	<string>m</string>
 	<key>mo-kannada</key>
 	<string>va-kannada.base</string>
+	<key>mo-kata.half</key>
+	<string>mo-kata</string>
+	<key>modifierhardsign-cy</key>
+	<string>hardsign-cy</string>
+	<key>modifiersoftsign-cy</key>
+	<string>softsign-cy</string>
 	<key>mpalatalhook</key>
 	<string>m</string>
 	<key>mu-kannada</key>
 	<string>ma-kannada</string>
+	<key>mu-kata.half</key>
+	<string>mu-kata</string>
 	<key>muu-kannada</key>
 	<string>ma-kannada</string>
 	<key>n-kannada</key>
 	<string>na-kannada.base</string>
+	<key>n-kata.half</key>
+	<string>n-kata</string>
+	<key>n.full</key>
+	<string>n</string>
 	<key>na-kannada</key>
 	<string>na-kannada.base</string>
+	<key>na-kata.half</key>
+	<string>na-kata</string>
 	<key>naMandai_uSign-batak</key>
 	<string>naMandai-batak</string>
 	<key>na_uSign-batak</key>
@@ -2162,12 +2840,16 @@
 	<string>n</string>
 	<key>ne-kannada</key>
 	<string>na-kannada.base</string>
+	<key>ne-kata.half</key>
+	<string>ne-kata</string>
 	<key>ng-ar</key>
 	<string>kaf-ar</string>
 	<key>ng-ar.fina</key>
 	<string>kaf-ar.fina</string>
 	<key>ng-ar.init</key>
 	<string>kaf-ar.init</string>
+	<key>ng-ar.isol</key>
+	<string>ng-ar</string>
 	<key>ng-ar.medi</key>
 	<string>kaf-ar.medi</string>
 	<key>ng-kannada</key>
@@ -2190,6 +2872,8 @@
 	<string>gaf-ar.fina</string>
 	<key>ngoeh-ar.init</key>
 	<string>gaf-ar.init</string>
+	<key>ngoeh-ar.isol</key>
+	<string>ngoeh-ar</string>
 	<key>ngoeh-ar.medi</key>
 	<string>gaf-ar.medi</string>
 	<key>ngrave</key>
@@ -2200,7 +2884,15 @@
 	<string>nga-kannada</string>
 	<key>nguu-kannada</key>
 	<string>nga-kannada</string>
+	<key>ni-kata.half</key>
+	<string>ni-kata</string>
+	<key>ninferior</key>
+	<string>n</string>
+	<key>nlefthookmod</key>
+	<string>nhookleft</string>
 	<key>nmacronbelow</key>
+	<string>n</string>
+	<key>nmod</key>
 	<string>n</string>
 	<key>nn-kannada</key>
 	<string>nna-kannada.base</string>
@@ -2222,12 +2914,16 @@
 	<string>nna-kannada</string>
 	<key>no-kannada</key>
 	<string>na-kannada.base</string>
+	<key>no-kata.half</key>
+	<string>no-kata</string>
 	<key>noon-ar</key>
 	<string>noonghunna-ar</string>
 	<key>noon-ar.fina</key>
 	<string>noonghunna-ar.fina</string>
 	<key>noon-ar.init</key>
 	<string>behDotless-ar.init</string>
+	<key>noon-ar.isol</key>
+	<string>noon-ar</string>
 	<key>noon-ar.medi</key>
 	<string>behDotless-ar.medi</string>
 	<key>noonDotbelow-ar</key>
@@ -2238,24 +2934,36 @@
 	<string>noonghunna-ar</string>
 	<key>noonThreedotsabove-ar</key>
 	<string>noonghunna-ar</string>
+	<key>noonThreedotsabove-ar.init</key>
+	<string>theh-ar.init</string>
+	<key>noonThreedotsabove-ar.medi</key>
+	<string>theh-ar.medi</string>
 	<key>noonTwodotsbelow-ar</key>
 	<string>noon-ar</string>
 	<key>noonVabove-ar</key>
 	<string>noon-ar</string>
 	<key>noonVinvertedabove-ar</key>
 	<string>noon-ar</string>
+	<key>noonghunna-ar.isol</key>
+	<string>noonghunna-ar</string>
 	<key>npalatalhook</key>
 	<string>n</string>
+	<key>nretroflexhookmod</key>
+	<string>nhookretroflex</string>
 	<key>ntilde</key>
 	<string>n</string>
 	<key>nu-kannada</key>
 	<string>na-kannada</string>
+	<key>nu-kata.half</key>
+	<string>nu-kata</string>
 	<key>nundagesh-hb</key>
 	<string>nun-hb</string>
 	<key>nuu-kannada</key>
 	<string>na-kannada</string>
 	<key>ny-kannada</key>
 	<string>nya-kannada.base</string>
+	<key>nyaMurda-java</key>
+	<string>ja-java</string>
 	<key>nya_uSign-batak</key>
 	<string>nya-batak</string>
 	<key>nyeh-ar</key>
@@ -2264,12 +2972,22 @@
 	<string>hah-ar</string>
 	<key>nyeh-ar.init</key>
 	<string>hah-ar</string>
+	<key>nyeh-ar.isol</key>
+	<string>nyeh-ar</string>
 	<key>nyeh-ar.medi</key>
 	<string>hah-ar</string>
+	<key>o-cy</key>
+	<string>o</string>
 	<key>o-deva</key>
 	<string>aa-deva</string>
 	<key>o-java</key>
 	<string>wa-java</string>
+	<key>o-kata.half</key>
+	<string>o-kata</string>
+	<key>o.full</key>
+	<string>o</string>
+	<key>oBottomhalfmod</key>
+	<string>oBottomhalf</string>
 	<key>oCandra-deva</key>
 	<string>aa-deva</string>
 	<key>oCandraMatra-deva</key>
@@ -2280,13 +2998,19 @@
 	<string>aaMatra-deva</string>
 	<key>oMatra-gujarati</key>
 	<string>aaMatra-gujarati</string>
+	<key>oOpenmod</key>
+	<string>oopen</string>
 	<key>oShort-deva</key>
 	<string>aa-deva</string>
 	<key>oShortMatra-deva</key>
 	<string>aaMatra-deva</string>
+	<key>oTophalfmod</key>
+	<string>oTophalf</string>
 	<key>oacute</key>
 	<string>o</string>
 	<key>obarreddieresis-cy</key>
+	<string>obarred-cy</string>
+	<key>obarredmod-cy</key>
 	<string>obarred-cy</string>
 	<key>obreve</key>
 	<string>o</string>
@@ -2322,8 +3046,12 @@
 	<string>waw-ar</string>
 	<key>oe-ar.fina</key>
 	<string>waw-ar.fina</string>
+	<key>oe-ar.isol</key>
+	<string>oe-ar</string>
 	<key>oe-deva</key>
 	<string>a-deva</string>
+	<key>oemod</key>
+	<string>oe</string>
 	<key>ograve</key>
 	<string>o</string>
 	<key>ohookabove</key>
@@ -2341,6 +3069,8 @@
 	<key>ohorntilde</key>
 	<string>ohorn</string>
 	<key>ohungarumlaut</key>
+	<string>o</string>
+	<key>oinferior</key>
 	<string>o</string>
 	<key>oinvertedbreve</key>
 	<string>o</string>
@@ -2416,6 +3146,12 @@
 	<string>omicron</string>
 	<key>omicronvaria</key>
 	<string>omicron</string>
+	<key>omod</key>
+	<string>o</string>
+	<key>omod-cy</key>
+	<string>o-cy</string>
+	<key>ooSign-khmer</key>
+	<string>aaSign-khmer</string>
 	<key>ooe-deva</key>
 	<string>aa-deva</string>
 	<key>ooeMatra-deva</key>
@@ -2426,10 +3162,20 @@
 	<string>o</string>
 	<key>oopenretroflexhook</key>
 	<string>oopen</string>
+	<key>ordfeminine</key>
+	<string>a</string>
+	<key>ordmasculine</key>
+	<string>o</string>
+	<key>oscript</key>
+	<string>o</string>
 	<key>oslash</key>
 	<string>o</string>
 	<key>oslashacute</key>
 	<string>oslash</string>
+	<key>osmall-kata.half</key>
+	<string>osmall-kata</string>
+	<key>osubscript-cy</key>
+	<string>o-cy</string>
 	<key>otilde</key>
 	<string>o</string>
 	<key>otildeacute</key>
@@ -2440,16 +3186,22 @@
 	<string>o</string>
 	<key>p-kannada</key>
 	<string>pa-kannada.base</string>
+	<key>p.full</key>
+	<string>p</string>
 	<key>pa-hira</key>
 	<string>ha-hira</string>
 	<key>pa-kannada</key>
 	<string>pa-kannada.base</string>
 	<key>pa-kata</key>
 	<string>ha-kata</string>
+	<key>paCerek-java</key>
+	<string>pa-java</string>
 	<key>paa-kannada</key>
 	<string>pa-kannada.base</string>
 	<key>pacute</key>
 	<string>p</string>
+	<key>palochkamod-cy</key>
+	<string>palochka-cy</string>
 	<key>pau-kannada</key>
 	<string>pa-kannada.base</string>
 	<key>pdotaccent</key>
@@ -2472,6 +3224,8 @@
 	<string>behDotless-ar.fina</string>
 	<key>peh-ar.init</key>
 	<string>behDotless-ar.init</string>
+	<key>peh-ar.isol</key>
+	<string>peh-ar</string>
 	<key>peh-ar.medi</key>
 	<string>behDotless-ar.medi</string>
 	<key>pehVabove-ar</key>
@@ -2482,10 +3236,16 @@
 	<string>fehDotless-ar.fina</string>
 	<key>peheh-ar.init</key>
 	<string>fehDotless-ar.init</string>
+	<key>peheh-ar.isol</key>
+	<string>peheh-ar</string>
 	<key>peheh-ar.medi</key>
 	<string>fehDotless-ar.medi</string>
+	<key>pemod-cy</key>
+	<string>pe-cy</string>
 	<key>perafe-hb</key>
 	<string>pe-hb</string>
+	<key>pesubscript-cy</key>
+	<string>pe-cy</string>
 	<key>ph-kannada</key>
 	<string>p-kannada</string>
 	<key>pha-kannada</key>
@@ -2500,6 +3260,12 @@
 	<string>pe-kannada</string>
 	<key>phi-kannada</key>
 	<string>pi-kannada</string>
+	<key>phiModifier-latin</key>
+	<string>phi-latin</string>
+	<key>phiSymbol</key>
+	<string>phi</string>
+	<key>phimod</key>
+	<string>phi</string>
 	<key>phu-kannada</key>
 	<string>pu-kannada</string>
 	<key>phuu-kannada</key>
@@ -2508,6 +3274,18 @@
 	<string>hi-hira</string>
 	<key>pi-kata</key>
 	<string>hi-kata</string>
+	<key>piSymbol</key>
+	<string>pi</string>
+	<key>pidoubleStruck</key>
+	<string>pi</string>
+	<key>pinferior</key>
+	<string>p</string>
+	<key>planckconstant</key>
+	<string>h</string>
+	<key>planckconstantovertwopi</key>
+	<string>hbar</string>
+	<key>pmod</key>
+	<string>p</string>
 	<key>po-hira</key>
 	<string>ho-hira</string>
 	<key>po-kata</key>
@@ -2522,36 +3300,58 @@
 	<string>tusmall-kata</string>
 	<key>q-deva</key>
 	<string>k-deva</string>
+	<key>q.full</key>
+	<string>q</string>
 	<key>qa-deva</key>
 	<string>ka-deva</string>
+	<key>qaa-khmer</key>
+	<string>qa_aaSign-khmer</string>
 	<key>qaf-ar</key>
 	<string>qafDotless-ar</string>
 	<key>qaf-ar.fina</key>
 	<string>qafDotless-ar.fina</string>
 	<key>qaf-ar.init</key>
 	<string>fehDotless-ar.init</string>
+	<key>qaf-ar.isol</key>
+	<string>qaf-ar</string>
 	<key>qaf-ar.medi</key>
 	<string>fehDotless-ar.medi</string>
+	<key>qafAfrican-ar</key>
+	<string>qafDotless-ar</string>
 	<key>qafDotabove-ar</key>
 	<string>qafDotless-ar</string>
+	<key>qafDotabove-ar.init</key>
+	<string>feh-ar.init</string>
+	<key>qafDotabove-ar.medi</key>
+	<string>feh-ar.medi</string>
 	<key>qafDotbelow-ar</key>
 	<string>qaf-ar</string>
 	<key>qafDotbelowNodotsabove-ar</key>
 	<string>qafDotless-ar</string>
 	<key>qafThreedotsabove-ar</key>
 	<string>qafDotless-ar</string>
+	<key>qafThreedotsabove-ar.init</key>
+	<string>veh-ar.init</string>
+	<key>qafThreedotsabove-ar.medi</key>
+	<string>veh-ar.medi</string>
 	<key>qafThreedotsaboveAfrican-ar</key>
 	<string>qafAfrican-ar</string>
+	<key>qaq-khmer</key>
+	<string>qa-khmer</string>
 	<key>qofdagesh-hb</key>
 	<string>qof-hb</string>
 	<key>r-kannada</key>
 	<string>ra-kannada.base</string>
+	<key>r.full</key>
+	<string>r</string>
 	<key>rVocalic-kannada</key>
 	<string>kha-kannada.base</string>
 	<key>ra-beng</key>
 	<string>ba-beng</string>
 	<key>ra-kannada</key>
 	<string>ra-kannada.base</string>
+	<key>ra-kata.half</key>
+	<string>ra-kata</string>
 	<key>ra_uSign-batak</key>
 	<string>ra-batak</string>
 	<key>raa-kannada</key>
@@ -2574,6 +3374,12 @@
 	<string>r</string>
 	<key>re-kannada</key>
 	<string>ra-kannada.base</string>
+	<key>re-kata.half</key>
+	<string>re-kata</string>
+	<key>reh-ar.fina</key>
+	<string>reh-ar</string>
+	<key>reh-ar.isol</key>
+	<string>reh-ar</string>
 	<key>rehAlefabove-ar</key>
 	<string>reh-ar</string>
 	<key>rehDotbelow-ar</key>
@@ -2602,6 +3408,8 @@
 	<string>reh-ar</string>
 	<key>rehv-ar</key>
 	<string>reh-ar</string>
+	<key>reshWide-hb</key>
+	<string>resh-hb</string>
 	<key>reshdagesh-hb</key>
 	<string>resh-hb</string>
 	<key>rh-beng</key>
@@ -2612,20 +3420,34 @@
 	<string>ddha-beng</string>
 	<key>rha-deva</key>
 	<string>ddha-deva</string>
+	<key>rhoSymbol</key>
+	<string>rho</string>
 	<key>rhodasia</key>
 	<string>rho</string>
 	<key>rhopsili</key>
 	<string>rho</string>
+	<key>ri-kata.half</key>
+	<string>ri-kata</string>
 	<key>rinvertedbreve</key>
 	<string>r</string>
 	<key>rmacronbelow</key>
+	<string>r</string>
+	<key>rmod</key>
 	<string>r</string>
 	<key>rnoon-ar</key>
 	<string>noonghunna-ar</string>
 	<key>rnoon-ar.fina</key>
 	<string>noonghunna-ar.fina</string>
+	<key>rnoon-ar.init</key>
+	<string>tteh-ar.init</string>
+	<key>rnoon-ar.isol</key>
+	<string>rnoon-ar</string>
+	<key>rnoon-ar.medi</key>
+	<string>tteh-ar.medi</string>
 	<key>ro-kannada</key>
 	<string>ra-kannada.base</string>
+	<key>ro-kata.half</key>
+	<string>ro-kata</string>
 	<key>rpalatalhook</key>
 	<string>r</string>
 	<key>rr-beng</key>
@@ -2652,28 +3474,44 @@
 	<string>reh-ar</string>
 	<key>rreh-ar.fina</key>
 	<string>reh-ar.fina</string>
+	<key>rreh-ar.isol</key>
+	<string>rreh-ar</string>
 	<key>rro-kannada</key>
 	<string>rra-kannada.base</string>
 	<key>rru-kannada</key>
 	<string>rra-kannada</string>
 	<key>rruu-kannada</key>
 	<string>rra-kannada</string>
+	<key>rturnedmod</key>
+	<string>rturned</string>
 	<key>ru-kannada</key>
 	<string>ra-kannada</string>
+	<key>ru-kata.half</key>
+	<string>ru-kata</string>
+	<key>ru-thai.short</key>
+	<string>ru-thai</string>
 	<key>ruu-kannada</key>
 	<string>ra-kannada</string>
 	<key>s-kannada</key>
 	<string>sa-kannada.base</string>
+	<key>s.full</key>
+	<string>s</string>
 	<key>sa-kannada</key>
 	<string>sa-kannada.base</string>
+	<key>sa-kata.half</key>
+	<string>sa-kata</string>
 	<key>saMandai_uSign-batak</key>
 	<string>saMandai-batak</string>
+	<key>saMurda-java</key>
+	<string>ga-java</string>
 	<key>saa-kannada</key>
 	<string>sa-kannada.base</string>
 	<key>sacute</key>
 	<string>s</string>
 	<key>sacutedotaccent</key>
 	<string>s</string>
+	<key>sad-ar.isol</key>
+	<string>sad-ar</string>
 	<key>sadThreedots-ar</key>
 	<string>sad-ar</string>
 	<key>sadThreedotsbelow-ar</key>
@@ -2692,12 +3530,20 @@
 	<string>s</string>
 	<key>schwadieresis-cy</key>
 	<string>schwa-cy</string>
+	<key>schwainferior</key>
+	<string>schwa</string>
+	<key>schwamod</key>
+	<string>schwa</string>
+	<key>schwamod-cy</key>
+	<string>schwa-cy</string>
 	<key>schwaretroflexhook</key>
 	<string>schwa</string>
 	<key>scircumflex</key>
 	<string>s</string>
 	<key>scommaaccent</key>
 	<string>s</string>
+	<key>scriptgmod</key>
+	<string>gscript</string>
 	<key>sdotaccent</key>
 	<string>s</string>
 	<key>sdotbelow</key>
@@ -2706,6 +3552,12 @@
 	<string>s</string>
 	<key>se-kannada</key>
 	<string>sa-kannada.base</string>
+	<key>se-kata.half</key>
+	<string>se-kata</string>
+	<key>seen-ar.fina</key>
+	<string>seen-ar</string>
+	<key>seen-ar.isol</key>
+	<string>seen-ar</string>
 	<key>seenDotbelowDotabove-ar</key>
 	<string>seen-ar</string>
 	<key>seenFourabove-ar</key>
@@ -2736,6 +3588,10 @@
 	<string>kashida-ar</string>
 	<key>shaddaKasra-ar.medi</key>
 	<string>kashida-ar</string>
+	<key>shamod-cy</key>
+	<string>sha-cy</string>
+	<key>shasubscript-cy</key>
+	<string>sha-cy</string>
 	<key>shau-kannada</key>
 	<string>sha-kannada.base</string>
 	<key>she-kannada</key>
@@ -2746,12 +3602,16 @@
 	<string>seen-ar.fina</string>
 	<key>sheen-ar.init</key>
 	<string>seen-ar.init</string>
+	<key>sheen-ar.isol</key>
+	<string>sheen-ar</string>
 	<key>sheen-ar.medi</key>
 	<string>seen-ar.medi</string>
 	<key>sheenDotbelow-ar</key>
 	<string>sheen-ar</string>
 	<key>sheenThreedotsbelow-ar</key>
 	<string>sheen-ar</string>
+	<key>shha-cy</key>
+	<string>h</string>
 	<key>shhadescender-cy</key>
 	<string>shha-cy</string>
 	<key>shindagesh-hb</key>
@@ -2766,12 +3626,24 @@
 	<string>shin-hb</string>
 	<key>sho-kannada</key>
 	<string>sha-kannada.base</string>
+	<key>shookmod</key>
+	<string>shook</string>
 	<key>shu-kannada</key>
 	<string>sha-kannada</string>
 	<key>shuu-kannada</key>
 	<string>sha-kannada</string>
+	<key>si-kata.half</key>
+	<string>si-kata</string>
+	<key>sigmaLunateSymbol</key>
+	<string>sigmafinal</string>
+	<key>sinferior</key>
+	<string>s</string>
+	<key>smod</key>
+	<string>s</string>
 	<key>so-kannada</key>
 	<string>sa-kannada.base</string>
+	<key>so-kata.half</key>
+	<string>so-kata</string>
 	<key>spalatalhook</key>
 	<string>s</string>
 	<key>ss-kannada</key>
@@ -2792,20 +3664,28 @@
 	<string>ssa-kannada</string>
 	<key>su-kannada</key>
 	<string>sa-kannada</string>
+	<key>su-kata.half</key>
+	<string>su-kata</string>
 	<key>sukun-ar.medi</key>
 	<string>kashida-ar</string>
 	<key>suu-kannada</key>
 	<string>sa-kannada</string>
 	<key>t-kannada</key>
 	<string>ta-kannada.base</string>
+	<key>t.full</key>
+	<string>t</string>
 	<key>ta-kannada</key>
 	<string>ta-kannada.base</string>
+	<key>ta-kata.half</key>
+	<string>ta-kata</string>
 	<key>taNorth_uSign-batak</key>
 	<string>taNorth-batak</string>
 	<key>taSouth_uSign-batak</key>
 	<string>taSouth-batak</string>
 	<key>taa-kannada</key>
 	<string>ta-kannada.base</string>
+	<key>tah-ar.isol</key>
+	<string>tah-ar</string>
 	<key>tahDotbelow-ar</key>
 	<string>tah-ar</string>
 	<key>tahThreedots-ar</key>
@@ -2818,6 +3698,8 @@
 	<string>si-kata</string>
 	<key>tau-kannada</key>
 	<string>ta-kannada.base</string>
+	<key>tavWide-hb</key>
+	<string>tav-hb</string>
 	<key>tavdagesh-hb</key>
 	<string>tav-hb</string>
 	<key>tbar</key>
@@ -2832,6 +3714,8 @@
 	<string>hah-ar.fina</string>
 	<key>tcheh-ar.init</key>
 	<string>hah-ar.init</string>
+	<key>tcheh-ar.isol</key>
+	<string>tcheh-ar</string>
 	<key>tcheh-ar.medi</key>
 	<string>hah-ar.medi</string>
 	<key>tchehDotabove-ar</key>
@@ -2844,6 +3728,8 @@
 	<string>hah-ar</string>
 	<key>tcheheh-ar.init</key>
 	<string>hah-ar</string>
+	<key>tcheheh-ar.isol</key>
+	<string>tcheheh-ar</string>
 	<key>tcheheh-ar.medi</key>
 	<string>hah-ar</string>
 	<key>tcircumflexbelow</key>
@@ -2858,6 +3744,8 @@
 	<string>t</string>
 	<key>te-kannada</key>
 	<string>ta-kannada.base</string>
+	<key>te-kata.half</key>
+	<string>te-kata</string>
 	<key>tea-hira</key>
 	<string>sa-hira</string>
 	<key>tea-kata</key>
@@ -2870,12 +3758,18 @@
 	<string>behDotless-ar.fina</string>
 	<key>teh-ar.init</key>
 	<string>behDotless-ar.init</string>
+	<key>teh-ar.isol</key>
+	<string>teh-ar</string>
 	<key>teh-ar.medi</key>
 	<string>behDotless-ar.medi</string>
 	<key>tehMarbuta-ar</key>
 	<string>heh-ar</string>
 	<key>tehMarbuta-ar.fina</key>
 	<string>heh-ar.fina</string>
+	<key>tehMarbuta-ar.isol</key>
+	<string>tehMarbuta-ar</string>
+	<key>tehMarbutagoal-ar</key>
+	<string>tehMarbuta-ar</string>
 	<key>tehMarbutagoal-ar.fina</key>
 	<string>hehgoal-ar.fina</string>
 	<key>tehRing-ar</key>
@@ -2892,8 +3786,12 @@
 	<string>behDotless-ar.fina</string>
 	<key>teheh-ar.init</key>
 	<string>behDotless-ar.init</string>
+	<key>teheh-ar.isol</key>
+	<string>teheh-ar</string>
 	<key>teheh-ar.medi</key>
 	<string>behDotless-ar.medi</string>
+	<key>temod-cy</key>
+	<string>te-cy</string>
 	<key>tetdagesh-hb</key>
 	<string>tet-hb</string>
 	<key>th-kannada</key>
@@ -2908,6 +3806,8 @@
 	<string>dal-ar</string>
 	<key>thal-ar.fina</key>
 	<string>dal-ar.fina</string>
+	<key>thal-ar.isol</key>
+	<string>thal-ar</string>
 	<key>thalAlefabove-ar</key>
 	<string>thal-ar</string>
 	<key>thau-kannada</key>
@@ -2920,8 +3820,14 @@
 	<string>behDotless-ar.fina</string>
 	<key>theh-ar.init</key>
 	<string>behDotless-ar.init</string>
+	<key>theh-ar.isol</key>
+	<string>theh-ar</string>
 	<key>theh-ar.medi</key>
 	<string>behDotless-ar.medi</string>
+	<key>thetaSymbol</key>
+	<string>theta</string>
+	<key>thetamod</key>
+	<string>theta</string>
 	<key>thi-kannada</key>
 	<string>di-kannada</string>
 	<key>tho-kannada</key>
@@ -2930,12 +3836,28 @@
 	<string>da-kannada</string>
 	<key>thuu-kannada</key>
 	<string>duu-kannada</string>
+	<key>ti-kata.half</key>
+	<string>ti-kata</string>
+	<key>tinferior</key>
+	<string>t</string>
 	<key>tmacronbelow</key>
+	<string>t</string>
+	<key>tmod</key>
 	<string>t</string>
 	<key>to-kannada</key>
 	<string>ta-kannada.base</string>
+	<key>to-kata.half</key>
+	<string>to-kata</string>
+	<key>toPatak-thai.short</key>
+	<string>toPatak-thai</string>
+	<key>tpalatalhookmod</key>
+	<string>tpalatalhook</string>
 	<key>tsadidagesh-hb</key>
 	<string>tsadi-hb</string>
+	<key>tsemod-cy</key>
+	<string>tse-cy</string>
+	<key>tsesubscript-cy</key>
+	<string>tse-cy</string>
 	<key>tt-kannada</key>
 	<string>tta-kannada.base</string>
 	<key>ttaa-kannada</key>
@@ -2950,6 +3872,8 @@
 	<string>behDotless-ar.fina</string>
 	<key>tteh-ar.init</key>
 	<string>behDotless-ar.init</string>
+	<key>tteh-ar.isol</key>
+	<string>tteh-ar</string>
 	<key>tteh-ar.medi</key>
 	<string>behDotless-ar.medi</string>
 	<key>ttehVabove-ar</key>
@@ -2960,6 +3884,8 @@
 	<string>behDotless-ar.fina</string>
 	<key>tteheh-ar.init</key>
 	<string>behDotless-ar.init</string>
+	<key>tteheh-ar.isol</key>
+	<string>tteheh-ar</string>
 	<key>tteheh-ar.medi</key>
 	<string>behDotless-ar.medi</string>
 	<key>tth-kannada</key>
@@ -2990,16 +3916,34 @@
 	<string>tta-kannada</string>
 	<key>tu-kannada</key>
 	<string>ta-kannada</string>
+	<key>tu-kata.half</key>
+	<string>tu-kata</string>
+	<key>tusmall-kata.half</key>
+	<string>tusmall-kata</string>
 	<key>tuu-kannada</key>
 	<string>ta-kannada</string>
 	<key>u-ar</key>
 	<string>waw-ar</string>
 	<key>u-ar.fina</key>
 	<string>waw-ar.fina</string>
+	<key>u-ar.isol</key>
+	<string>u-ar</string>
+	<key>u-cy</key>
+	<string>y</string>
+	<key>u-kata.half</key>
+	<string>u-kata</string>
+	<key>u.full</key>
+	<string>u</string>
 	<key>uHamzaabove-ar</key>
 	<string>waw-ar</string>
+	<key>uHamzaabove-ar.isol</key>
+	<string>uHamzaabove-ar</string>
+	<key>uSidewaysmod</key>
+	<string>uSideways</string>
 	<key>uacute</key>
 	<string>u</string>
+	<key>ubarmod</key>
+	<string>ubar</string>
 	<key>ubreve</key>
 	<string>u</string>
 	<key>ucaron</key>
@@ -3056,6 +4000,10 @@
 	<string>u-cy</string>
 	<key>umacrondieresis</key>
 	<string>u</string>
+	<key>umod</key>
+	<string>u</string>
+	<key>umod-cy</key>
+	<string>u-cy</string>
 	<key>uogonek</key>
 	<string>u</string>
 	<key>upsilondasia</key>
@@ -3078,6 +4026,8 @@
 	<string>upsilon</string>
 	<key>upsilonmacron</key>
 	<string>upsilon</string>
+	<key>upsilonmod</key>
+	<string>upsilon-latin</string>
 	<key>upsilonoxia</key>
 	<string>upsilon</string>
 	<key>upsilonperispomeni</key>
@@ -3102,6 +4052,14 @@
 	<string>u</string>
 	<key>ushort-cy</key>
 	<string>u-cy</string>
+	<key>usmall-kata.half</key>
+	<string>usmall-kata</string>
+	<key>ustraightmod-cy</key>
+	<string>ustraight-cy</string>
+	<key>ustraightstrokemod-cy</key>
+	<string>ustraightstroke-cy</string>
+	<key>usubscript-cy</key>
+	<string>u-cy</string>
 	<key>utilde</key>
 	<string>u</string>
 	<key>utildeacute</key>
@@ -3114,6 +4072,8 @@
 	<string>a-deva</string>
 	<key>v-kannada</key>
 	<string>va-kannada.base</string>
+	<key>v.full</key>
+	<string>v</string>
 	<key>va-kannada</key>
 	<string>va-kannada.base</string>
 	<key>va-kata</key>
@@ -3132,6 +4092,8 @@
 	<string>waw-ar</string>
 	<key>ve-ar.fina</key>
 	<string>waw-ar.fina</string>
+	<key>ve-ar.isol</key>
+	<string>ve-ar</string>
 	<key>ve-kannada</key>
 	<string>va-kannada.base</string>
 	<key>ve-kata</key>
@@ -3142,24 +4104,44 @@
 	<string>fehDotless-ar.fina</string>
 	<key>veh-ar.init</key>
 	<string>fehDotless-ar.init</string>
+	<key>veh-ar.isol</key>
+	<string>veh-ar</string>
 	<key>veh-ar.medi</key>
 	<string>fehDotless-ar.medi</string>
+	<key>vemod-cy</key>
+	<string>ve-cy</string>
+	<key>vesubscript-cy</key>
+	<string>ve-cy</string>
+	<key>vhookmod</key>
+	<string>vhook</string>
 	<key>vi-kata</key>
 	<string>wi-kata</string>
+	<key>vmod</key>
+	<string>v</string>
 	<key>vo-kata</key>
 	<string>wo-kata</string>
 	<key>vpalatalhook</key>
 	<string>v</string>
 	<key>vtilde</key>
 	<string>v</string>
+	<key>vturnedmod</key>
+	<string>vturned</string>
 	<key>vu-hira</key>
 	<string>u-hira</string>
 	<key>vu-kata</key>
 	<string>u-kata</string>
+	<key>w.full</key>
+	<string>w</string>
+	<key>wa-kata.half</key>
+	<string>wa-kata</string>
 	<key>wa_uSign-batak</key>
 	<string>wa-batak</string>
 	<key>wacute</key>
 	<string>w</string>
+	<key>waw-ar.fina</key>
+	<string>waw-ar</string>
+	<key>waw-ar.isol</key>
+	<string>waw-ar</string>
 	<key>wawDotabove-ar</key>
 	<string>waw-ar</string>
 	<key>wawDotcenter-ar</key>
@@ -3168,6 +4150,8 @@
 	<string>waw-ar</string>
 	<key>wawHamzaabove-ar.fina</key>
 	<string>waw-ar.fina</string>
+	<key>wawHamzaabove-ar.isol</key>
+	<string>wawHamzaabove-ar</string>
 	<key>wawRing-ar</key>
 	<string>waw-ar</string>
 	<key>wawThreeAbove-ar</key>
@@ -3186,22 +4170,38 @@
 	<string>w</string>
 	<key>wgrave</key>
 	<string>w</string>
+	<key>wmod</key>
+	<string>w</string>
+	<key>wo-kata.half</key>
+	<string>wo-kata</string>
 	<key>wring</key>
 	<string>w</string>
+	<key>x.full</key>
+	<string>x</string>
 	<key>xdieresis</key>
 	<string>x</string>
 	<key>xdotaccent</key>
+	<string>x</string>
+	<key>xinferior</key>
+	<string>x</string>
+	<key>xmod</key>
 	<string>x</string>
 	<key>xpalatalhook</key>
 	<string>x</string>
 	<key>y-kannada</key>
 	<string>ya-kannada.base</string>
+	<key>y.full</key>
+	<string>y</string>
 	<key>ya-kannada</key>
 	<string>ya-kannada.base.e</string>
+	<key>ya-kata.half</key>
+	<string>ya-kata</string>
 	<key>yaa-kannada</key>
 	<string>ya-kannada.base</string>
 	<key>yacute</key>
 	<string>y</string>
+	<key>yasmall-kata.half</key>
+	<string>yasmall-kata</string>
 	<key>yau-kannada</key>
 	<string>ya-kannada.base</string>
 	<key>ycircumflex</key>
@@ -3218,8 +4218,20 @@
 	<string>alefMaksura-ar.fina</string>
 	<key>yeh-ar.init</key>
 	<string>behDotless-ar.init</string>
+	<key>yeh-ar.isol</key>
+	<string>yeh-ar</string>
 	<key>yeh-ar.medi</key>
 	<string>behDotless-ar.medi</string>
+	<key>yehFarsi-ar</key>
+	<string>alefMaksura-ar</string>
+	<key>yehFarsi-ar.fina</key>
+	<string>alefMaksura-ar.fina</string>
+	<key>yehFarsi-ar.init</key>
+	<string>yeh-ar.init</string>
+	<key>yehFarsi-ar.isol</key>
+	<string>yehFarsi-ar</string>
+	<key>yehFarsi-ar.medi</key>
+	<string>yeh-ar.medi</string>
 	<key>yehFarsiFourbelow-ar</key>
 	<string>yehFarsi-ar</string>
 	<key>yehFarsiThreeabove-ar</key>
@@ -3244,6 +4256,8 @@
 	<string>alefMaksura-ar.fina</string>
 	<key>yehHamzaabove-ar.init</key>
 	<string>behDotless-ar.init</string>
+	<key>yehHamzaabove-ar.isol</key>
+	<string>yehHamzaabove-ar</string>
 	<key>yehHamzaabove-ar.medi</key>
 	<string>behDotless-ar.medi</string>
 	<key>yehKashmiri-ar</key>
@@ -3254,6 +4268,10 @@
 	<string>behDotless-ar.medi</string>
 	<key>yehThreedotsbelow-ar</key>
 	<string>alefMaksura-ar</string>
+	<key>yehThreedotsbelow-ar.init</key>
+	<string>peh-ar.init</string>
+	<key>yehThreedotsbelow-ar.medi</key>
+	<string>peh-ar.medi</string>
 	<key>yehTwodotsbelowDotabove-ar</key>
 	<string>yeh-ar</string>
 	<key>yehTwodotsbelowHamzaabove-ar</key>
@@ -3266,15 +4284,27 @@
 	<string>yeh-ar.init</string>
 	<key>yehVabove-ar.medi</key>
 	<string>yeh-ar.medi</string>
+	<key>yehbarree-ar.fina</key>
+	<string>yehbarree-ar</string>
+	<key>yehbarree-ar.isol</key>
+	<string>yehbarree-ar</string>
 	<key>yehbarreeHamzaabove-ar</key>
 	<string>yehbarree-ar</string>
 	<key>yehbarreeHamzaabove-ar.fina</key>
 	<string>yehbarree-ar.fina</string>
+	<key>yehbarreeHamzaabove-ar.isol</key>
+	<string>yehbarreeHamzaabove-ar</string>
 	<key>yehbarreeThreeabove-ar</key>
 	<string>yehbarree-ar</string>
 	<key>yehbarreeTwoabove-ar</key>
 	<string>yehbarree-ar</string>
+	<key>yeruBackyermod-cy</key>
+	<string>yeruBackyer-cy</string>
 	<key>yerudieresis-cy</key>
+	<string>yeru-cy</string>
+	<key>yerumod-cy</key>
+	<string>yeru-cy</string>
+	<key>yerusubscript-cy</key>
 	<string>yeru-cy</string>
 	<key>ygrave</key>
 	<string>y</string>
@@ -3284,14 +4314,22 @@
 	<string>idotless</string>
 	<key>ymacron</key>
 	<string>y</string>
+	<key>ymod</key>
+	<string>y</string>
+	<key>yo-kata.half</key>
+	<string>yo-kata</string>
 	<key>yoddagesh-hb</key>
 	<string>yod-hb</string>
 	<key>yodhiriq-hb</key>
 	<string>yod-hb</string>
 	<key>yodyodpatah-hb</key>
 	<string>yodyod-hb</string>
+	<key>yosmall-kata.half</key>
+	<string>yosmall-kata</string>
 	<key>yotcircumflexabove-yezidi</key>
 	<string>yot-yezidi</string>
+	<key>ypogegrammeni</key>
+	<string>ypogegrammeni</string>
 	<key>yring</key>
 	<string>y</string>
 	<key>ytilde</key>
@@ -3300,8 +4338,16 @@
 	<string>waw-ar</string>
 	<key>yu-ar.fina</key>
 	<string>waw-ar.fina</string>
+	<key>yu-ar.isol</key>
+	<string>yu-ar</string>
 	<key>yu-kannada</key>
 	<string>ya-kannada</string>
+	<key>yu-kata.half</key>
+	<string>yu-kata</string>
+	<key>yumod-cy</key>
+	<string>yu-cy</string>
+	<key>yusmall-kata.half</key>
+	<string>yusmall-kata</string>
 	<key>yuu-kannada</key>
 	<string>ya-kannada</string>
 	<key>yy-beng</key>
@@ -3314,6 +4360,8 @@
 	<string>ya-deva</string>
 	<key>z-deva</key>
 	<string>j-deva</string>
+	<key>z.full</key>
+	<string>z</string>
 	<key>za-deva</key>
 	<string>ja-deva</string>
 	<key>za-gurmukhi</key>
@@ -3330,12 +4378,16 @@
 	<string>tah-ar.fina</string>
 	<key>zah-ar.init</key>
 	<string>tah-ar.init</string>
+	<key>zah-ar.isol</key>
+	<string>zah-ar</string>
 	<key>zah-ar.medi</key>
 	<string>tah-ar.medi</string>
 	<key>zain-ar</key>
 	<string>reh-ar</string>
 	<key>zain-ar.fina</key>
 	<string>reh-ar.fina</string>
+	<key>zain-ar.isol</key>
+	<string>zain-ar</string>
 	<key>zainVinvertedabove-ar</key>
 	<string>zain-ar</string>
 	<key>zayindagesh-hb</key>
@@ -3344,6 +4396,8 @@
 	<string>z</string>
 	<key>zcircumflex</key>
 	<string>z</string>
+	<key>zcurlmod</key>
+	<string>zcurl</string>
 	<key>zdotaccent</key>
 	<string>z</string>
 	<key>zdotbelow</key>
@@ -3356,11 +4410,19 @@
 	<string>ze-cy</string>
 	<key>zedieresis-cy</key>
 	<string>ze-cy</string>
+	<key>zemod-cy</key>
+	<string>ze-cy</string>
+	<key>zesubscript-cy</key>
+	<string>ze-cy</string>
 	<key>zhebreve-cy</key>
 	<string>zhe-cy</string>
 	<key>zhedescender-cy</key>
 	<string>zhe-cy</string>
 	<key>zhedieresis-cy</key>
+	<string>zhe-cy</string>
+	<key>zhemod-cy</key>
+	<string>zhe-cy</string>
+	<key>zhesubscript-cy</key>
 	<string>zhe-cy</string>
 	<key>zi-hira</key>
 	<string>si-hira</string>
@@ -3368,12 +4430,16 @@
 	<string>si-kata</string>
 	<key>zmacronbelow</key>
 	<string>z</string>
+	<key>zmod</key>
+	<string>z</string>
 	<key>zo-hira</key>
 	<string>so-hira</string>
 	<key>zo-kata</key>
 	<string>so-kata</string>
 	<key>zpalatalhook</key>
 	<string>z</string>
+	<key>zretroflexhookmod</key>
+	<string>zretroflexhook</string>
 	<key>zstroke</key>
 	<string>z</string>
 	<key>zu-hira</key>
