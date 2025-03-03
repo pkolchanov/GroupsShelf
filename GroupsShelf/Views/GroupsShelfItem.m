@@ -53,12 +53,12 @@
     GSLayer *layer = [glyph layerForId:[master id]];
     NSBezierPath *path = [layer drawBezierPath];
     
-    NSSize size = [[self img] frame].size;
     CGFloat viewSize = [[self img] frame].size.width;
-    CGFloat inset = 5;
+    CGFloat inset = 10;
     CGFloat fontSize = viewSize - 2.0 * inset;
     CGFloat offset = upm / (fontSize / inset);
  
+    NSSize size = [[self img] frame].size;
     NSImage *image = [NSImage imageWithSize:size flipped:NO drawingHandler:^BOOL(NSRect drawRect) {
         NSAffineTransform *transform = [NSAffineTransform transform];
         [transform scaleBy:fontSize / upm];
