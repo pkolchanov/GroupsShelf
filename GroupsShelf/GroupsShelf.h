@@ -20,20 +20,26 @@
 
 #import "MockHeaders.h"
 #import "GroupsShelfItem.h"
+#import "FixGroupsPanelViewController.h"
 
 @interface GroupsShelf : NSWindowController <GlyphsPlugin>
-- (IBAction)closeWindowAction:(id)sender;
+
 @property (strong) IBOutlet NSArrayController *groupsArrayController;
 @property (strong) IBOutlet NSArrayController *glyphsArrayController;
 @property (weak) IBOutlet NSCollectionView *glyphCollectionView;
 @property (weak) IBOutlet NSSegmentedControl *groupPositoinSegmented;
 @property (weak) IBOutlet NSTextField *selectedGroupTextField;
+@property (weak) IBOutlet NSView *fixGroupsView;
+@property (weak) IBOutlet NSLayoutConstraint *fixGroupsHeightConstraint;
+
 @property NSDictionary *compositesDictionary;
+@property FixGroupsPanelViewController *fixGroupsPanelViewController;
 
 - (IBAction)selectGroupTab:(id)sender;
 - (IBAction)addGlyphsToGroup:(id)sender;
 - (IBAction)removeGlyphsFromGroup:(id)sender;
 - (IBAction)showOptionsMenu:(id)sender;
 - (IBAction)renameSelectedGroupAction:(id)sender;
-
+- (IBAction)toggleFixPanel:(id)sender;
+- (IBAction)closeWindowAction:(id)sender;
 @end

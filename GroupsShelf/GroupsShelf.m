@@ -58,6 +58,11 @@ typedef enum {
     [[self glyphCollectionView] registerClass:[GroupsShelfItem class]
                         forItemWithIdentifier:@"GroupsShelfItem"];
     [[self groupsArrayController] addObserver:self forKeyPath:@"selectedObjects" options:1 context:nil];
+    
+    FixGroupsPanelViewController *fixGroupsViewController = [[FixGroupsPanelViewController alloc] initWithNibName:@"FixGroupsPanelViewController" bundle:[NSBundle bundleForClass:[self class]]];
+    [self setFixGroupsPanelViewController:fixGroupsViewController];
+    [[self contentViewController] addChildViewController:fixGroupsViewController];
+    [[self fixGroupsView] addSubview:[fixGroupsViewController view]];
 }
 
 
@@ -78,6 +83,10 @@ typedef enum {
 }
 
 // MARK: -IB
+
+- (IBAction)toggleFixPanel:(id)sender {
+    [[self fixGroupsHeightConstraint] setConstant:[[self fixGroupsHeightConstraint] constant] == 0 ? 150 :0];
+}
 
 - (IBAction)renameSelectedGroupAction:(id)sender {
     [self renameSelectedGroup:[[self selectedGroupTextField] stringValue]];
