@@ -85,7 +85,11 @@ typedef enum {
 // MARK: -IB
 
 - (IBAction)toggleFixPanel:(id)sender {
-    [[self fixGroupsHeightConstraint] setConstant:[[self fixGroupsHeightConstraint] constant] == 0 ? 150 :0];
+    [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
+           context.duration = 0.2;
+        context.timingFunction =  [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+           self.fixGroupsHeightConstraint.animator.constant = [[self fixGroupsHeightConstraint] constant] == 0 ? 150 : 0;
+       } completionHandler:nil];
 }
 
 - (IBAction)renameSelectedGroupAction:(id)sender {

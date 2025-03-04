@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <QuartzCore/QuartzCore.h>
 
 #import <GlyphsCore/GlyphsPluginProtocol.h>
 #import <GlyphsCore/GSFont.h>
