@@ -7,6 +7,7 @@
 //
 
 #import "GroupsShelf.h"
+#import "FixGroupsPanelViewController.h"
 
 typedef enum {
     positionLeft,
@@ -60,6 +61,7 @@ typedef enum {
     [[self groupsArrayController] addObserver:self forKeyPath:@"selectedObjects" options:1 context:nil];
     
     FixGroupsPanelViewController *fixGroupsViewController = [[FixGroupsPanelViewController alloc] initWithNibName:@"FixGroupsPanelViewController" bundle:[NSBundle bundleForClass:[self class]]];
+    [fixGroupsViewController setParent:self];
     [self setFixGroupsPanelViewController:fixGroupsViewController];
     [[self contentViewController] addChildViewController:fixGroupsViewController];
     [[self fixGroupsView] addSubview:[fixGroupsViewController view]];
@@ -199,10 +201,9 @@ typedef enum {
     return group;
 }
 
--(NSString*)kerningGroupIdFromName:(NSString*)group{
-    GroupPosition currentPosition = [self selectedGroupPosition];
-    NSString *prefix = currentPosition == positionLeft ? @"@MMK_R_" : @"@MMK_L_";
-    return [prefix stringByAppendingString:group];
+-(NSString*)kerningGroupIdFromName:(NSString*)groupName forPosition:(GroupPosition)position{
+    NSString *prefix = position == positionLeft ? @"@MMK_R_" : @"@MMK_L_";
+    return [prefix stringByAppendingString:groupName];
 }
 
 -(NSString*)kerningGroupIdOfAGlyph:(GSGlyph*)g forPosition:(GroupPosition)position{
@@ -266,9 +267,13 @@ typedef enum {
 
 // MARK: -Renaming
 -(void)updateAllGroupsWithLeftPrefix:(NSString*)leftPrefx rightPrefix:(NSString*)rightPrefix{
-    for (GroupPosition position=positionLeft; position<2; position++ ){
-        NSArray *groups = [self currentFontGroupsForPosition:position];
-        
+    for (GroupPosition position = positionLeft; position<2; position++ ){
+        NSArray<NSString*> *groups = [self currentFontGroupsForPosition:position];
+        for (NSString *groupName in groups){
+            NSString *groupID = [self kerningGroupIdFromName:groupName forPosition:position];
+            NSString *newID = [groupID stringByAppendingString:position == positionLeft ? leftPrefx : rightPrefix];
+            [self renameGroupWithId:groupID toNewId:newID position:position];
+        }
     }
 }
 
@@ -293,26 +298,27 @@ typedef enum {
 }
 
 -(void)renameSelectedGroup:(NSString*)newName{
+    GroupPosition selectedPosition = [self selectedGroupPosition];
     NSString *currentGroupName =  [[[self groupsArrayController] selectedObjects] firstObject];
-    NSString *currentGroupId = [self kerningGroupIdFromName:currentGroupName];
-    newName = [self kerningGroupIdFromName:newName];
-    [self renameGroup:currentGroupId toNewName:newName position:[self selectedGroupPosition]];
+    NSString *currentGroupId = [self kerningGroupIdFromName:currentGroupName forPosition:selectedPosition];
+    NSString *newId = [self kerningGroupIdFromName:newName forPosition:selectedPosition];
+    [self renameGroupWithId:currentGroupId toNewId:newId position:selectedPosition];
+    
     for (GSGlyph *g in [self currentGroupGlyphs]){
-        NSString *strippedNewName = [self groupNameFromGroupId:newName];
-        [self selectedGroupPosition] == positionLeft ? [g setLeftKerningGroup:strippedNewName] :  [g setRightKerningGroup:strippedNewName];
+        [self selectedGroupPosition] == positionLeft ? [g setLeftKerningGroup:newName] :  [g setRightKerningGroup:newName];
     }
     [self updateKerningData];
 }
 
--(void)renameGroup:(NSString*)groupId toNewName:(NSString*)newName position:(GroupPosition)position{
+-(void)renameGroupWithId:(NSString*)groupId toNewId:(NSString*)newId position:(GroupPosition)position{
     for (GSFontMaster *m in [[self currentFont] fontMasters]){
         NSDictionary *kernPairsToUpdate = [self kernPairsToUpdate:m groupName:groupId position:position];
         for (NSString *otherGroup in kernPairsToUpdate) {
             NSNumber *val = [kernPairsToUpdate objectForKey:otherGroup];
             BOOL isRightPosition = (position == positionRight);
              
-            NSString *leftKey = isRightPosition ? newName : otherGroup;
-            NSString *rightKey = isRightPosition ? otherGroup : newName;
+            NSString *leftKey = isRightPosition ? newId : otherGroup;
+            NSString *rightKey = isRightPosition ? otherGroup : newId;
             NSString *oldRightKey = isRightPosition ? otherGroup : groupId;
             NSString *oldLeftKey = isRightPosition ? groupId : otherGroup;
      
@@ -324,7 +330,7 @@ typedef enum {
 
 -(void)removeSelectedGroup:(id)sender{
     NSString *currentGroupName =  [[[self groupsArrayController] selectedObjects] firstObject];
-    NSString *currentGroupFullName = [self kerningGroupIdFromName:currentGroupName];
+    NSString *currentGroupFullName = [self kerningGroupIdFromName:currentGroupName forPosition:[self selectedGroupPosition]];
     
     for (GSFontMaster *m in [[self currentFont] fontMasters]){
         NSDictionary *kernPairsToUpdate = [self kernPairsToUpdate:m groupName:currentGroupFullName position:[self selectedGroupPosition]] ;

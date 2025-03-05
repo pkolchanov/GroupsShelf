@@ -6,10 +6,7 @@
 //
 
 #import "FixGroupsPanelViewController.h"
-
-@interface FixGroupsPanelViewController ()
-
-@end
+#import "GroupsShelf.h"
 
 @implementation FixGroupsPanelViewController
 
@@ -19,8 +16,8 @@
 }
 
 - (IBAction)fixGroupsAction:(id)sender {
-    [[self leftGroupPrefixField] stringValue];
-    [[self rightGroupPrefixField] stringValue];
-    
+    NSString *leftPrefix = [[self leftGroupPrefixField] stringValue];
+    NSString *rightPrefix = [[self rightGroupPrefixField] stringValue];
+    [[self parent] updateAllGroupsWithLeftPrefix:leftPrefix rightPrefix:rightPrefix];
 }
 @end

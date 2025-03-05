@@ -21,7 +21,8 @@
 
 #import "MockHeaders.h"
 #import "GroupsShelfItem.h"
-#import "FixGroupsPanelViewController.h"
+
+@class FixGroupsPanelViewController;
 
 @interface GroupsShelf : NSWindowController <GlyphsPlugin>
 
@@ -43,4 +44,6 @@
 - (IBAction)renameSelectedGroupAction:(id)sender;
 - (IBAction)toggleFixPanel:(id)sender;
 - (IBAction)closeWindowAction:(id)sender;
+
+-(void)updateAllGroupsWithLeftPrefix:(NSString*)leftPrefx rightPrefix:(NSString*)rightPrefix;
 @end
