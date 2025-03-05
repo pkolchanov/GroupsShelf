@@ -211,11 +211,6 @@ typedef enum {
     return group;
 }
 
--(NSString*)selectedKerningGroupIdOfAGlyph:(GSGlyph*)g{
-    GroupPosition currentPosition = [self selectedGroupPosition];
-    return [self kerningGroupIdOfAGlyph:g forPosition:currentPosition];
-}
-
 // MARK: -Interface Updates
 
 -(void)updateKerningData{
@@ -251,31 +246,26 @@ typedef enum {
     return [allKeys array];
 }
 
--(NSArray<GSGlyph*> *)currentGroupGlyphs{
+-(NSArray<GSGlyph*>*)glyphsOfAGroupId:(NSString*)groupId position:(GroupPosition)position{
     GSFont *currentFont = [self currentFont];
-    NSString *currentGroup = [[[self groupsArrayController] selectedObjects] firstObject];
     NSMutableArray<GSGlyph*> *glyphsOfCurrentGroup = [[NSMutableArray alloc] init];
   
     for (GSGlyph *g in [currentFont glyphs]){
-        NSString * group = [self groupNameFromGroupId:[self selectedKerningGroupIdOfAGlyph:g]];
-        if ([group isEqualToString:currentGroup]){
+        NSString *glyphId = [self kerningGroupIdOfAGlyph:g forPosition:position];
+        if ([glyphId isEqualToString:groupId]){
             [glyphsOfCurrentGroup addObject:g];
         }
     }
     return glyphsOfCurrentGroup;
 }
 
-// MARK: -Renaming
--(void)updateAllGroupsWithLeftPrefix:(NSString*)leftPrefx rightPrefix:(NSString*)rightPrefix{
-    for (GroupPosition position = positionLeft; position<2; position++ ){
-        NSArray<NSString*> *groups = [self currentFontGroupsForPosition:position];
-        for (NSString *groupName in groups){
-            NSString *groupID = [self kerningGroupIdFromName:groupName forPosition:position];
-            NSString *newID = [groupID stringByAppendingString:position == positionLeft ? leftPrefx : rightPrefix];
-            [self renameGroupWithId:groupID toNewId:newID position:position];
-        }
-    }
+-(NSArray<GSGlyph*> *)currentGroupGlyphs{
+    NSString *currentGroupName = [[[self groupsArrayController] selectedObjects] firstObject];
+    NSString *currentGroupId = [self kerningGroupIdFromName:currentGroupName forPosition:[self selectedGroupPosition]];
+    return [self glyphsOfAGroupId:currentGroupId position:[self selectedGroupPosition]];
 }
+
+// MARK: -Renaming
 
 -( NSDictionary* _Nullable )kernPairsToUpdate:(GSFontMaster*) m groupName:(NSString*)groupFullName position:(GroupPosition)position{
     MGOrderedDictionary *pairsDict = [[[self currentFont] kerningLTR] valueForKey:[m id]];
@@ -299,15 +289,24 @@ typedef enum {
 
 -(void)renameSelectedGroup:(NSString*)newName{
     GroupPosition selectedPosition = [self selectedGroupPosition];
-    NSString *currentGroupName =  [[[self groupsArrayController] selectedObjects] firstObject];
+    NSString *currentGroupName = [[[self groupsArrayController] selectedObjects] firstObject];
     NSString *currentGroupId = [self kerningGroupIdFromName:currentGroupName forPosition:selectedPosition];
     NSString *newId = [self kerningGroupIdFromName:newName forPosition:selectedPosition];
     [self renameGroupWithId:currentGroupId toNewId:newId position:selectedPosition];
-    
-    for (GSGlyph *g in [self currentGroupGlyphs]){
-        [self selectedGroupPosition] == positionLeft ? [g setLeftKerningGroup:newName] :  [g setRightKerningGroup:newName];
-    }
+ 
     [self updateKerningData];
+}
+
+-(void)updateAllGroupsWithLeftPrefix:(NSString*)leftPrefx rightPrefix:(NSString*)rightPrefix{
+    for (GroupPosition position = positionLeft; position<2; position++ ){
+        NSArray<NSString*> *groups = [self currentFontGroupsForPosition:position];
+        for (NSString *groupName in groups){
+            NSString *groupID = [self kerningGroupIdFromName:groupName forPosition:position];
+            NSString *newID = [groupID stringByAppendingString:position == positionLeft ? leftPrefx : rightPrefix];
+            [self renameGroupWithId:groupID toNewId:newID position:position];
+             
+        }
+    }
 }
 
 -(void)renameGroupWithId:(NSString*)groupId toNewId:(NSString*)newId position:(GroupPosition)position{
@@ -325,6 +324,9 @@ typedef enum {
             [self setKerningForFontMasterID:[m id] leftKey:leftKey rightKey:rightKey value:val];
             [self removeKerningForFontMasterID:[m id] leftKey:oldLeftKey rightKey:oldRightKey];
         }
+    }
+    for (GSGlyph*g in [self glyphsOfAGroupId:groupId position:position]){
+        position == positionLeft ? [g setLeftKerningGroupId:newId] : [g setRightKerningGroupId:newId];
     }
 }
 
