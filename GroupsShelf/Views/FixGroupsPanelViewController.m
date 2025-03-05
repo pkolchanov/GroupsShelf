@@ -18,4 +18,9 @@
     // Do view setup here.
 }
 
+- (IBAction)fixGroupsAction:(id)sender {
+    [[self leftGroupPrefixField] stringValue];
+    [[self rightGroupPrefixField] stringValue];
+    
+}
 @end

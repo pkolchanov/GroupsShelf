@@ -10,6 +10,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FixGroupsPanelViewController : NSViewController
+@property (weak) IBOutlet NSTextField *rightGroupPrefixField;
+@property (weak) IBOutlet NSButton *addMissingCompositesCheckbox;
+@property (weak) IBOutlet NSButton *removeEmptyGroupsCheckbox;
+- (IBAction)fixGroupsAction:(id)sender;
+@property (weak) IBOutlet NSTextField *leftGroupPrefixField;
 @property (weak)GroupsShelf *parent;
 @end
 
