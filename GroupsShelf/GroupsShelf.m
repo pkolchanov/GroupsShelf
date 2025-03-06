@@ -310,23 +310,24 @@ typedef enum {
 }
 
 -(void)renameGroupWithId:(NSString*)groupId toNewId:(NSString*)newId position:(GroupPosition)position{
+    BOOL isLeftPosition = (position == positionLeft);
+    
     for (GSFontMaster *m in [[self currentFont] fontMasters]){
         NSDictionary *kernPairsToUpdate = [self kernPairsToUpdate:m groupName:groupId position:position];
         for (NSString *otherGroup in kernPairsToUpdate) {
             NSNumber *val = [kernPairsToUpdate objectForKey:otherGroup];
-            BOOL isRightPosition = (position == positionRight);
-             
-            NSString *leftKey = isRightPosition ? newId : otherGroup;
-            NSString *rightKey = isRightPosition ? otherGroup : newId;
-            NSString *oldRightKey = isRightPosition ? otherGroup : groupId;
-            NSString *oldLeftKey = isRightPosition ? groupId : otherGroup;
+    
+            NSString *leftKey = isLeftPosition ? otherGroup : newId;
+            NSString *rightKey = isLeftPosition ? newId : otherGroup;
+            NSString *oldLeftKey = isLeftPosition ? otherGroup : groupId;
+            NSString *oldRightKey = isLeftPosition ? groupId : otherGroup;
      
             [self setKerningForFontMasterID:[m id] leftKey:leftKey rightKey:rightKey value:val];
             [self removeKerningForFontMasterID:[m id] leftKey:oldLeftKey rightKey:oldRightKey];
         }
     }
     for (GSGlyph*g in [self glyphsOfAGroupId:groupId position:position]){
-        position == positionLeft ? [g setLeftKerningGroupId:newId] : [g setRightKerningGroupId:newId];
+        isLeftPosition ? [g setLeftKerningGroupId:newId] : [g setRightKerningGroupId:newId];
     }
 }
 
@@ -368,7 +369,6 @@ typedef enum {
     if (innerDict == nil) {
         return;
     }
-
     [innerDict removeObjectForKey:rightKey];
 }
 
