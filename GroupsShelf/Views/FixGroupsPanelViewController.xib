@@ -8,9 +8,14 @@
         <customObject id="-2" userLabel="File's Owner" customClass="FixGroupsPanelViewController">
             <connections>
                 <outlet property="addMissingCompositesCheckbox" destination="ksG-Bs-Afy" id="FZh-eW-ueV"/>
+                <outlet property="findTextField" destination="xe7-5z-J3W" id="5dy-W3-Ylm"/>
+                <outlet property="includeLeftGroupCheckbox" destination="ksG-Bs-Afy" id="vu8-cv-fYo"/>
+                <outlet property="includeRightGroupCheckbox" destination="OnU-Oe-Erj" id="SUm-Pc-HEE"/>
                 <outlet property="leftGroupPrefixField" destination="xe7-5z-J3W" id="yw4-eF-9tF"/>
                 <outlet property="removeEmptyGroupsCheckbox" destination="OnU-Oe-Erj" id="cic-Wb-lJS"/>
+                <outlet property="replaceTextField" destination="8w3-th-tSc" id="77q-ws-SQn"/>
                 <outlet property="rightGroupPrefixField" destination="8w3-th-tSc" id="CrO-MD-pVo"/>
+                <outlet property="useRegexCheckbox" destination="S6a-tD-3C3" id="0ib-03-9iB"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -23,16 +28,50 @@
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="trZ-es-sOc">
                     <rect key="frame" x="5" y="-1" width="220" height="32"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="push" title="Fix!" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1dp-k9-JjD">
+                    <buttonCell key="cell" type="push" title="Rename Groups" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1dp-k9-JjD">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
-                        <action selector="fixGroupsAction:" target="-2" id="hlz-kp-uT7"/>
+                        <action selector="renameGroupsActtion:" target="-2" id="YZi-83-Ah0"/>
                     </connections>
                 </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8sP-SV-zwz">
+                    <rect key="frame" x="10" y="120" width="27" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Find" id="DXI-pr-uAk">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mvl-ul-2Hc">
+                    <rect key="frame" x="10" y="91" width="71" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Replace with" id="BOu-2t-pd1">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ksG-Bs-Afy">
+                    <rect key="frame" x="10" y="61" width="88" height="19"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="Left Groups" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="s8L-QL-QFW">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="smallSystem"/>
+                    </buttonCell>
+                </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OnU-Oe-Erj">
+                    <rect key="frame" x="116" y="61" width="95" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="Right Groups" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="0cK-BE-Qc1">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="smallSystem"/>
+                    </buttonCell>
+                </button>
                 <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xe7-5z-J3W" userLabel="Left suffix">
-                    <rect key="frame" x="75" y="119" width="55" height="21"/>
+                    <rect key="frame" x="89" y="119" width="129" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="WvB-ge-XuF">
                         <font key="font" metaFont="system"/>
@@ -41,7 +80,7 @@
                     </textFieldCell>
                 </textField>
                 <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8w3-th-tSc" userLabel="Left suffix">
-                    <rect key="frame" x="75" y="90" width="55" height="21"/>
+                    <rect key="frame" x="89" y="90" width="129" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="jnY-14-smQ">
                         <font key="font" metaFont="system"/>
@@ -49,45 +88,10 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8sP-SV-zwz">
-                    <rect key="frame" x="134" y="122" width="79" height="14"/>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S6a-tD-3C3">
+                    <rect key="frame" x="10" y="34" width="196" height="19"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="for left groups" id="DXI-pr-uAk">
-                        <font key="font" metaFont="smallSystem"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aqI-MS-KFb">
-                    <rect key="frame" x="10" y="122" width="62" height="14"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="With prefix" id="lla-CX-ehz">
-                        <font key="font" metaFont="smallSystem"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mvl-ul-2Hc">
-                    <rect key="frame" x="134" y="93" width="86" height="14"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="for right groups" id="BOu-2t-pd1">
-                        <font key="font" metaFont="smallSystem"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ksG-Bs-Afy">
-                    <rect key="frame" x="10" y="62" width="174" height="19"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Add missing composites" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="s8L-QL-QFW">
-                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="smallSystem"/>
-                    </buttonCell>
-                </button>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OnU-Oe-Erj">
-                    <rect key="frame" x="10" y="38" width="144" height="18"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Remove empty groups" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="0cK-BE-Qc1">
+                    <buttonCell key="cell" type="check" title="Match using regular expressions" bezelStyle="regularSquare" imagePosition="left" inset="2" id="kgo-VW-f22">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="smallSystem"/>
                     </buttonCell>

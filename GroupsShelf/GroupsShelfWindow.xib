@@ -269,7 +269,7 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="38Q-I6-4g1">
-                                    <rect key="frame" x="7" y="0.0" width="18" height="23"/>
+                                    <rect key="frame" x="7" y="2" width="18" height="23"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="roundTextured" title="􀆈" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="Ev4-v4-1q2">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -280,9 +280,9 @@
                                     </connections>
                                 </button>
                                 <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cet-Kk-EJM">
-                                    <rect key="frame" x="24" y="3" width="69" height="17"/>
+                                    <rect key="frame" x="24" y="5" width="101" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Fix Groups" id="4Fh-RZ-9d8">
+                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Rename Groups" id="4Fh-RZ-9d8">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

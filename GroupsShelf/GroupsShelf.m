@@ -309,6 +309,42 @@ typedef enum {
     }
 }
 
+-(void)find:(NSString*)searchString andReplaceWith:(NSString*)replace incluceLeftGroups:(BOOL) includeLeft inclureRightGroups:(BOOL)includeRight useRegex:(BOOL)useRegex{
+  
+    void (^processPosition)(GroupPosition) = ^(GroupPosition position) {
+       NSArray<NSString *> *groups = [self currentFontGroupsForPosition:position];
+       for (NSString *groupName in groups) {
+           NSString *groupID = [self kerningGroupIdFromName:groupName forPosition:position];
+           NSString *newName;
+           if (useRegex) {
+              NSError *error = nil;
+              NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:searchString options:0 error:&error];
+              if (error) {
+                  NSLog(@"Invalid regex pattern: %@", error.localizedDescription);
+                  continue;
+              }
+              newName = [regex stringByReplacingMatchesInString:groupName options:0 range:NSMakeRange(0, groupName.length) withTemplate:replace];
+           } else {
+               newName = [groupName stringByReplacingOccurrencesOfString:searchString withString:replace];
+           }
+           if ([newName isEqualToString:@""]){
+               //TODO: newName already exists
+               continue;
+           }
+           NSString *newID = [self kerningGroupIdFromName:newName forPosition:position];
+
+           [self renameGroupWithId:groupID toNewId:newID position:position];
+       }
+    };
+
+    if (includeLeft) {
+       processPosition(positionLeft);
+    }
+    if (includeRight) {
+       processPosition(positionRight);
+    }
+}
+
 -(void)renameGroupWithId:(NSString*)groupId toNewId:(NSString*)newId position:(GroupPosition)position{
     BOOL isLeftPosition = (position == positionLeft);
     

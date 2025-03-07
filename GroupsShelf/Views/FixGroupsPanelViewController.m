@@ -15,9 +15,12 @@
     // Do view setup here.
 }
 
-- (IBAction)fixGroupsAction:(id)sender {
-    NSString *leftPrefix = [[self leftGroupPrefixField] stringValue];
-    NSString *rightPrefix = [[self rightGroupPrefixField] stringValue];
-    [[self parent] updateAllGroupsWithLeftPrefix:leftPrefix rightPrefix:rightPrefix];
+- (IBAction)renameGroupsActtion:(id)sender {
+    NSString *findString = [[self findTextField] stringValue];
+    NSString *replaceString = [[self replaceTextField] stringValue];
+    BOOL left = [[self includeLeftGroupCheckbox] state] == NSControlStateValueOn;
+    BOOL right = [[self includeRightGroupCheckbox] state] == NSControlStateValueOn;
+    BOOL useRegex = [[self useRegexCheckbox] state] == NSControlStateValueOn;
+    [[self parent] find:findString andReplaceWith:replaceString incluceLeftGroups:left inclureRightGroups:right useRegex:useRegex];
 }
 @end

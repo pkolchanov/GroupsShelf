@@ -45,5 +45,5 @@
 - (IBAction)toggleFixPanel:(id)sender;
 - (IBAction)closeWindowAction:(id)sender;
 
--(void)updateAllGroupsWithLeftPrefix:(NSString*)leftPrefx rightPrefix:(NSString*)rightPrefix;
+-(void)find:(NSString*)searchString andReplaceWith:(NSString*)replace incluceLeftGroups:(BOOL) includeLeft inclureRightGroups:(BOOL)includeRight useRegex:(BOOL)useRegex;
 @end
