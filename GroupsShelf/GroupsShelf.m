@@ -261,6 +261,9 @@ typedef enum {
 
 -(NSArray<GSGlyph*> *)currentGroupGlyphs{
     NSString *currentGroupName = [[[self groupsArrayController] selectedObjects] firstObject];
+    if (currentGroupName == nil){
+        return @[];
+    }
     NSString *currentGroupId = [self kerningGroupIdFromName:currentGroupName forPosition:[self selectedGroupPosition]];
     return [self glyphsOfAGroupId:currentGroupId position:[self selectedGroupPosition]];
 }
