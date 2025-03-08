@@ -349,6 +349,9 @@ typedef enum {
 }
 
 -(void)renameGroupWithId:(NSString*)groupId toNewId:(NSString*)newId position:(GroupPosition)position{
+    if ([groupId isEqualToString:newId]){
+        return;
+    }
     BOOL isLeftPosition = (position == positionLeft);
     
     for (GSFontMaster *m in [[self currentFont] fontMasters]){
