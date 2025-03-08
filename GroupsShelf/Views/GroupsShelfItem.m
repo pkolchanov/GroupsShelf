@@ -24,6 +24,7 @@
     
     view.layer.cornerRadius = 5;
     view.layer.borderWidth = 1;
+    view.layer.borderColor = [[NSColor textBackgroundColor] CGColor];
     
     [self setImg:[[NSImageView alloc] initWithFrame:NSMakeRect(10, 20, 80, 80)]];
     [view addSubview:[self img]];
