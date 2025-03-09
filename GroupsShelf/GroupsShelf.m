@@ -45,8 +45,7 @@ typedef enum {
     return @"";
 }
 
-- (void)awakeFromNib {
-    // TODO: move to ShelfWindow
+- (void)setupWindow {
     NSWindow * _Nullable window = [self window];
     [window setLevel:NSFloatingWindowLevel];
     [window setHidesOnDeactivate:YES];
@@ -56,15 +55,22 @@ typedef enum {
     [window setOpaque:NO];
     [[[window contentView] layer] setBackgroundColor: [[NSColor windowBackgroundColor] CGColor]];
     [[[window contentView] layer] setCornerRadius:10];
-    [[self glyphCollectionView] registerClass:[GroupsShelfItem class]
-                        forItemWithIdentifier:@"GroupsShelfItem"];
-    [[self groupsArrayController] addObserver:self forKeyPath:@"selectedObjects" options:1 context:nil];
-    
+}
+
+- (void)setupRenameGroupsPanel {
     FixGroupsPanelViewController *fixGroupsViewController = [[FixGroupsPanelViewController alloc] initWithNibName:@"FixGroupsPanelViewController" bundle:[NSBundle bundleForClass:[self class]]];
     [fixGroupsViewController setParent:self];
     [self setFixGroupsPanelViewController:fixGroupsViewController];
     [[self contentViewController] addChildViewController:fixGroupsViewController];
     [[self fixGroupsView] addSubview:[fixGroupsViewController view]];
+}
+
+- (void)awakeFromNib {
+    [self setupWindow];
+    [self setupRenameGroupsPanel];
+    [[self glyphCollectionView] registerClass:[GroupsShelfItem class]
+                        forItemWithIdentifier:@"GroupsShelfItem"];
+    [[self groupsArrayController] addObserver:self forKeyPath:@"selectedObjects" options:1 context:nil];
 }
 
 
@@ -133,7 +139,7 @@ typedef enum {
 
 - (IBAction)addGlyphsToGroup:(id)sender {
     NSString * selectedGroup = [[[self groupsArrayController] selectedObjects] firstObject];
-    for (GSGlyph *g in [self curentFontSelectedGlyphs]){
+    for (GSGlyph *g in [GlyphsAccessors curentFontSelectedGlyphs]){
         NSLog(@"To add %@", [g name]);
         NSLog(@"Group %@", selectedGroup);
         [self selectedGroupPosition] == positionLeft ? [g setLeftKerningGroup:selectedGroup] :  [g setRightKerningGroup:selectedGroup];
@@ -155,44 +161,6 @@ typedef enum {
 }
 
 
-
-// MARK: -Glyphs Accessors
-
--(GSDocument*)currentDocument{
-    GSApplication *app = NSApp;
-    GSDocument *document = [app currentFontDocument];
-    return document;
-}
-
--(GSFont *)currentFont{
-    GSDocument *document = [self currentDocument];
-    GSFont *font = [document font];
-    return font;
-}
-
--(GSFontMaster *)currentFontMaster{
-    GSApplication *app = NSApp;
-    GSDocument *document = [app currentFontDocument];
-    
-    return [document selectedFontMaster];
-}
-
-- (NSArray<GSGlyph *> *)curentFontSelectedGlyphs {
-    GSDocument *document = [self currentDocument];
-    NSWindowController<GSWindowControllerProtocol> *windowController = [document windowController];
-    NSLog(@"%@", windowController);
-    if (windowController == nil) return @[];
-    
-    NSArray<GSLayer *> *layers = windowController.selectedLayers;
-    NSMutableArray<GSGlyph *> *glyphs = [NSMutableArray new];
-    
-    for (GSLayer *layer in layers) {
-        GSGlyph *glyph = layer.parent;
-        [glyphs addObject:glyph];
-    }
-    
-    return glyphs;
-}
 // MARK: -Groups Naming
 
 -(NSString*)groupNameFromGroupId:(NSString*)group{
@@ -232,7 +200,7 @@ typedef enum {
 }
 
 -(NSArray<NSString*> *)currentFontGroupsForPosition:(GroupPosition)position{
-    GSFont *currentFont = [self currentFont];
+    GSFont *currentFont = [GlyphsAccessors currentFont];
     if (currentFont == nil){
         return @[];
     }
@@ -247,7 +215,7 @@ typedef enum {
 }
 
 -(NSArray<GSGlyph*>*)glyphsOfAGroupId:(NSString*)groupId position:(GroupPosition)position{
-    GSFont *currentFont = [self currentFont];
+    GSFont *currentFont = [GlyphsAccessors currentFont];
     NSMutableArray<GSGlyph*> *glyphsOfCurrentGroup = [[NSMutableArray alloc] init];
   
     for (GSGlyph *g in [currentFont glyphs]){
@@ -271,7 +239,7 @@ typedef enum {
 // MARK: -Renaming
 
 -( NSDictionary* _Nullable )kernPairsToUpdate:(GSFontMaster*) m groupName:(NSString*)groupFullName position:(GroupPosition)position{
-    MGOrderedDictionary *pairsDict = [[[self currentFont] kerningLTR] valueForKey:[m id]];
+    MGOrderedDictionary *pairsDict = [[[GlyphsAccessors currentFont] kerningLTR] valueForKey:[m id]];
     if (position == positionRight){
         MGOrderedDictionary *resDict = [pairsDict objectForKey:groupFullName];
         return [resDict copy];
@@ -354,7 +322,7 @@ typedef enum {
     }
     BOOL isLeftPosition = (position == positionLeft);
     
-    for (GSFontMaster *m in [[self currentFont] fontMasters]){
+    for (GSFontMaster *m in [[GlyphsAccessors currentFont] fontMasters]){
         NSDictionary *kernPairsToUpdate = [self kernPairsToUpdate:m groupName:groupId position:position];
         for (NSString *otherGroup in kernPairsToUpdate) {
             NSNumber *val = [kernPairsToUpdate objectForKey:otherGroup];
@@ -377,7 +345,7 @@ typedef enum {
     NSString *currentGroupName =  [[[self groupsArrayController] selectedObjects] firstObject];
     NSString *currentGroupFullName = [self kerningGroupIdFromName:currentGroupName forPosition:[self selectedGroupPosition]];
     
-    for (GSFontMaster *m in [[self currentFont] fontMasters]){
+    for (GSFontMaster *m in [[GlyphsAccessors currentFont] fontMasters]){
         NSDictionary *kernPairsToUpdate = [self kernPairsToUpdate:m groupName:currentGroupFullName position:[self selectedGroupPosition]] ;
         for (NSString *otherGroup in kernPairsToUpdate) {
              BOOL isRightTab = ([self selectedGroupPosition] == positionRight);
@@ -394,7 +362,7 @@ typedef enum {
 }
 
 - (void)setKerningForFontMasterID:(id)fontMasterID leftKey:(id)leftKey rightKey:(id)rightKey value:(NSNumber*)value{
-    MGOrderedDictionary *pairsDict = [[[self currentFont] kerningLTR] valueForKey:fontMasterID];
+    MGOrderedDictionary *pairsDict = [[[GlyphsAccessors currentFont] kerningLTR] valueForKey:fontMasterID];
     MGOrderedDictionary *innerDict = [pairsDict objectForKey:leftKey];
 
     if (innerDict == nil) {
@@ -406,7 +374,7 @@ typedef enum {
 }
 
 - (void)removeKerningForFontMasterID:(NSString *)fontMasterID leftKey:(NSString *)leftKey rightKey:(NSString *)rightKey{
-    MGOrderedDictionary *pairsDict = [[[self currentFont] kerningLTR] valueForKey:fontMasterID];
+    MGOrderedDictionary *pairsDict = [[[GlyphsAccessors currentFont] kerningLTR] valueForKey:fontMasterID];
     MGOrderedDictionary *innerDict = [pairsDict objectForKey:leftKey];
     if (innerDict == nil) {
         return;
@@ -420,7 +388,7 @@ typedef enum {
     GroupPosition currentPosition = [self selectedGroupPosition];
     
     NSMutableArray *missingCandidates = [[NSMutableArray alloc] init];
-    for (GSGlyph*g in [[self currentFont] glyphs]){
+    for (GSGlyph*g in [[GlyphsAccessors currentFont] glyphs]){
         NSString * groupId = currentPosition == positionLeft ? [g leftKerningGroupId] : [g rightKerningGroupId];
         if (groupId == nil){
             [missingCandidates addObject:g];

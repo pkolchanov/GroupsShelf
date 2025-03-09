@@ -21,6 +21,7 @@
 
 #import "MockHeaders.h"
 #import "GroupsShelfItem.h"
+#import "GlyphsAccessors.h"
 
 @class FixGroupsPanelViewController;
 
