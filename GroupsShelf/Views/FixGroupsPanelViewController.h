@@ -6,6 +6,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "KerningService.h"
 @class GroupsShelf;
 NS_ASSUME_NONNULL_BEGIN
 

@@ -10,18 +10,11 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import <GlyphsCore/GlyphsPluginProtocol.h>
-#import <GlyphsCore/GSFont.h>
-#import <GlyphsCore/GSFontMaster.h>
-#import <GlyphsCore/GSGlyph.h>
-#import <GlyphsCore/GSLayer.h>
-#import <GlyphsCore/GSWindowControllerProtocol.h>
-#import <GlyphsCore/GSGlyphEditViewProtocol.h>
-#import <GlyphsCore/GSGlyphViewControllerProtocol.h>
-#import <GlyphsCore/MGOrderedDictionary.h>
 
 #import "MockHeaders.h"
 #import "GroupsShelfItem.h"
 #import "GlyphsAccessors.h"
+#import "KerningService.h"
 
 @class FixGroupsPanelViewController;
 
@@ -46,5 +39,5 @@
 - (IBAction)toggleFixPanel:(id)sender;
 - (IBAction)closeWindowAction:(id)sender;
 
--(void)find:(NSString*)searchString andReplaceWith:(NSString*)replace incluceLeftGroups:(BOOL) includeLeft inclureRightGroups:(BOOL)includeRight useRegex:(BOOL)useRegex;
+-(void)updateKerningData;
 @end

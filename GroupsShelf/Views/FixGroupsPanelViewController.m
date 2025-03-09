@@ -21,6 +21,7 @@
     BOOL left = [[self includeLeftGroupCheckbox] state] == NSControlStateValueOn;
     BOOL right = [[self includeRightGroupCheckbox] state] == NSControlStateValueOn;
     BOOL useRegex = [[self useRegexCheckbox] state] == NSControlStateValueOn;
-    [[self parent] find:findString andReplaceWith:replaceString incluceLeftGroups:left inclureRightGroups:right useRegex:useRegex];
+    [KerningService find:findString andReplaceWith:replaceString incluceLeftGroups:left inclureRightGroups:right useRegex:useRegex];
+    [[self parent] updateKerningData];
 }
 @end
