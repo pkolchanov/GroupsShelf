@@ -5,10 +5,10 @@
 //  Created by pkolchanov on 04.03.2025.
 //
 
-#import "FixGroupsPanelViewController.h"
+#import "RenameGroupsViewController.h"
 #import "GroupsShelf.h"
 
-@implementation FixGroupsPanelViewController
+@implementation RenameGroupsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

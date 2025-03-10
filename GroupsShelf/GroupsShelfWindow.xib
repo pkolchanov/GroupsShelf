@@ -8,12 +8,12 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="GroupsShelf">
             <connections>
-                <outlet property="fixGroupsHeightConstraint" destination="P17-fH-RX6" id="LeV-01-7oe"/>
-                <outlet property="fixGroupsView" destination="VYV-K0-q8X" id="uHg-pd-tbE"/>
                 <outlet property="glyphCollectionView" destination="Ziz-Gy-C3Q" id="yUo-Cc-0zn"/>
                 <outlet property="glyphsArrayController" destination="z6o-Dc-Sol" id="xR2-H2-eq4"/>
                 <outlet property="groupPositoinSegmented" destination="Otc-du-tS1" id="4ds-S6-VRu"/>
                 <outlet property="groupsArrayController" destination="bXK-lJ-UKM" id="wsp-JK-Xs5"/>
+                <outlet property="renameGroupsHeightConstraint" destination="P17-fH-RX6" id="LeV-01-7oe"/>
+                <outlet property="renameGroupsView" destination="VYV-K0-q8X" id="uHg-pd-tbE"/>
                 <outlet property="searchField" destination="Q4M-m7-5EM" id="iXx-xP-A7O"/>
                 <outlet property="selectedGroupLabel" destination="IjB-lj-zwA" id="8xG-mf-2A7"/>
                 <outlet property="selectedGroupTextField" destination="IjB-lj-zwA" id="TwL-my-QOB"/>
@@ -269,26 +269,26 @@
                             <rect key="frame" x="0.0" y="0.0" width="230" height="26"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="38Q-I6-4g1">
-                                    <rect key="frame" x="7" y="2" width="18" height="23"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <buttonCell key="cell" type="roundTextured" title="􀆈" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="Ev4-v4-1q2">
-                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                        <font key="font" size="13" name="SFCompact-Regular"/>
-                                    </buttonCell>
-                                    <connections>
-                                        <action selector="toggleFixPanel:" target="-2" id="JQV-q9-eb5"/>
-                                    </connections>
-                                </button>
                                 <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cet-Kk-EJM">
-                                    <rect key="frame" x="24" y="5" width="101" height="17"/>
+                                    <rect key="frame" x="19" y="3" width="101" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" lineBreakMode="clipping" title="Rename Groups" id="4Fh-RZ-9d8">
-                                        <font key="font" metaFont="system"/>
-                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <font key="font" metaFont="system" size="11"/>
+                                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
+                                <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JPI-RV-8ij">
+                                    <rect key="frame" x="6" y="6" width="13" height="13"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="disclosureTriangle" bezelStyle="disclosure" imagePosition="only" alignment="left" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="sX0-gl-NUt">
+                                        <behavior key="behavior" pushIn="YES" changeBackground="YES" changeGray="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="toggleRenamePanel:" target="-2" id="T8S-4O-47x"/>
+                                    </connections>
+                                </button>
                             </subviews>
                         </view>
                         <constraints>

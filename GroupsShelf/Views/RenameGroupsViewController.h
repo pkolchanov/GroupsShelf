@@ -10,7 +10,7 @@
 @class GroupsShelf;
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FixGroupsPanelViewController : NSViewController
+@interface RenameGroupsViewController : NSViewController
 @property (weak) IBOutlet NSTextField *findTextField;
 @property (weak) IBOutlet NSTextField *replaceTextField;
 @property (weak) IBOutlet NSButton *includeLeftGroupCheckbox;

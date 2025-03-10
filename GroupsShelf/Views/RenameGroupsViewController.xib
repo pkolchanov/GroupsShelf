@@ -5,7 +5,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="FixGroupsPanelViewController">
+        <customObject id="-2" userLabel="File's Owner" customClass="RenameGroupsViewController">
             <connections>
                 <outlet property="addMissingCompositesCheckbox" destination="ksG-Bs-Afy" id="FZh-eW-ueV"/>
                 <outlet property="findTextField" destination="xe7-5z-J3W" id="5dy-W3-Ylm"/>

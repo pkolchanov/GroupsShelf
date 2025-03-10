@@ -16,7 +16,7 @@
 #import "GlyphsAccessors.h"
 #import "KerningService.h"
 
-@class FixGroupsPanelViewController;
+@class RenameGroupsViewController;
 
 @interface GroupsShelf : NSWindowController <GlyphsPlugin>
 
@@ -25,18 +25,18 @@
 @property (weak) IBOutlet NSCollectionView *glyphCollectionView;
 @property (weak) IBOutlet NSSegmentedControl *groupPositoinSegmented;
 @property (weak) IBOutlet NSTextField *selectedGroupTextField;
-@property (weak) IBOutlet NSView *fixGroupsView;
-@property (weak) IBOutlet NSLayoutConstraint *fixGroupsHeightConstraint;
+@property (weak) IBOutlet NSView *renameGroupsView;
+@property (weak) IBOutlet NSLayoutConstraint *renameGroupsHeightConstraint;
 
 @property NSDictionary *compositesDictionary;
-@property FixGroupsPanelViewController *fixGroupsPanelViewController;
+@property RenameGroupsViewController *fixGroupsPanelViewController;
 
 - (IBAction)selectGroupTab:(id)sender;
 - (IBAction)addGlyphsToGroup:(id)sender;
 - (IBAction)removeGlyphsFromGroup:(id)sender;
 - (IBAction)showOptionsMenu:(id)sender;
 - (IBAction)renameSelectedGroupAction:(id)sender;
-- (IBAction)toggleFixPanel:(id)sender;
+- (IBAction)toggleRenamePanel:(id)sender;
 - (IBAction)closeWindowAction:(id)sender;
 
 -(void)updateKerningData;
