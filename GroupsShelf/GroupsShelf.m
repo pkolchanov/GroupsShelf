@@ -8,6 +8,7 @@
 
 #import "GroupsShelf.h"
 #import "RenameGroupsViewController.h"
+#import "FixGroupsViewController.h"
 
 @implementation GroupsShelf {
     BOOL _hasRegisteredObservers;
@@ -53,17 +54,26 @@
 }
 
 - (void)setupRenameGroupsPanel {
-    RenameGroupsViewController *fixGroupsViewController = [[RenameGroupsViewController alloc] initWithNibName:@"RenameGroupsViewController" bundle:[NSBundle bundleForClass:[self class]]];
-    [fixGroupsViewController setParent:self];
-    [self setFixGroupsPanelViewController:fixGroupsViewController];
-    [[self contentViewController] addChildViewController:fixGroupsViewController];
-    [[self renameGroupsView] addSubview:[fixGroupsViewController view]];
+    RenameGroupsViewController *renameGroupsViewController = [[RenameGroupsViewController alloc] initWithNibName:@"RenameGroupsViewController" bundle:[NSBundle bundleForClass:[self class]]];
+    [renameGroupsViewController setParent:self];
+    [self setRenameGroupsViewController:renameGroupsViewController];
+    [[self contentViewController] addChildViewController:renameGroupsViewController];
+    [[self renameGroupsView] addSubview:[renameGroupsViewController view]];
     [[self renameGroupsHeightConstraint] setConstant:0];
+}
+
+- (void)setupFixGroupsPanel {
+    FixGroupsViewController *fixGroupsViewController = [[FixGroupsViewController alloc] initWithNibName:@"FixGroupsViewController" bundle:[NSBundle bundleForClass:[self class]]];
+    [self setFixGroupsViewController:fixGroupsViewController];
+    [[self contentViewController] addChildViewController:fixGroupsViewController];
+    [[self fixGroupsView] addSubview:[fixGroupsViewController view]];
+    [[self fixGroupsHeightConstraint] setConstant:0];
 }
 
 - (void)awakeFromNib {
     [self setupWindow];
     [self setupRenameGroupsPanel];
+    [self setupFixGroupsPanel];
     [[self glyphCollectionView] registerClass:[GroupsShelfItem class]
                         forItemWithIdentifier:@"GroupsShelfItem"];
     [[self groupsArrayController] addObserver:self forKeyPath:@"selectedObjects" options:1 context:nil];
@@ -89,10 +99,21 @@
 // MARK: -IB
 
 - (IBAction)toggleRenamePanel:(id)sender {
+    float newHeight = [[self renameGroupsHeightConstraint] constant] == 0 ? 150 : 0;
+    [self updatePanelHeight:[self renameGroupsHeightConstraint] toNewHeight:newHeight];
+   
+}
+
+- (IBAction)toggleFixGroupsPanel:(id)sender {
+    float newHeight = [[self fixGroupsHeightConstraint] constant] == 0 ? 90 : 0;
+    [self updatePanelHeight:[self fixGroupsHeightConstraint] toNewHeight:newHeight];
+}
+
+-(void)updatePanelHeight:(NSLayoutConstraint*)heightConstraint toNewHeight:(float)height{
     [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
            context.duration = 0.2;
         context.timingFunction =  [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-           self.renameGroupsHeightConstraint.animator.constant = [[self renameGroupsHeightConstraint] constant] == 0 ? 150 : 0;
+        heightConstraint.animator.constant = height;
        } completionHandler:nil];
 }
 

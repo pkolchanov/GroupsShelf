@@ -17,6 +17,7 @@
 #import "KerningService.h"
 
 @class RenameGroupsViewController;
+@class FixGroupsViewController;
 
 @interface GroupsShelf : NSWindowController <GlyphsPlugin>
 
@@ -26,10 +27,13 @@
 @property (weak) IBOutlet NSSegmentedControl *groupPositoinSegmented;
 @property (weak) IBOutlet NSTextField *selectedGroupTextField;
 @property (weak) IBOutlet NSView *renameGroupsView;
+@property (weak) IBOutlet NSView *fixGroupsView;
 @property (weak) IBOutlet NSLayoutConstraint *renameGroupsHeightConstraint;
+@property (weak) IBOutlet NSLayoutConstraint *fixGroupsHeightConstraint;
 
 @property NSDictionary *compositesDictionary;
-@property RenameGroupsViewController *fixGroupsPanelViewController;
+@property RenameGroupsViewController *renameGroupsViewController;
+@property FixGroupsViewController *fixGroupsViewController;
 
 - (IBAction)selectGroupTab:(id)sender;
 - (IBAction)addGlyphsToGroup:(id)sender;
@@ -37,6 +41,7 @@
 - (IBAction)showOptionsMenu:(id)sender;
 - (IBAction)renameSelectedGroupAction:(id)sender;
 - (IBAction)toggleRenamePanel:(id)sender;
+- (IBAction)toggleFixGroupsPanel:(id)sender;
 - (IBAction)closeWindowAction:(id)sender;
 
 -(void)updateKerningData;
