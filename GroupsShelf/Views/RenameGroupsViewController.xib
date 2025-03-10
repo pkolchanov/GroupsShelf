@@ -37,7 +37,7 @@
                     </connections>
                 </button>
                 <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8sP-SV-zwz">
-                    <rect key="frame" x="10" y="120" width="27" height="14"/>
+                    <rect key="frame" x="10" y="121" width="27" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Find" id="DXI-pr-uAk">
                         <font key="font" metaFont="smallSystem"/>
@@ -46,7 +46,7 @@
                     </textFieldCell>
                 </textField>
                 <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mvl-ul-2Hc">
-                    <rect key="frame" x="10" y="91" width="71" height="14"/>
+                    <rect key="frame" x="10" y="92" width="71" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Replace with" id="BOu-2t-pd1">
                         <font key="font" metaFont="smallSystem"/>
