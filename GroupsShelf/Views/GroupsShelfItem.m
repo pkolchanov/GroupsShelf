@@ -12,7 +12,6 @@
     NSView *view = [[NSView alloc] initWithFrame:NSMakeRect(0, 0, 100, 100)];
     view.autoresizesSubviews = YES;
     view.wantsLayer = YES;
-    view.layer.backgroundColor = [[NSColor lightGrayColor] CGColor];
 
     [self setLabel:[[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 100, 20)]];
     [[self label] setAlignment:NSTextAlignmentCenter];

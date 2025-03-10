@@ -49,7 +49,7 @@
     [window setBackgroundColor:[NSColor clearColor]];
     [window setMovableByWindowBackground:YES];
     [window setOpaque:NO];
-    [[[window contentView] layer] setBackgroundColor: [[NSColor windowBackgroundColor] CGColor]];
+    [[window contentView] setValue:[NSColor windowBackgroundColor] forKey:@"backgroundColor"];
     [[[window contentView] layer] setCornerRadius:10];
 }
 
