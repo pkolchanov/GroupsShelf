@@ -147,6 +147,24 @@
     [innerDict setValue:value forKey:rightKey];
 }
 
++ (void)removeGroupWithID:(nonnull NSString *)groupId position:(GroupPosition)position{
+    BOOL isLeftPosition = (position == positionLeft);
+    for (GSFontMaster *m in [[GlyphsAccessors currentFont] fontMasters]){
+        NSDictionary *kernPairsToUpdate = [KerningService kernPairsToUpdate:m groupName:groupId position:position];
+        
+        for (NSString *otherGroup in kernPairsToUpdate) {
+            NSString *oldRightKey = isLeftPosition ? groupId : otherGroup;
+            NSString *oldLeftKey = isLeftPosition ? otherGroup : groupId;
+
+            [KerningService removeKerningForFontMasterID:[m id] leftKey:oldLeftKey rightKey:oldRightKey];
+        }
+    }
+    for (GSGlyph*g in [self glyphsOfAGroupId:groupId position:position]){
+        isLeftPosition ? [g setLeftKerningGroupId:nil] : [g setRightKerningGroupId:nil];
+    }
+}
+
+
 + (void)removeKerningForFontMasterID:(NSString *)fontMasterID leftKey:(NSString *)leftKey rightKey:(NSString *)rightKey{
     MGOrderedDictionary *pairsDict = [[[GlyphsAccessors currentFont] kerningLTR] valueForKey:fontMasterID];
     MGOrderedDictionary *innerDict = [pairsDict objectForKey:leftKey];
@@ -155,4 +173,5 @@
     }
     [innerDict removeObjectForKey:rightKey];
 }
+
 @end

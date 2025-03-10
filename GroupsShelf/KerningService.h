@@ -27,8 +27,8 @@ typedef enum {
 
 +(void)find:(NSString*)searchString andReplaceWith:(NSString*)replace incluceLeftGroups:(BOOL) includeLeft inclureRightGroups:(BOOL)includeRight useRegex:(BOOL)useRegex;
 +(void)renameGroupWithId:(NSString*)groupId toNewId:(NSString*)newId position:(GroupPosition)position;
-+ (void)setKerningForFontMasterID:(id)fontMasterID leftKey:(id)leftKey rightKey:(id)rightKey value:(NSNumber*)value;
-+ (void)removeKerningForFontMasterID:(NSString *)fontMasterID leftKey:(NSString *)leftKey rightKey:(NSString *)rightKey;
++(void)setKerningForFontMasterID:(id)fontMasterID leftKey:(id)leftKey rightKey:(id)rightKey value:(NSNumber*)value;
++(void)removeGroupWithId:(NSString*)groupId position:(GroupPosition)position;
 
 @end
 

@@ -220,22 +220,11 @@
 }
 
 -(void)removeSelectedGroup:(id)sender{
+    GroupPosition selectedPosition = [self selectedGroupPosition];
     NSString *currentGroupName =  [[[self groupsArrayController] selectedObjects] firstObject];
-    NSString *currentGroupFullName = [KerningService kerningGroupIdFromName:currentGroupName forPosition:[self selectedGroupPosition]];
+    NSString *currentGroupId = [KerningService kerningGroupIdFromName:currentGroupName forPosition:[self selectedGroupPosition]];
     
-    for (GSFontMaster *m in [[GlyphsAccessors currentFont] fontMasters]){
-        NSDictionary *kernPairsToUpdate = [KerningService kernPairsToUpdate:m groupName:currentGroupFullName position:[self selectedGroupPosition]] ;
-        for (NSString *otherGroup in kernPairsToUpdate) {
-             BOOL isRightTab = ([self selectedGroupPosition] == positionRight);
-             NSString *oldRightKey = isRightTab ? otherGroup : currentGroupFullName;
-             NSString *oldLeftKey = isRightTab ? currentGroupFullName : otherGroup;
-
-            [KerningService removeKerningForFontMasterID:[m id] leftKey:oldLeftKey rightKey:oldRightKey];
-        }
-    }
-    for (GSGlyph *g in [self currentGroupGlyphs]){
-        [self selectedGroupPosition] == positionLeft ? [g setLeftKerningGroup:nil] :  [g setRightKerningGroup:nil];
-    }
+    [KerningService removeGroupWithId:currentGroupId  position:selectedPosition];
     [self updateKerningData];
 }
 
