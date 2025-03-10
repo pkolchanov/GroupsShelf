@@ -58,6 +58,7 @@
     [self setFixGroupsPanelViewController:fixGroupsViewController];
     [[self contentViewController] addChildViewController:fixGroupsViewController];
     [[self fixGroupsView] addSubview:[fixGroupsViewController view]];
+    [[self fixGroupsHeightConstraint] setConstant:0];
 }
 
 - (void)awakeFromNib {
