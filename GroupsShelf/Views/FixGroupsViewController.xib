@@ -7,6 +7,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="FixGroupsViewController">
             <connections>
+                <outlet property="addMissingCompositesButton" destination="Oel-14-pXt" id="kzp-Hn-rsD"/>
+                <outlet property="removeGroupsWithoutEmptyPairsButton" destination="RGx-hI-hCf" id="OXc-Cq-v6s"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -23,19 +25,22 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="fixGroupsAction:" target="-2" id="GLW-OR-lKQ"/>
+                    </connections>
                 </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oel-14-pXt">
                     <rect key="frame" x="10" y="36" width="154" height="19"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Add missing composites" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="oOl-gV-phR">
+                    <buttonCell key="cell" type="check" title="Add missing composites" bezelStyle="regularSquare" imagePosition="left" inset="2" id="oOl-gV-phR">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="smallSystem"/>
                     </buttonCell>
                 </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RGx-hI-hCf">
-                    <rect key="frame" x="10" y="61" width="145" height="19"/>
+                    <rect key="frame" x="10" y="61" width="206" height="19"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Remove empty Groups" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="2P9-wg-BX1">
+                    <buttonCell key="cell" type="check" title="Remove Groups without kern pairs" bezelStyle="regularSquare" imagePosition="left" inset="2" id="2P9-wg-BX1">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="smallSystem"/>
                     </buttonCell>

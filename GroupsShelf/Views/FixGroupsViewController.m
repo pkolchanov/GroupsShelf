@@ -6,6 +6,7 @@
 //
 
 #import "FixGroupsViewController.h"
+#import "GroupsShelf.h"
 
 @interface FixGroupsViewController ()
 
@@ -18,4 +19,13 @@
     // Do view setup here.
 }
 
+- (IBAction)fixGroupsAction:(id)sender {
+    if ([[self removeGroupsWithoutEmptyPairsButton] state] == NSControlStateValueOn){
+        [KerningService removeEmptyGroups];
+    }
+    if ([[self addMissingCompositesButton] state] == NSControlStateValueOn){
+        [[self parent] addMissingCompositesForAllGroups];
+    }
+    [[self parent] updateKerningData];
+}
 @end

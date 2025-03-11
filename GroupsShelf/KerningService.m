@@ -16,7 +16,7 @@
     }
     NSMutableOrderedSet<NSString*> *allKeys = [[NSMutableOrderedSet alloc] init];
     for (GSGlyph *g in [currentFont glyphs]){
-        NSString * group = [self groupNameFromGroupId:[self kerningGroupIdOfAGlyph:g forPosition:position]];
+        NSString *group = [self groupNameFromGroupId:[self kerningGroupIdOfAGlyph:g forPosition:position]];
         if (group != nil){
             [allKeys addObject:group];
         }
@@ -147,7 +147,7 @@
     [innerDict setValue:value forKey:rightKey];
 }
 
-+ (void)removeGroupWithID:(nonnull NSString *)groupId position:(GroupPosition)position{
++ (void)removeGroupWithId:(nonnull NSString *)groupId position:(GroupPosition)position{
     BOOL isLeftPosition = (position == positionLeft);
     for (GSFontMaster *m in [[GlyphsAccessors currentFont] fontMasters]){
         NSDictionary *kernPairsToUpdate = [KerningService kernPairsToUpdate:m groupName:groupId position:position];
@@ -172,6 +172,29 @@
         return;
     }
     [innerDict removeObjectForKey:rightKey];
+}
+
++ (void)removeEmptyGroups {
+    void (^processPosition)(GroupPosition) = ^(GroupPosition position) {
+        NSArray<NSString *> *groups = [self currentFontGroupsForPosition:position];
+        
+        for (NSString *groupName in groups) {
+            NSString *groupId = [self kerningGroupIdFromName:groupName forPosition:position];
+            BOOL groupHasKerningPairs = NO;
+            for (GSFontMaster *m in [[GlyphsAccessors currentFont] fontMasters]){
+                NSDictionary *kernPairsToUpdate = [self kernPairsToUpdate:m groupName:groupId position:position];
+                if ([kernPairsToUpdate count] >0){
+                    groupHasKerningPairs = YES;
+                    break;
+                }
+            }
+            if (!groupHasKerningPairs){
+                [self removeGroupWithId:groupId position:position];
+            }
+        }
+    };
+    processPosition(positionLeft);
+    processPosition(positionRight);
 }
 
 @end

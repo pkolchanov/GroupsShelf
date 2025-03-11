@@ -45,4 +45,5 @@
 - (IBAction)closeWindowAction:(id)sender;
 
 -(void)updateKerningData;
+-(void)addMissingCompositesForAllGroups;
 @end

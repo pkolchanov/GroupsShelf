@@ -29,7 +29,7 @@ typedef enum {
 +(void)renameGroupWithId:(NSString*)groupId toNewId:(NSString*)newId position:(GroupPosition)position;
 +(void)setKerningForFontMasterID:(id)fontMasterID leftKey:(id)leftKey rightKey:(id)rightKey value:(NSNumber*)value;
 +(void)removeGroupWithId:(NSString*)groupId position:(GroupPosition)position;
-
++(void)removeEmptyGroups;
 @end
 
 NS_ASSUME_NONNULL_END

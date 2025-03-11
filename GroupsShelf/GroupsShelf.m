@@ -64,6 +64,7 @@
 
 - (void)setupFixGroupsPanel {
     FixGroupsViewController *fixGroupsViewController = [[FixGroupsViewController alloc] initWithNibName:@"FixGroupsViewController" bundle:[NSBundle bundleForClass:[self class]]];
+    [fixGroupsViewController setParent:self];
     [self setFixGroupsViewController:fixGroupsViewController];
     [[self contentViewController] addChildViewController:fixGroupsViewController];
     [[self fixGroupsView] addSubview:[fixGroupsViewController view]];
@@ -229,29 +230,45 @@
 }
 
 -(void)addMissingComposites:(id)sender{
-    NSString *selectedGroup = [[[self groupsArrayController] selectedObjects] firstObject];
+    NSString *currentGroupName = [[[self groupsArrayController] selectedObjects] firstObject];
+    NSString *currentGroupId = [KerningService kerningGroupIdFromName:currentGroupName forPosition:[self selectedGroupPosition]];
     GroupPosition currentPosition = [self selectedGroupPosition];
     
+    [self addMissingCompositesForPosition:currentPosition onlyForGroupId:currentGroupId];
+    [self updateGlyphData];
+}
+- (void)addMissingCompositesForAllGroups {
+    [self addMissingCompositesForPosition:positionLeft onlyForGroupId:nil];
+    [self addMissingCompositesForPosition:positionRight onlyForGroupId:nil];
+}
+
+-(void)addMissingCompositesForPosition:(GroupPosition)position onlyForGroupId:(NSString*)onlyForGroupId{
     NSMutableArray *missingCandidates = [[NSMutableArray alloc] init];
     for (GSGlyph*g in [[GlyphsAccessors currentFont] glyphs]){
-        NSString * groupId = currentPosition == positionLeft ? [g leftKerningGroupId] : [g rightKerningGroupId];
+        NSString * groupId = position == positionLeft ? [g leftKerningGroupId] : [g rightKerningGroupId];
         if (groupId == nil){
             [missingCandidates addObject:g];
         }
     }
-    
-    NSMutableSet *currentGroupNames = [[NSMutableSet alloc] init];
-    for (GSGlyph*g in [self currentGroupGlyphs]){
-        [currentGroupNames addObject:[g name]];
-    }
     for (GSGlyph *g in missingCandidates){
         NSString *parentName = [[self compositesDictionary] valueForKey:[g name]];
-        if (parentName != nil && [currentGroupNames containsObject:parentName]){
-            currentPosition == positionLeft ? [g setLeftKerningGroup:selectedGroup] : [g setRightKerningGroup:selectedGroup];
+        if (parentName != nil){
+            GSGlyph *parentGlyph = [[GlyphsAccessors currentFont] glyphForName:parentName];
+            if (parentGlyph != nil){
+                NSLog(@"Going to steal kerning group from %@ to %@", [g name], parentName);
+                NSString *parentGroupId = position == positionLeft ? [parentGlyph leftKerningGroupId] : [parentGlyph rightKerningGroupId];
+                if (onlyForGroupId != nil){
+                    if (![onlyForGroupId isEqualToString:parentGroupId]){
+                        NSLog(@"Skipping %@ to %@", [g name], parentName);
+                        continue;
+                    }
+                }
+                position == positionLeft ? [g setLeftKerningGroupId:parentGroupId] : [g setRightKerningGroupId:parentGroupId];
+            }
         }
     }
-    [self updateGlyphData];
 }
+
 // MARK: -Observers
 - (void)observeValueForKeyPath:(NSString *)keyPath
                       ofObject:(id)object
@@ -311,5 +328,6 @@
 {
     [[self groupsArrayController] removeObserver:self forKeyPath:@"selectedObjects"];
 }
+
 
 @end
