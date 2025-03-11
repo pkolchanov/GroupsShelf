@@ -9,6 +9,7 @@
 #import <GlyphsCore/GSGlyph.h>
 #import <GlyphsCore/GSLayer.h>
 #import <GlyphsCore/GSFontMaster.h>
+#import "GroupsShelfItemView.h"
 #import "MockHeaders.h"
 NS_ASSUME_NONNULL_BEGIN
 

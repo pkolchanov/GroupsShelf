@@ -9,7 +9,7 @@
 
 @implementation GroupsShelfItem
 - (void)loadView {
-    NSView *view = [[NSView alloc] initWithFrame:NSMakeRect(0, 0, 100, 100)];
+    NSView *view = [[GroupsShelfItemView alloc] initWithFrame:NSMakeRect(0, 0, 100, 100)];
     view.autoresizesSubviews = YES;
     view.wantsLayer = YES;
 
@@ -81,9 +81,14 @@
 }
 
 -(void)updateSelectionColor{
+    // Bug fix: for some reason [NSAppearance currentDrawingAppearance] returns an oudtated value causing wrong colors
+    __block CGColorRef selectionColor;
+    [[[self view] effectiveAppearance] performAsCurrentDrawingAppearance:^(){
+        selectionColor = [[NSColor selectedTextBackgroundColor] CGColor];
+    }];
     GSGlyph * glyph = [self representedObject];
-    NSColor *color = [self isSelected] ? [NSColor selectedTextBackgroundColor] : [[glyph color] colorWithAlphaComponent:0.5] ;
-    [[[self view] layer] setBackgroundColor: [color CGColor]];
+    CGColorRef color = [self isSelected] ? selectionColor : [[[glyph color] colorWithAlphaComponent:0.5] CGColor] ;
+    [[[self view] layer] setBackgroundColor:color];
 }
 
 @end
