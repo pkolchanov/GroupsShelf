@@ -15,6 +15,7 @@
 #import "GroupsShelfItem.h"
 #import "GlyphsAccessors.h"
 #import "KerningService.h"
+#import "CompositesService.h"
 
 @class RenameGroupsViewController;
 @class FixGroupsViewController;
@@ -31,9 +32,9 @@
 @property (weak) IBOutlet NSLayoutConstraint *renameGroupsHeightConstraint;
 @property (weak) IBOutlet NSLayoutConstraint *fixGroupsHeightConstraint;
 
-@property NSDictionary *compositesDictionary;
 @property RenameGroupsViewController *renameGroupsViewController;
 @property FixGroupsViewController *fixGroupsViewController;
+@property CompositesService *compositesService;
 
 - (IBAction)selectGroupTab:(id)sender;
 - (IBAction)addGlyphsToGroup:(id)sender;
@@ -45,5 +46,4 @@
 - (IBAction)closeWindowAction:(id)sender;
 
 -(void)updateKerningData;
--(void)addMissingCompositesForAllGroups;
 @end

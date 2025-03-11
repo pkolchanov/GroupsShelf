@@ -17,14 +17,13 @@ typedef enum {
 } GroupPosition;
 
 @interface KerningService : NSObject
-
-+(NSArray<NSString*> *)currentFontGroupsForPosition:(GroupPosition)position;
-+(NSArray<GSGlyph*>*)glyphsOfAGroupId:(NSString*)groupId position:(GroupPosition)position;
 +(NSString*)groupNameFromGroupId:(NSString*)group;
 +(NSString*)kerningGroupIdFromName:(NSString*)groupName forPosition:(GroupPosition)position;
 +(NSString*)kerningGroupIdOfAGlyph:(GSGlyph*)g forPosition:(GroupPosition)position;
-+(NSDictionary* _Nullable )kernPairsToUpdate:(GSFontMaster*) m groupName:(NSString*)groupFullName position:(GroupPosition)position;
 
++(NSArray<NSString*> *)currentFontGroupsForPosition:(GroupPosition)position;
++(NSArray<GSGlyph*>*)glyphsOfAGroupId:(NSString*)groupId position:(GroupPosition)position;
++(NSDictionary* _Nullable )kernPairsToUpdate:(GSFontMaster*) m groupName:(NSString*)groupFullName position:(GroupPosition)position;
 +(void)find:(NSString*)searchString andReplaceWith:(NSString*)replace incluceLeftGroups:(BOOL) includeLeft inclureRightGroups:(BOOL)includeRight useRegex:(BOOL)useRegex;
 +(void)renameGroupWithId:(NSString*)groupId toNewId:(NSString*)newId position:(GroupPosition)position;
 +(void)setKerningForFontMasterID:(id)fontMasterID leftKey:(id)leftKey rightKey:(id)rightKey value:(NSNumber*)value;

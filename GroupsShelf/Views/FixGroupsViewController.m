@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do view setup here.
+    [self setCompositesService:[[CompositesService alloc] init]];
 }
 
 - (IBAction)fixGroupsAction:(id)sender {
@@ -24,7 +24,7 @@
         [KerningService removeEmptyGroups];
     }
     if ([[self addMissingCompositesButton] state] == NSControlStateValueOn){
-        [[self parent] addMissingCompositesForAllGroups];
+        [[self compositesService] addMissingCompositesForAllGroups];
     }
     [[self parent] updateKerningData];
 }
