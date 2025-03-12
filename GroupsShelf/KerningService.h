@@ -19,7 +19,6 @@ typedef enum {
 @interface KerningService : NSObject
 +(NSString*)groupNameFromGroupId:(NSString*)group;
 +(NSString*)kerningGroupIdFromName:(NSString*)groupName forPosition:(GroupPosition)position;
-+(NSString*)kerningGroupIdOfAGlyph:(GSGlyph*)g forPosition:(GroupPosition)position;
 
 +(NSArray<NSString*> *)currentFontGroupsForPosition:(GroupPosition)position;
 +(NSArray<GSGlyph*>*)glyphsOfAGroupId:(NSString*)groupId position:(GroupPosition)position;

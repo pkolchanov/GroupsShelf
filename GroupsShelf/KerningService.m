@@ -16,7 +16,7 @@
     }
     NSMutableOrderedSet<NSString*> *allKeys = [[NSMutableOrderedSet alloc] init];
     for (GSGlyph *g in [currentFont glyphs]){
-        NSString *group = [self groupNameFromGroupId:[self kerningGroupIdOfAGlyph:g forPosition:position]];
+        NSString *group = position == positionLeft ? [g leftKerningGroup] : [g rightKerningGroup];
         if (group != nil){
             [allKeys addObject:group];
         }
@@ -29,7 +29,7 @@
     NSMutableArray<GSGlyph*> *glyphsOfCurrentGroup = [[NSMutableArray alloc] init];
   
     for (GSGlyph *g in [currentFont glyphs]){
-        NSString *glyphId = [self kerningGroupIdOfAGlyph:g forPosition:position];
+        NSString *glyphId = position == positionLeft ? [g leftKerningGroupId] : [g rightKerningGroupId];
         if ([glyphId isEqualToString:groupId]){
             [glyphsOfCurrentGroup addObject:g];
         }
@@ -48,10 +48,6 @@
     return [prefix stringByAppendingString:groupName];
 }
 
-+(NSString*)kerningGroupIdOfAGlyph:(GSGlyph*)g forPosition:(GroupPosition)position{
-    NSString *group = position == positionLeft ? [g leftKerningGroupId] : [g rightKerningGroupId];
-    return group;
-}
 
 +(NSDictionary* _Nullable )kernPairsToUpdate:(GSFontMaster*) m groupName:(NSString*)groupFullName position:(GroupPosition)position{
     MGOrderedDictionary *pairsDict = [[[GlyphsAccessors currentFont] kerningLTR] valueForKey:[m id]];
