@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1995056D2D81728300069E55 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1995056C2D81728300069E55 /* README.md */; };
 		19AF51D62D632A4C00A0AF39 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19AF51D52D632A4C00A0AF39 /* Cocoa.framework */; };
 		19EC02D92D719C69007972E3 /* GlyphsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19EC02D82D719C69007972E3 /* GlyphsCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1995056C2D81728300069E55 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		19AF51D22D632A4C00A0AF39 /* GroupsShelf.glyphsPlugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroupsShelf.glyphsPlugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		19AF51D52D632A4C00A0AF39 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		19EC02D82D719C69007972E3 /* GlyphsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GlyphsCore.framework; path = "../../../../Applications/Glyphs 3.app/Contents/Frameworks/GlyphsCore.framework"; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 		19AF51C92D632A4C00A0AF39 = {
 			isa = PBXGroup;
 			children = (
+				1995056C2D81728300069E55 /* README.md */,
 				19AF51D72D632A4C00A0AF39 /* GroupsShelf */,
 				19AF51D42D632A4C00A0AF39 /* Frameworks */,
 				19AF51D32D632A4C00A0AF39 /* Products */,
@@ -151,6 +154,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1995056D2D81728300069E55 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
