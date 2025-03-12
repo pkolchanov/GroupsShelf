@@ -31,7 +31,6 @@
 + (NSArray<GSGlyph *> *)curentFontSelectedGlyphs {
     GSDocument *document = [self currentDocument];
     NSWindowController<GSWindowControllerProtocol> *windowController = [document windowController];
-    NSLog(@"%@", windowController);
     if (windowController == nil) return @[];
     
     NSArray<GSLayer *> *layers = windowController.selectedLayers;

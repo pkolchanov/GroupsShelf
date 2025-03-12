@@ -30,7 +30,7 @@
             <rect key="contentRect" x="196" y="240" width="655" height="509"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="875"/>
             <view key="contentView" wantsLayer="YES" misplaced="YES" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="655" height="551"/>
+                <rect key="frame" x="0.0" y="0.0" width="655" height="509"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="24" horizontalPageScroll="10" verticalLineScroll="24" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FIQ-Ov-Ymv">
@@ -106,10 +106,10 @@
                         </scroller>
                     </scrollView>
                     <scrollView wantsLayer="YES" fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIN-wZ-wby">
-                        <rect key="frame" x="232" y="26" width="423" height="456"/>
+                        <rect key="frame" x="232" y="26" width="423" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
                         <clipView key="contentView" id="Bq8-Zx-hwg">
-                            <rect key="frame" x="0.0" y="0.0" width="423" height="456"/>
+                            <rect key="frame" x="0.0" y="0.0" width="423" height="414"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <collectionView clipsToBounds="NO" selectable="YES" allowsMultipleSelection="YES" id="Ziz-Gy-C3Q">
@@ -132,7 +132,7 @@
                             <rect key="frame" x="-100" y="-100" width="449" height="16"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
-                        <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="0v9-nD-qwX">
+                        <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="0v9-nD-qwX">
                             <rect key="frame" x="397" y="10" width="16" height="394"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
@@ -144,7 +144,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="423" height="27"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d4e-uN-DSQ">
+                                <button toolTip="Add glyphs to the group" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d4e-uN-DSQ">
                                     <rect key="frame" x="390" y="2" width="25" height="23"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                     <buttonCell key="cell" type="roundTextured" title="+" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6hX-pe-oTi">
@@ -155,7 +155,7 @@
                                         <action selector="addGlyphsToGroup:" target="-2" id="BTq-Sn-euW"/>
                                     </connections>
                                 </button>
-                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fWP-Zk-A42">
+                                <button toolTip="Remove glyphs from the group" allowsExpansionToolTips="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fWP-Zk-A42">
                                     <rect key="frame" x="363" y="2" width="25" height="23"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                     <buttonCell key="cell" type="roundTextured" title="−" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FYs-Af-q22">
@@ -172,7 +172,7 @@
                         <color key="fillColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </box>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cct-kQ-DcP">
-                        <rect key="frame" x="11" y="515.5" width="18" height="31"/>
+                        <rect key="frame" x="11" y="473.5" width="18" height="31"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="xmark" catalog="system" imagePosition="only" alignment="center" inset="2" id="Lfn-Mw-GZy">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -183,7 +183,7 @@
                         </connections>
                     </button>
                     <searchField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4M-m7-5EM">
-                        <rect key="frame" x="38" y="521" width="606" height="19"/>
+                        <rect key="frame" x="38" y="479" width="606" height="19"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" placeholderString="Search Groups" usesSingleLineMode="YES" id="XJ2-xH-4JF" customClass="GroupsSerachFieldCell">
                             <font key="font" metaFont="system" size="16"/>
@@ -200,7 +200,7 @@
                         </connections>
                     </searchField>
                     <box fixedFrame="YES" boxType="custom" borderType="none" title="Tabs Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="jN5-LQ-jeB">
-                        <rect key="frame" x="0.0" y="475" width="230" height="34"/>
+                        <rect key="frame" x="0.0" y="433" width="230" height="34"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <view key="contentView" id="9Ev-ha-f1j">
                             <rect key="frame" x="0.0" y="0.0" width="230" height="34"/>
@@ -225,7 +225,7 @@
                         <color key="fillColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </box>
                     <box fixedFrame="YES" boxType="custom" borderType="none" title="Title Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="huA-k7-DgR">
-                        <rect key="frame" x="232" y="482" width="423" height="27"/>
+                        <rect key="frame" x="232" y="440" width="423" height="27"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <view key="contentView" id="gNJ-8q-MUx">
                             <rect key="frame" x="0.0" y="0.0" width="423" height="27"/>

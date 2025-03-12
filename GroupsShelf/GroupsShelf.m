@@ -91,7 +91,6 @@
 
 
 -(void)showPluginWindow:(id)sender{
-    NSLog(@"showPluginWindow");
     [self showWindow:nil];
     [self setupObservers];
     [self updateKerningData];
@@ -123,7 +122,6 @@
 }
 
 - (IBAction)showOptionsMenu:(id)sender {
-    NSLog(@"Show Options");
     // Create a menu item
     NSMenu *menu = [[NSMenu alloc] init];
     
@@ -149,7 +147,6 @@
     // TODO: bind glyphCollectionView indexes to glyphsArrayController indexes
     NSIndexSet *selectedIndexes = [[self glyphCollectionView] selectionIndexes];
     for (GSGlyph *g in [[[self glyphsArrayController] arrangedObjects] objectsAtIndexes:selectedIndexes]){
-        NSLog(@"To remove %@", [g name]);
         [self selectedGroupPosition] == positionLeft ? [g setLeftKerningGroup:nil] :  [g setRightKerningGroup:nil];
     }
     [self updateGlyphData];
@@ -182,13 +179,10 @@
 // MARK: -Interface Updates
 
 -(void)updateKerningData{
-    NSLog(@"Update kerning groups");
-    
     [[self groupsArrayController] setContent:[self currentFontGroups]];
 }
 
 -(void)updateGlyphData{
-    NSLog(@"updateGlyphData!");
     NSString *currentGroup = [[[self groupsArrayController] selectedObjects] firstObject];
     [[self glyphsArrayController] setContent:[self currentGroupGlyphs]];
     [[self selectedGroupTextField] setStringValue:currentGroup == nil ? @"" :currentGroup];
@@ -244,7 +238,6 @@
                         change:(NSDictionary *)change
                        context:(void *)context {
     if ([keyPath isEqual: @"selectedObjects"]){
-        NSLog(@"observed change of selection");
         [self updateGlyphData];
         return;
     }
@@ -254,7 +247,6 @@
 
 -(void) removeObservers{
     // TODO: does it work?
-    NSLog(@"removeObservers");
     if (_hasRegisteredObservers){
         [NSNotificationCenter.defaultCenter removeObserver:self];
         _hasRegisteredObservers = NO;
@@ -262,12 +254,10 @@
 }
 
 -(void)interfaceDidUpdate{
-    NSLog(@"intrface did update!");
     [self updateKerningData];
 }
 
 -(void)docDidActivated{
-    NSLog(@"docDidActivated");
     [self updateKerningData];
 }
 
