@@ -19,6 +19,7 @@
     [[self label] setEditable:NO];
     [[self label] setDrawsBackground:NO];
     [[self label] setAutoresizingMask:NSViewWidthSizable];
+    [[[self label] cell] setLineBreakMode:NSLineBreakByTruncatingMiddle];
     [view addSubview:[self label]];
     
     view.layer.cornerRadius = 5;

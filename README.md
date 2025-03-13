@@ -10,7 +10,7 @@ Groups Shelf is a [Glyphs](https://glyphsapp.com/) kerning group manager.
 ### Installation
 
 1. Double-click the `GroupsShelf.glyphsPlugin` file. Glyphs will show a confirmation pop-up. 
-2. Open plugin panel using Window → Groups Shelf 
+2. Open the plugin panel using Window → Groups Shelf 
 
 ### Group View
 Group View shows all glyphs of the kerning group.
