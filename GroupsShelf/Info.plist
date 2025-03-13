@@ -15,7 +15,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright, Pavel Kolchanov, 2025</string>
+	<string>Copyright, Pavel Kolchanov, Dmitry Goloub, 2025</string>
 	<key>CFBundleName</key>
 	<string>Groups Shelf</string>
 	<key>NSPrincipalClass</key>
