@@ -168,7 +168,9 @@
 
 
 - (IBAction)closeWindowAction:(id)sender {
-    [[self window] close];
+    if ([self windowShouldClose:[self window]]) {
+        [[self window] close];
+    }
 }
 
 -(GroupPosition)selectedGroupPosition{
@@ -246,7 +248,6 @@
 
 
 -(void) removeObservers{
-    // TODO: does it work?
     if (_hasRegisteredObservers){
         [NSNotificationCenter.defaultCenter removeObserver:self];
         _hasRegisteredObservers = NO;
@@ -286,6 +287,7 @@
 - (void)dealloc
 {
     [[self groupsArrayController] removeObserver:self forKeyPath:@"selectedObjects"];
+    [self removeObservers];
 }
 
 
