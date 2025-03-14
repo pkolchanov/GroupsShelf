@@ -22,14 +22,14 @@ Group View shows all glyphs of the kerning group.
 <img src="./img/GroupMenu.png" width="600" />
 
 ### Rename Groups palette
-The palette for renaming all groups in the font. It's useful for removing or adding prefixes and suffixes, like `KO_` and `.1`. 
+The palette to rename all groups in the font. It's useful for removing or adding prefixes and suffixes, like `KO_` and `.1`. 
 You can choose between substring or regular expression substitution. It's also updates related kerning pairs. 
 
 <img src="./img/RenameGroups.png" width="230" />
 
 ### Fix Groups palette
 
-- `Remove groups without kerning paris` literally deletes those groups. 
+- `Remove groups without kern pairs` literally deletes those groups. 
 - `Add missing composites` will add composites for all groups.
 
 <img src="./img/FixGroups.png" width="230" />
