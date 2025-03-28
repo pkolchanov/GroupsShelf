@@ -8,6 +8,9 @@
 #import <Foundation/Foundation.h>
 #import <GlyphsCore/GSGlyph.h>
 #import <GlyphsCore/GSLayer.h>
+#import <GlyphsCore/GSComponent.h>
+#import <GlyphsCore/GSProxyShapes.h>
+
 #import "MockHeaders.h"
 NS_ASSUME_NONNULL_BEGIN
 
