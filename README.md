@@ -9,7 +9,7 @@ Groups Shelf is a [Glyphs](https://glyphsapp.com/) kerning group manager.
 
 ### Installation
 
-1. Double-click the `GroupsShelf.glyphsPlugin` file. Glyphs will show a confirmation pop-up. 
+1. [Install using the Glyphs Plugin Manager](https://pkolchanov.ru/redirects/groupsshelf.html). Or double-click the `GroupsShelf.glyphsPlugin` file to install the plugin manually. Glyphs will show a confirmation pop-up. 
 2. Open the plugin panel using Window → Groups Shelf 
 
 ### Group View
