@@ -46,7 +46,7 @@
 -(void)stealKerningFromComposites:(GroupPosition)position onlyForGroupId:(NSString*)onlyForGroupId{
     NSMutableArray *missingCandidates = [self missingCandindatesForPosition:position];
     for (GSGlyph *g in missingCandidates){
-        NSString *parentName = [[self compositesDictionary] valueForKey:[g name]];
+        NSString *parentName = [self parentName:g];
         if (parentName != nil){
             GSGlyph *parentGlyph = [[GlyphsAccessors currentFont] glyphForName:parentName];
             if (parentGlyph != nil){
@@ -54,6 +54,30 @@
             }
         }
     }
+}
+
+-(NSString*)parentName:(GSGlyph *)g{
+    NSString * name = [g name];
+    
+    NSError *error = nil;
+    NSRegularExpression *ssRegex = [NSRegularExpression regularExpressionWithPattern:@"\\.ss\\d+" options:0 error:&error];
+    if (error) {
+        NSLog(@"Regex error: %@", error);
+        return @"";
+    }
+    
+    NSTextCheckingResult *ssMatchReuslt = [ssRegex firstMatchInString:name options:0 range:NSMakeRange(0, [name length])];
+    if (!ssMatchReuslt) {
+        return [[self compositesDictionary] valueForKey:name];
+    }
+    
+    NSString *ss = [name substringWithRange:[ssMatchReuslt range]];
+    name = [name stringByReplacingCharactersInRange:[ssMatchReuslt range] withString:@""];
+    NSString *parentName = [[self compositesDictionary] valueForKey:name];
+    if (![ss isEqualToString:@""]){
+        parentName = [parentName stringByAppendingString:ss];
+    }
+    return parentName;
 }
 
 -(void)stealKerningGroupFrom:(GSGlyph*)fromGlyph to:(GSGlyph*)toGlyph position:(GroupPosition)position onlyForGroupId:(NSString*)onlyForGroupId{
