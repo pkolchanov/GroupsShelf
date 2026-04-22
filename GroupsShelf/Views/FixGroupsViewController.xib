@@ -18,7 +18,7 @@
             <rect key="frame" x="0.0" y="0.0" width="230" height="90"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="stk-wu-b34">
+                <button verticalHuggingPriority="750" tag="105" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="stk-wu-b34">
                     <rect key="frame" x="5" y="5" width="220" height="32"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="push" title="Fix Groups" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="iGA-bF-jav">

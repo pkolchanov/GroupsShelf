@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="23094" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="24506" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23094"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="24506"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="RenameGroupsViewController">
             <connections>
-                <outlet property="addMissingCompositesCheckbox" destination="ksG-Bs-Afy" id="FZh-eW-ueV"/>
                 <outlet property="findTextField" destination="xe7-5z-J3W" id="5dy-W3-Ylm"/>
+                <outlet property="includeBottomGroupCheckbox" destination="kSY-nZ-2wE" id="P8n-YS-uc7"/>
                 <outlet property="includeLeftGroupCheckbox" destination="ksG-Bs-Afy" id="vu8-cv-fYo"/>
                 <outlet property="includeRightGroupCheckbox" destination="OnU-Oe-Erj" id="SUm-Pc-HEE"/>
-                <outlet property="leftGroupPrefixField" destination="xe7-5z-J3W" id="yw4-eF-9tF"/>
-                <outlet property="removeEmptyGroupsCheckbox" destination="OnU-Oe-Erj" id="cic-Wb-lJS"/>
+                <outlet property="includeTopGroupCheckbox" destination="zyu-Xq-LYX" id="bBH-v1-W32"/>
                 <outlet property="replaceTextField" destination="8w3-th-tSc" id="77q-ws-SQn"/>
-                <outlet property="rightGroupPrefixField" destination="8w3-th-tSc" id="CrO-MD-pVo"/>
                 <outlet property="useRegexCheckbox" destination="S6a-tD-3C3" id="0ib-03-9iB"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -22,11 +21,11 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="230" height="150"/>
+            <rect key="frame" x="0.0" y="0.0" width="230" height="185"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="trZ-es-sOc">
-                    <rect key="frame" x="5" y="0.0" width="220" height="32"/>
+                <button tag="108" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="trZ-es-sOc">
+                    <rect key="frame" x="5" y="7" width="220" height="32"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="push" title="Rename Groups" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1dp-k9-JjD">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -36,8 +35,8 @@
                         <action selector="renameGroupsActtion:" target="-2" id="YZi-83-Ah0"/>
                     </connections>
                 </button>
-                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8sP-SV-zwz">
-                    <rect key="frame" x="10" y="121" width="27" height="14"/>
+                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" tag="106" translatesAutoresizingMaskIntoConstraints="NO" id="8sP-SV-zwz">
+                    <rect key="frame" x="10" y="156" width="27" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Find" id="DXI-pr-uAk">
                         <font key="font" metaFont="smallSystem"/>
@@ -45,8 +44,8 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mvl-ul-2Hc">
-                    <rect key="frame" x="10" y="92" width="71" height="14"/>
+                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" tag="107" translatesAutoresizingMaskIntoConstraints="NO" id="mvl-ul-2Hc">
+                    <rect key="frame" x="10" y="127" width="71" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Replace with" id="BOu-2t-pd1">
                         <font key="font" metaFont="smallSystem"/>
@@ -55,7 +54,7 @@
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ksG-Bs-Afy">
-                    <rect key="frame" x="10" y="61" width="88" height="19"/>
+                    <rect key="frame" x="10" y="96" width="88" height="19"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Left Groups" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="s8L-QL-QFW">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -63,15 +62,23 @@
                     </buttonCell>
                 </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OnU-Oe-Erj">
-                    <rect key="frame" x="116" y="61" width="95" height="18"/>
+                    <rect key="frame" x="112" y="97" width="95" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Right Groups" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="0cK-BE-Qc1">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="smallSystem"/>
                     </buttonCell>
                 </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kSY-nZ-2wE">
+                    <rect key="frame" x="112" y="72" width="102" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="Bottom Groups" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="p5e-Ks-JeF">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="smallSystem"/>
+                    </buttonCell>
+                </button>
                 <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xe7-5z-J3W" userLabel="Left suffix">
-                    <rect key="frame" x="89" y="119" width="129" height="21"/>
+                    <rect key="frame" x="89" y="154" width="129" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="WvB-ge-XuF">
                         <font key="font" metaFont="system"/>
@@ -80,7 +87,7 @@
                     </textFieldCell>
                 </textField>
                 <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8w3-th-tSc" userLabel="Left suffix">
-                    <rect key="frame" x="89" y="90" width="129" height="21"/>
+                    <rect key="frame" x="89" y="125" width="129" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="jnY-14-smQ">
                         <font key="font" metaFont="system"/>
@@ -89,15 +96,23 @@
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S6a-tD-3C3">
-                    <rect key="frame" x="10" y="34" width="196" height="19"/>
+                    <rect key="frame" x="10" y="44" width="196" height="19"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Match using regular expressions" bezelStyle="regularSquare" imagePosition="left" inset="2" id="kgo-VW-f22">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="smallSystem"/>
                     </buttonCell>
                 </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zyu-Xq-LYX">
+                    <rect key="frame" x="10" y="71" width="88" height="19"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="Top Groups" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="LFg-tu-ZJj">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="smallSystem"/>
+                    </buttonCell>
+                </button>
             </subviews>
-            <point key="canvasLocation" x="-163" y="196"/>
+            <point key="canvasLocation" x="-163" y="178.5"/>
         </customView>
     </objects>
 </document>

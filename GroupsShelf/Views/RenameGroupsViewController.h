@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak) IBOutlet NSTextField *replaceTextField;
 @property (weak) IBOutlet NSButton *includeLeftGroupCheckbox;
 @property (weak) IBOutlet NSButton *includeRightGroupCheckbox;
+@property (weak) IBOutlet NSButton *includeTopGroupCheckbox;
+@property (weak) IBOutlet NSButton *includeBottomGroupCheckbox;
 @property (weak) IBOutlet NSButton *useRegexCheckbox;
 - (IBAction)renameGroupsActtion:(id)sender;
 

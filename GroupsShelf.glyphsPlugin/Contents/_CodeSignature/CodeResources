@@ -6,11 +6,11 @@
 	<dict>
 		<key>Resources/Assets.car</key>
 		<data>
-		LjFURNDEsU0fVjDBaD+9gaT2zsI=
+		20QV2QkbzcaEK/RGQpqArvnYSG4=
 		</data>
 		<key>Resources/FixGroupsViewController.nib</key>
 		<data>
-		t/d8pBZ89Rr4KSMSQzjmO37uXS0=
+		BKPLr55iF8iq09BHtQtiutyYvPI=
 		</data>
 		<key>Resources/GroupsShelf-Prefix.pch</key>
 		<data>
@@ -18,20 +18,56 @@
 		</data>
 		<key>Resources/GroupsShelfWindow.nib</key>
 		<data>
-		6K1dgfzPubJP/7u6cCcO/WFkdOs=
+		lIEwCzYxLkcI+aDAfHxCnR1/qLk=
 		</data>
 		<key>Resources/README.md</key>
 		<data>
-		EFZM14LQUTsce6pCwGZzqUPuQUQ=
+		BeHgElge6Shv/ZVuOuUSepwpdok=
 		</data>
 		<key>Resources/RenameGroupsViewController.nib</key>
 		<data>
-		gKbRFuzITaiY3/aYHntNpMeawz0=
+		n9aaI7B9rNf5U5HuRGC8T9NhgRA=
 		</data>
 		<key>Resources/composites.plist</key>
 		<data>
 		5rnsWau8v5JcVZb9RpIQ4mftafY=
 		</data>
+		<key>Resources/en.lproj/InfoPlist.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Z411G+z7UrT8yBWhlVsJKSa57TM=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Resources/en.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			JpgAIQ1OLXjSiUd1RotOO2Q8vgI=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Resources/ja.lproj/InfoPlist.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			hopscKDFGZ6Lz13P20b9ZN+Ks5w=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Resources/ja.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			O6Z+GWNCd/N8eQlZ4qfQhR48tak=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 	</dict>
 	<key>files2</key>
 	<dict>
@@ -39,14 +75,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			HVR2zKm3oy9Yq75AzjH+3yp8PNvD0IZ69Htjp9okOKY=
+			pV7rFrEpiRoUBVJC6vMdRsmwt5sqfZFcAaFOcTy8GOM=
 			</data>
 		</dict>
 		<key>Resources/FixGroupsViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			T1Z8Px3+8TNDp2vJT0jP3J1yqap4UTMOhyQKic9aMJQ=
+			ZDTX9Qy8p0r6AczpFYdBQVtRCZwbsH/3aB8eHr8OScU=
 			</data>
 		</dict>
 		<key>Resources/GroupsShelf-Prefix.pch</key>
@@ -60,21 +96,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			zmctJtqIBQA3OLw1riDzojZ18YOF1MbQVFLtV2Clbbg=
+			tato3tYp/AX+75FrSeW+X9iRqN1EXbI3qzB6/uBhb00=
 			</data>
 		</dict>
 		<key>Resources/README.md</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			YJEiC17PvZBNmrv9nx059Xeh3aaCXazxWgt9x2NY7ck=
+			mhVG6DAKleiVkZT1PEwz/J+fZIYokl+S3B6pg7SBObg=
 			</data>
 		</dict>
 		<key>Resources/RenameGroupsViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			+BAFbxFKllmCtp89XQDHMUUArdTm2T8FOUBUp0jak8k=
+			hTMKof68wWQ1SSSDMRm2KuPhG8FdvJZLSCvfpWbjm3g=
 			</data>
 		</dict>
 		<key>Resources/composites.plist</key>
@@ -83,6 +119,42 @@
 			<data>
 			RrSPs3DAgk5RaePGCd0BZVOzgS5bKDB44kYfDHvQaKQ=
 			</data>
+		</dict>
+		<key>Resources/en.lproj/InfoPlist.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			pwxIiIwz0ZaFtY10/ceqjb0GBSFyj3yy8b1En7V4dBM=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Resources/en.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			lEhM/gvAIlcl2YEyem6X64wTfc4ILLiusYaLAI7JQJ0=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Resources/ja.lproj/InfoPlist.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Mfe2xaLNYCr+l1TD1PGJWI1dJ/Brk3IEtrlskV4fmdY=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Resources/ja.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			dFGkPHr5c2kYfLbHVmHw/nCeSHQkMRDyyXRF7NnhKiA=
+			</data>
+			<key>optional</key>
+			<true/>
 		</dict>
 	</dict>
 	<key>rules</key>

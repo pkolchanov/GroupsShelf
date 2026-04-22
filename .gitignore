@@ -1,0 +1,6 @@
+build/
+*.glyphsPlugin
+.DS_Store
+*.xcworkspace/
+*.xcuserdata/
+DerivedData/

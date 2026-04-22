@@ -25,6 +25,7 @@
 @property (strong) IBOutlet NSArrayController *groupsArrayController;
 @property (strong) IBOutlet NSArrayController *glyphsArrayController;
 @property (weak) IBOutlet NSCollectionView *glyphCollectionView;
+@property (weak) IBOutlet NSSearchField *searchField;
 @property (weak) IBOutlet NSSegmentedControl *groupPositoinSegmented;
 @property (weak) IBOutlet NSTextField *selectedGroupTextField;
 @property (weak) IBOutlet NSView *renameGroupsView;

@@ -1,0 +1,23 @@
+/* Groups Shelf Plugin Strings (Japanese) */
+"Groups Shelf" = "Groups Shelf";
+"Search Groups" = "グループを検索";
+"Left" = "左";
+"Right" = "右";
+"Add missing composites" = "足りない複合字を追加";
+"Remove group" = "グループを削除";
+"Rename Groups" = "グループ名を変更";
+"Fix Groups" = "グループを修正";
+"Remove Groups without kern pairs" = "カーニングペアのないグループを削除";
+"Find" = "検索";
+"Replace with" = "置換後の文字列";
+"Left Groups" = "左グループ";
+"Right Groups" = "右グループ";
+"Match using regular expressions" = "正規表現を使用";
+"Add glyphs to the group" = "選択したグリフをグループに追加";
+"Remove glyphs from the group" = "選択したグリフをグループから削除";
+"Horizontal" = "横";
+"Vertical" = "縦";
+"Top" = "上";
+"Bottom" = "下";
+"Top Groups" = "上グループ";
+"Bottom Groups" = "下グループ";

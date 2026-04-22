@@ -1,0 +1,23 @@
+/* Groups Shelf Plugin Strings */
+"Groups Shelf" = "Groups Shelf";
+"Search Groups" = "Search Groups";
+"Left" = "Left";
+"Right" = "Right";
+"Add missing composites" = "Add missing composites";
+"Remove group" = "Remove group";
+"Rename Groups" = "Rename Groups";
+"Fix Groups" = "Fix Groups";
+"Remove Groups without kern pairs" = "Remove Groups without kern pairs";
+"Find" = "Find";
+"Replace with" = "Replace with";
+"Left Groups" = "Left Groups";
+"Right Groups" = "Right Groups";
+"Match using regular expressions" = "Match using regular expressions";
+"Add glyphs to the group" = "Add glyphs to the group";
+"Remove glyphs from the group" = "Remove glyphs from the group";
+"Horizontal" = "Horiz.";
+"Vertical" = "Vert.";
+"Top" = "Top";
+"Bottom" = "Bottom";
+"Top Groups" = "Top Groups";
+"Bottom Groups" = "Bottom Groups";

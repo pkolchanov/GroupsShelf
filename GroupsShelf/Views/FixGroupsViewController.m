@@ -14,9 +14,16 @@
 
 @implementation FixGroupsViewController
 
+#define Loc(key) [[NSBundle bundleForClass:[self class]] localizedStringForKey:(key) value:@"" table:nil]
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setCompositesService:[[CompositesService alloc] init]];
+    
+    // Localization
+    [[self removeGroupsWithoutEmptyPairsButton] setTitle:Loc(@"Remove Groups without kern pairs")];
+    [[self addMissingCompositesButton] setTitle:Loc(@"Add missing composites")];
+    [(NSButton *)[self.view viewWithTag:105] setTitle:Loc(@"Fix Groups")];
 }
 
 - (IBAction)fixGroupsAction:(id)sender {

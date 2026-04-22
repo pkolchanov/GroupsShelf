@@ -10,6 +10,8 @@
 #import "RenameGroupsViewController.h"
 #import "FixGroupsViewController.h"
 
+#define Loc(key) [[NSBundle bundleForClass:[self class]] localizedStringForKey:(key) value:@"" table:nil]
+
 @implementation GroupsShelf {
     BOOL _hasRegisteredObservers;
 }
@@ -34,7 +36,7 @@
 }
 
 - (NSString *)title {
-    return @"Groups Shelf";
+    return Loc(@"Groups Shelf");
 }
 
 - (NSString *)keyEquivalent {
@@ -78,6 +80,22 @@
     [[self glyphCollectionView] registerClass:[GroupsShelfItem class]
                         forItemWithIdentifier:@"GroupsShelfItem"];
     [[self groupsArrayController] addObserver:self forKeyPath:@"selectedObjects" options:1 context:nil];
+    
+    // Localization
+    [[self window] setTitle:Loc(@"Groups Shelf")];
+    [[self searchField] setPlaceholderString:Loc(@"Search Groups")];
+    [[self groupPositoinSegmented] setLabel:Loc(@"Left") forSegment:0];
+    [[self groupPositoinSegmented] setLabel:Loc(@"Right") forSegment:1];
+    [[self groupPositoinSegmented] setLabel:Loc(@"Top") forSegment:2];
+    [[self groupPositoinSegmented] setLabel:Loc(@"Bottom") forSegment:3];
+
+    // Set labels using tags
+    [(NSTextField *)[[self window].contentView viewWithTag:101] setStringValue:Loc(@"Rename Groups")];
+    [(NSTextField *)[[self window].contentView viewWithTag:102] setStringValue:Loc(@"Fix Groups")];
+    
+    // Tooltips (I'll add tags 103 and 104 to buttons in XIB)
+    [(NSButton *)[[self window].contentView viewWithTag:103] setToolTip:Loc(@"Add glyphs to the group")];
+    [(NSButton *)[[self window].contentView viewWithTag:104] setToolTip:Loc(@"Remove glyphs from the group")];
 }
 
 
@@ -99,7 +117,7 @@
 // MARK: -IB
 
 - (IBAction)toggleRenamePanel:(id)sender {
-    float newHeight = [[self renameGroupsHeightConstraint] constant] == 0 ? 150 : 0;
+    float newHeight = [[self renameGroupsHeightConstraint] constant] == 0 ? 185 : 0;
     [self updatePanelHeight:[self renameGroupsHeightConstraint] toNewHeight:newHeight];
    
 }
@@ -125,15 +143,15 @@
     // Create a menu item
     NSMenu *menu = [[NSMenu alloc] init];
     
-    NSMenuItem *addMissingCompositesItem = [[NSMenuItem alloc] initWithTitle:@"Add missing composites"
-                                                             action:@selector(addMissingComposites:)
-                                                      keyEquivalent:@""];
+    NSMenuItem *addMissingCompositesItem = [[NSMenuItem alloc] initWithTitle:Loc(@"Add missing composites")
+                                                              action:@selector(addMissingComposites:)
+                                                       keyEquivalent:@""];
     [addMissingCompositesItem setTarget:self];
     [menu addItem:addMissingCompositesItem];
     
-    NSMenuItem *removeGroupItem = [[NSMenuItem alloc] initWithTitle:@"Remove group"
-                                                             action:@selector(removeSelectedGroup:)
-                                                      keyEquivalent:@""];
+    NSMenuItem *removeGroupItem = [[NSMenuItem alloc] initWithTitle:Loc(@"Remove group")
+                                                              action:@selector(removeSelectedGroup:)
+                                                       keyEquivalent:@""];
     
     [removeGroupItem setTarget:self];
     [menu addItem:removeGroupItem];
@@ -147,7 +165,22 @@
     // TODO: bind glyphCollectionView indexes to glyphsArrayController indexes
     NSIndexSet *selectedIndexes = [[self glyphCollectionView] selectionIndexes];
     for (GSGlyph *g in [[[self glyphsArrayController] arrangedObjects] objectsAtIndexes:selectedIndexes]){
-        [self selectedGroupPosition] == positionLeft ? [g setLeftKerningGroup:nil] :  [g setRightKerningGroup:nil];
+        switch ( [self selectedGroupPosition]) {
+            case positionLeft:
+                [g setLeftKerningGroup:nil];
+                break;
+            case positionRight:
+                [g setRightKerningGroup:nil];
+                break;
+            case positionTop:
+                [g setTopKerningGroup:nil];
+                break;
+            case positionBottom:
+                [g setBottomKerningGroup:nil];
+                break;
+            default:
+                break;
+        }
     }
     [self updateGlyphData];
 }
@@ -157,7 +190,22 @@
     for (GSGlyph *g in [GlyphsAccessors curentFontSelectedGlyphs]){
         NSLog(@"To add %@", [g name]);
         NSLog(@"Group %@", selectedGroup);
-        [self selectedGroupPosition] == positionLeft ? [g setLeftKerningGroup:selectedGroup] :  [g setRightKerningGroup:selectedGroup];
+        switch ( [self selectedGroupPosition]) {
+            case positionLeft:
+                [g setLeftKerningGroup:selectedGroup];
+                break;
+            case positionRight:
+                [g setRightKerningGroup:selectedGroup];
+                break;
+            case positionTop:
+                [g setTopKerningGroup:selectedGroup];
+                break;
+            case positionBottom:
+                [g setBottomKerningGroup:selectedGroup];
+                break;
+            default:
+                break;
+        }
     }
     [self updateGlyphData];
 }
@@ -166,7 +214,6 @@
     [self updateKerningData];
 }
 
-
 - (IBAction)closeWindowAction:(id)sender {
     if ([self windowShouldClose:[self window]]) {
         [[self window] close];
@@ -174,14 +221,29 @@
 }
 
 -(GroupPosition)selectedGroupPosition{
-    return  [[self groupPositoinSegmented] selectedTag] == 0 ? positionLeft : positionRight;
+    switch ([[self groupPositoinSegmented] selectedSegment]) {
+        case 0:
+            return positionLeft;
+        case 1:
+            return positionRight;
+        case 2:
+            return positionTop;
+        case 3:
+            return positionBottom;
+        default:
+            break;
+    }
+    return positionLeft;
 }
 
 
 // MARK: -Interface Updates
 
 -(void)updateKerningData{
-    [[self groupsArrayController] setContent:[self currentFontGroups]];
+    GroupPosition position = [self selectedGroupPosition];
+    
+    NSArray *groups = [KerningService currentFontGroupsForPosition:position];
+    [[self groupsArrayController] setContent:groups];
 }
 
 -(void)updateGlyphData{
