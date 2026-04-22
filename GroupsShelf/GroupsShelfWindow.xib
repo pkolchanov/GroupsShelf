@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="23094" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="24506" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23094"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="24506"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="GroupsShelf">
             <connections>
-                <outlet property="directionSegmented" destination="dir-seg-ctrl" id="dir-seg-out"/>
                 <outlet property="fixGroupsHeightConstraint" destination="laK-J7-Sjd" id="P2t-x8-fUn"/>
                 <outlet property="fixGroupsView" destination="jud-Hf-eRe" id="5uS-3k-0F4"/>
                 <outlet property="glyphCollectionView" destination="Ziz-Gy-C3Q" id="yUo-Cc-0zn"/>
@@ -29,13 +29,13 @@
             <windowStyleMask key="styleMask" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="655" height="509"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="875"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="870"/>
             <view key="contentView" wantsLayer="YES" misplaced="YES" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="655" height="509"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="24" horizontalPageScroll="10" verticalLineScroll="24" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FIQ-Ov-Ymv">
-                        <rect key="frame" x="0.0" y="294" width="230" height="181"/>
+                        <rect key="frame" x="0.0" y="329" width="230" height="181"/>
                         <clipView key="contentView" id="qyw-IU-pmG">
                             <rect key="frame" x="0.0" y="0.0" width="230" height="181"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -134,7 +134,7 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="0v9-nD-qwX">
-                            <rect key="frame" x="397" y="10" width="16" height="394"/>
+                            <rect key="frame" x="396" y="10" width="17" height="394"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
@@ -183,22 +183,8 @@
                             <action selector="closeWindowAction:" target="-2" id="Hpn-SC-eD5"/>
                         </connections>
                     </button>
-                    <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dir-seg-ctrl">
-                        <rect key="frame" x="38" y="476" width="115" height="24"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="dir-seg-cell">
-                            <font key="font" metaFont="system" size="10"/>
-                            <segments>
-                                <segment title="Horiz." selected="YES"/>
-                                <segment title="Vert." tag="1"/>
-                            </segments>
-                        </segmentedCell>
-                        <connections>
-                            <action selector="selectDirection:" target="-2" id="dir-seg-act"/>
-                        </connections>
-                    </segmentedControl>
                     <searchField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4M-m7-5EM">
-                        <rect key="frame" x="160" y="479" width="484" height="19"/>
+                        <rect key="frame" x="41" y="479" width="603" height="19"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" placeholderString="Search Groups" usesSingleLineMode="YES" id="XJ2-xH-4JF" customClass="GroupsSerachFieldCell">
                             <font key="font" metaFont="system" size="16"/>
@@ -222,13 +208,15 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Otc-du-tS1">
-                                    <rect key="frame" x="9" y="4" width="213" height="25"/>
+                                    <rect key="frame" x="4" y="3" width="228" height="24"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedRounded" trackingMode="selectOne" id="ubf-M0-ptX">
                                         <font key="font" metaFont="system"/>
                                         <segments>
-                                            <segment label="Left" width="102"/>
-                                            <segment label="Right" width="102" selected="YES" tag="1"/>
+                                            <segment label="Left" width="59"/>
+                                            <segment label="Right" width="59" selected="YES" tag="1"/>
+                                            <segment label="Top"/>
+                                            <segment label="Bottom"/>
                                         </segments>
                                     </segmentedCell>
                                     <connections>
@@ -258,7 +246,7 @@
                                     </connections>
                                 </button>
                                 <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IjB-lj-zwA">
-                                    <rect key="frame" x="12" y="2" width="372" height="23"/>
+                                    <rect key="frame" x="0.0" y="2" width="372" height="23"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" lineBreakMode="clipping" selectable="YES" editable="YES" drawsBackground="YES" id="xty-jz-EiL">
                                         <font key="font" metaFont="systemBold" size="20"/>
@@ -274,19 +262,19 @@
                         <color key="fillColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </box>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="VYV-K0-q8X" userLabel="Rename View">
-                        <rect key="frame" x="0.0" y="0.0" width="230" height="150"/>
+                        <rect key="frame" x="0.0" y="0.0" width="230" height="185"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="150" id="P17-fH-RX6"/>
+                            <constraint firstAttribute="height" constant="185" id="P17-fH-RX6"/>
                             <constraint firstAttribute="width" constant="230" id="tWs-mL-Nmh"/>
                         </constraints>
                     </customView>
                     <box boxType="custom" borderType="none" title="Box" titlePosition="noTitle" transparent="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UEJ-Kx-b3M" userLabel="Rename groups title Box">
-                        <rect key="frame" x="0.0" y="150" width="230" height="26"/>
+                        <rect key="frame" x="0.0" y="185" width="230" height="26"/>
                         <view key="contentView" id="8yj-bl-qBg">
                             <rect key="frame" x="0.0" y="0.0" width="230" height="26"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                     <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" tag="101" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cet-Kk-EJM">
+                                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" tag="101" translatesAutoresizingMaskIntoConstraints="NO" id="cet-Kk-EJM">
                                     <rect key="frame" x="19" y="3" width="101" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" lineBreakMode="clipping" title="Rename Groups" id="4Fh-RZ-9d8">
@@ -314,12 +302,12 @@
                         </constraints>
                     </box>
                     <box boxType="custom" borderType="none" title="Box" titlePosition="noTitle" transparent="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JR9-xA-tqe" userLabel="Fix groups title Box">
-                        <rect key="frame" x="0.0" y="268" width="230" height="26"/>
+                        <rect key="frame" x="0.0" y="303" width="230" height="26"/>
                         <view key="contentView" id="ov7-Py-WgX">
                             <rect key="frame" x="0.0" y="0.0" width="230" height="26"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" tag="102" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1AV-CM-PGc">
+                                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" tag="102" translatesAutoresizingMaskIntoConstraints="NO" id="1AV-CM-PGc">
                                     <rect key="frame" x="19" y="3" width="101" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" lineBreakMode="clipping" title="Fix Groups" id="CyG-iH-Lmm">
@@ -347,7 +335,7 @@
                         </constraints>
                     </box>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="jud-Hf-eRe">
-                        <rect key="frame" x="0.0" y="176" width="230" height="92"/>
+                        <rect key="frame" x="0.0" y="211" width="230" height="92"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="230" id="U40-Nd-Cmf"/>
                             <constraint firstAttribute="height" constant="92" id="laK-J7-Sjd"/>

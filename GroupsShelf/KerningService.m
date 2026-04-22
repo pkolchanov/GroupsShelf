@@ -93,7 +93,9 @@
     return nil;
 }
 
-+(void)find:(NSString*)searchString andReplaceWith:(NSString*)replace incluceLeftGroups:(BOOL) includeLeft inclureRightGroups:(BOOL)includeRight useRegex:(BOOL)useRegex{
++(void)find:(NSString*)searchString andReplaceWith:(NSString*)replace includeLeftGroups:(BOOL) includeLeft includeRightGroups:(BOOL)includeRight
+   includeTopGroups:(BOOL) includeTop includeBottomGroups:(BOOL)includeBottom
+   useRegex:(BOOL)useRegex{
   
     void (^processPosition)(GroupPosition) = ^(GroupPosition position) {
        NSArray<NSString *> *groups = [self currentFontGroupsForPosition:position];
@@ -126,6 +128,12 @@
     }
     if (includeRight) {
        processPosition(positionRight);
+    }
+    if (includeTop){
+        processPosition(positionTop);
+    }
+    if (includeBottom){
+        processPosition(positionBottom);
     }
 }
 
@@ -229,6 +237,8 @@
     };
     processPosition(positionLeft);
     processPosition(positionRight);
+    processPosition(positionTop);
+    processPosition(positionBottom);
 }
 
 @end

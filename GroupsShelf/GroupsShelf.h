@@ -25,7 +25,6 @@
 @property (strong) IBOutlet NSArrayController *groupsArrayController;
 @property (strong) IBOutlet NSArrayController *glyphsArrayController;
 @property (weak) IBOutlet NSCollectionView *glyphCollectionView;
-@property (weak) IBOutlet NSSegmentedControl *directionSegmented;
 @property (weak) IBOutlet NSSearchField *searchField;
 @property (weak) IBOutlet NSSegmentedControl *groupPositoinSegmented;
 @property (weak) IBOutlet NSTextField *selectedGroupTextField;
@@ -38,7 +37,6 @@
 @property FixGroupsViewController *fixGroupsViewController;
 @property CompositesService *compositesService;
 
-- (IBAction)selectDirection:(id)sender;
 - (IBAction)selectGroupTab:(id)sender;
 - (IBAction)addGlyphsToGroup:(id)sender;
 - (IBAction)removeGlyphsFromGroup:(id)sender;

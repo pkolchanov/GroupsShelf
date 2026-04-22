@@ -4,12 +4,6 @@
 
 ---
 
-> [!NOTE]
-> This is a fork of the original [Groups Shelf](https://github.com/pkolchanov/GroupsShelf) by Pavel Kolchanov.  
-> This fork adds **Japanese localization** and **Vertical Kerning support**.
-
----
-
 <a name="english"></a>
 ## English
 
@@ -23,9 +17,8 @@ Groups Shelf is a [Glyphs](https://glyphsapp.com/) kerning group manager.
 - **New (2026)**: Japanese localization and Vertical Kerning support
 
 ### Installation
-1. Download the latest `GroupsShelf.glyphsPlugin`.
-2. Double-click the file to install. Glyphs will show a confirmation pop-up. 
-3. Open the plugin panel using **Window → Groups Shelf**.
+1. [Install using the Glyphs Plugin Manager](https://pkolchanov.ru/redirects/groupsshelf.html). Or double-click the `GroupsShelf.glyphsPlugin` file to install the plugin manually. Glyphs will show a confirmation pop-up. 
+2. Open the plugin panel using Window → Groups Shelf 
 
 ### Usage
 

@@ -24,6 +24,7 @@
 }
 
 -(void)addMissingCompositesForPosition:(GroupPosition)position onlyForGroupId:(NSString*)onlyForGroupId{
+    if (position == positionTop || position == positionBottom) return;
     // Call order matters
     [self stealKerningFromSameGlyphs:position onlyForGroupId:onlyForGroupId];
     [self stealKerningFromComposites:position onlyForGroupId:onlyForGroupId];

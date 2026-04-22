@@ -84,10 +84,11 @@
     // Localization
     [[self window] setTitle:Loc(@"Groups Shelf")];
     [[self searchField] setPlaceholderString:Loc(@"Search Groups")];
-    [[self directionSegmented] setLabel:Loc(@"Horizontal") forSegment:0];
-    [[self directionSegmented] setLabel:Loc(@"Vertical") forSegment:1];
-    [self updateGroupPositionLabels];
-    
+    [[self groupPositoinSegmented] setLabel:Loc(@"Left") forSegment:0];
+    [[self groupPositoinSegmented] setLabel:Loc(@"Right") forSegment:1];
+    [[self groupPositoinSegmented] setLabel:Loc(@"Top") forSegment:2];
+    [[self groupPositoinSegmented] setLabel:Loc(@"Bottom") forSegment:3];
+
     // Set labels using tags
     [(NSTextField *)[[self window].contentView viewWithTag:101] setStringValue:Loc(@"Rename Groups")];
     [(NSTextField *)[[self window].contentView viewWithTag:102] setStringValue:Loc(@"Fix Groups")];
@@ -116,7 +117,7 @@
 // MARK: -IB
 
 - (IBAction)toggleRenamePanel:(id)sender {
-    float newHeight = [[self renameGroupsHeightConstraint] constant] == 0 ? 150 : 0;
+    float newHeight = [[self renameGroupsHeightConstraint] constant] == 0 ? 185 : 0;
     [self updatePanelHeight:[self renameGroupsHeightConstraint] toNewHeight:newHeight];
    
 }
@@ -136,23 +137,6 @@
 
 - (IBAction)renameSelectedGroupAction:(id)sender {
     [self renameSelectedGroup:[[self selectedGroupTextField] stringValue]];
-}
-
-- (IBAction)selectDirection:(id)sender {
-    [self updateGroupPositionLabels];
-    [self selectGroupTab:nil];
-}
-
-- (void)updateGroupPositionLabels {
-    BOOL isVertical = [[self directionSegmented] selectedSegment] == 1;
-    if (!isVertical) { // Horizontal
-        [[self groupPositoinSegmented] setLabel:Loc(@"Left") forSegment:0];
-        [[self groupPositoinSegmented] setLabel:Loc(@"Right") forSegment:1];
-    } else { // Vertical
-        [[self groupPositoinSegmented] setLabel:Loc(@"Top") forSegment:0];
-        [[self groupPositoinSegmented] setLabel:Loc(@"Bottom") forSegment:1];
-    }
-    [[self renameGroupsViewController] updateLabelsForVertical:isVertical];
 }
 
 - (IBAction)showOptionsMenu:(id)sender {
@@ -181,7 +165,22 @@
     // TODO: bind glyphCollectionView indexes to glyphsArrayController indexes
     NSIndexSet *selectedIndexes = [[self glyphCollectionView] selectionIndexes];
     for (GSGlyph *g in [[[self glyphsArrayController] arrangedObjects] objectsAtIndexes:selectedIndexes]){
-        [self selectedGroupPosition] == positionLeft ? [g setLeftKerningGroup:nil] :  [g setRightKerningGroup:nil];
+        switch ( [self selectedGroupPosition]) {
+            case positionLeft:
+                [g setLeftKerningGroup:nil];
+                break;
+            case positionRight:
+                [g setRightKerningGroup:nil];
+                break;
+            case positionTop:
+                [g setTopKerningGroup:nil];
+                break;
+            case positionBottom:
+                [g setBottomKerningGroup:nil];
+                break;
+            default:
+                break;
+        }
     }
     [self updateGlyphData];
 }
@@ -191,7 +190,22 @@
     for (GSGlyph *g in [GlyphsAccessors curentFontSelectedGlyphs]){
         NSLog(@"To add %@", [g name]);
         NSLog(@"Group %@", selectedGroup);
-        [self selectedGroupPosition] == positionLeft ? [g setLeftKerningGroup:selectedGroup] :  [g setRightKerningGroup:selectedGroup];
+        switch ( [self selectedGroupPosition]) {
+            case positionLeft:
+                [g setLeftKerningGroup:selectedGroup];
+                break;
+            case positionRight:
+                [g setRightKerningGroup:selectedGroup];
+                break;
+            case positionTop:
+                [g setTopKerningGroup:selectedGroup];
+                break;
+            case positionBottom:
+                [g setBottomKerningGroup:selectedGroup];
+                break;
+            default:
+                break;
+        }
     }
     [self updateGlyphData];
 }
@@ -200,7 +214,6 @@
     [self updateKerningData];
 }
 
-
 - (IBAction)closeWindowAction:(id)sender {
     if ([self windowShouldClose:[self window]]) {
         [[self window] close];
@@ -208,12 +221,19 @@
 }
 
 -(GroupPosition)selectedGroupPosition{
-    BOOL isVertical = [[self directionSegmented] selectedSegment] == 1;
-    if (isVertical) {
-        return [[self groupPositoinSegmented] selectedSegment] == 0 ? positionTop : positionBottom;
-    } else {
-        return [[self groupPositoinSegmented] selectedSegment] == 0 ? positionLeft : positionRight;
+    switch ([[self groupPositoinSegmented] selectedSegment]) {
+        case 0:
+            return positionLeft;
+        case 1:
+            return positionRight;
+        case 2:
+            return positionTop;
+        case 3:
+            return positionBottom;
+        default:
+            break;
     }
+    return positionLeft;
 }
 
 
